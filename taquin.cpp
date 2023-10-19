@@ -50,6 +50,15 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 
 	}
+
+    if (interactor->GetKeyCode() == 'e')
+	{
+		std::cout << "Fin du jeu\n";
+
+        exit(0);
+	}
+
+
 	interactor->Render();
 }
 
@@ -74,18 +83,27 @@ int main(int, char *[])
 
     float color = 0.0;
 
-    for (int j = 3; j >= 0; j--) {
-        for (int i = 0; i < gridSize; i++) {
+    // L'origine du repère se trouve en bas à gauche
+    for (int j = 3; j >= 0; j--) 
+    {
+        for (int i = 0; i < gridSize; i++) 
+        {
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
             cubeSource->Update(); // Met à jour la source du cube
 
             vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
             mapper->SetInputData(cubeSource->GetOutput());
 
+            //condition pour ne pas créer la dernière case de la grille
+            if (i != 3 || j != 0)
+            {
             pieces[i][j] = vtkSmartPointer<vtkActor>::New();
             pieces[i][j]->SetMapper(mapper);
             pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur (rouge)
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
+            }
+
+            //dégradé de couleur
             color += 0.05;
         }
     }
@@ -100,7 +118,11 @@ int main(int, char *[])
     }
 
     // Définissez la couleur de fond du renderer
-    renderer->SetBackground(0.2, 0.2, 0.2); // Fond noir
+    renderer->SetBackground(0.3, 0.3, 0.5); 
+
+
+    // Définir le nom de la fenêtre de rendu
+    renderWindow->SetWindowName("Jeu de taquin");
 
     // Commencez la boucle de rendu
     //renderWindow->Render();
@@ -120,7 +142,8 @@ int main(int, char *[])
 	//create an observer attached to window interactor
 	vtkNew<Observer> observer;
 
-    // (0,0) du repère se trouve en bas à gauche
+    
+    //définition des cases pour l'intéraction des pièces sur la grille
 
     //première case (en haut à gauche)
 	observer->SetFirstPiece(pieces[0][3]);
