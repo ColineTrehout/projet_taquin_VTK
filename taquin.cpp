@@ -89,19 +89,29 @@ int main(int, char *[])
         for (int i = 0; i < gridSize; i++) 
         {
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
+            cubeSource -> SetZLength(0.6);
+
+            // Le dernier cube a une épaisseur plus faible pour simuler la case vide
+            if (i == 3 && j == 0)
+            {
+                cubeSource -> SetZLength(0.2);
+
+                //déplacement du centre du cube
+                cubeSource -> SetCenter(0,0,-0.2); 
+            }
+
             cubeSource->Update(); // Met à jour la source du cube
 
             vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
             mapper->SetInputData(cubeSource->GetOutput());
 
             //condition pour ne pas créer la dernière case de la grille
-            if (i != 3 || j != 0)
-            {
+
             pieces[i][j] = vtkSmartPointer<vtkActor>::New();
             pieces[i][j]->SetMapper(mapper);
             pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur (rouge)
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
-            }
+
 
             //dégradé de couleur
             color += 0.05;
