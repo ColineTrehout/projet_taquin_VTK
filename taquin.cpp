@@ -20,13 +20,43 @@ public:
 		return new Observer;
 	}
 	void Execute(vtkObject*, unsigned long, void*);
-	void SetFirstPiece(vtkActor* piece) { _piece1 = piece; }
-	void SetSecondPiece(vtkActor* piece) { _piece2 = piece; }
+	void SetPiece1(vtkActor* piece) { _piece1 = piece; }
+	void SetPiece2(vtkActor* piece) { _piece2 = piece; }
+	void SetPiece3(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece4(vtkActor* piece) { _piece4 = piece; }
+	void SetPiece5(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece6(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece7(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece8(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece9(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece10(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece11(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece12(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece13(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece14(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece15(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece16(vtkActor* piece) { _piece3 = piece; }
+
+
 
 
 private:
 	vtkActor* _piece1;
 	vtkActor* _piece2;
+	vtkActor* _piece3;
+	vtkActor* _piece4;
+	vtkActor* _piece5;
+	vtkActor* _piece6;
+	vtkActor* _piece7;
+	vtkActor* _piece8;
+	vtkActor* _piece9;
+	vtkActor* _piece10;
+	vtkActor* _piece11;
+	vtkActor* _piece12;
+	vtkActor* _piece13;
+	vtkActor* _piece14;
+	vtkActor* _piece15;
+	vtkActor* _piece16;
 
 };
 
@@ -78,7 +108,10 @@ int main(int, char *[])
     vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
     renderWindowInteractor->SetRenderWindow(renderWindow);
 
-    const int gridSize = 4; // Taille de la grille (4x4 pour le jeu de taquin classique)
+    // Définition taille de la grille (4x4 pour le jeu de taquin classique)
+    const int gridSize = 4; 
+
+    // Création de la grille de jeu
     vtkSmartPointer<vtkActor> pieces[gridSize][gridSize];
 
     float color = 0.0;
@@ -88,6 +121,8 @@ int main(int, char *[])
     {
         for (int i = 0; i < gridSize; i++) 
         {
+
+            // Création d'un cube par case
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
             cubeSource -> SetZLength(0.6);
 
@@ -105,7 +140,6 @@ int main(int, char *[])
             vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
             mapper->SetInputData(cubeSource->GetOutput());
 
-            //condition pour ne pas créer la dernière case de la grille
 
             pieces[i][j] = vtkSmartPointer<vtkActor>::New();
             pieces[i][j]->SetMapper(mapper);
@@ -156,8 +190,10 @@ int main(int, char *[])
     //définition des cases pour l'intéraction des pièces sur la grille
 
     //première case (en haut à gauche)
-	observer->SetFirstPiece(pieces[0][3]);
-	observer->SetSecondPiece(pieces[3][3]);
+	observer->SetPiece1(pieces[0][3]);
+	observer->SetPiece2(pieces[3][3]);
+	observer->SetPiece12(pieces[2][3]);
+
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 
