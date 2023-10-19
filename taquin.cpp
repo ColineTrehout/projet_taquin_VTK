@@ -20,8 +20,13 @@
 #include <vtkPointData.h>
 #include <vtkStdString.h>
 #include <vtkTextProperty.h>
-
-
+#include <vtkNamedColors.h>
+#include <vtkTexture.h>
+#include <vtkJPEGReader.h>
+#include <vtkImageReader2Factory.h>
+#include <vtkImageReader.h>
+#include <vtkTransformTextureCoords.h>
+#include <vtkCylinderSource.h>
 
 
 
@@ -114,7 +119,6 @@ int main(int, char *[])
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
 
-    renderWindow->AddRenderer(renderer);
 
     // Create a VTK render window interactor
     vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
@@ -127,6 +131,15 @@ int main(int, char *[])
     vtkSmartPointer<vtkActor> pieces[gridSize][gridSize];
 
     float color = 0.0;
+
+
+
+    // Read texture file
+    vtkNew<vtkImageReader2Factory> readerFactory;
+    vtkSmartPointer<vtkImageReader2> imageReader;
+    imageReader.TakeReference(readerFactory->CreateImageReader2("logo.png"));
+    imageReader->SetFileName("logo.png");
+
 
     // L'origine du repère se trouve en bas à gauche
     for (int j = 3; j >= 0; j--) 
@@ -159,11 +172,59 @@ int main(int, char *[])
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
 
 
+            // Create texture
+            vtkNew<vtkTexture> texture;
+            texture->SetInputConnection(imageReader->GetOutputPort());
+
+            vtkNew<vtkTransformTextureCoords> transformTexture;
+            transformTexture->SetInputConnection(cubeSource->GetOutputPort());
+
+            mapper->SetInputConnection(transformTexture->GetOutputPort());
+            pieces[i][j]->SetTexture(texture);
+
+
             //dégradé de couleur
             color += 0.05;
         }
     }
+    
 
+
+    vtkNew<vtkNamedColors> colors;
+
+
+
+    
+    // derrière du plateau 
+
+    vtkSmartPointer<vtkCubeSource> flatRectangle = vtkSmartPointer<vtkCubeSource>::New();
+
+    // Dimensions du rectangle
+    flatRectangle->SetXLength(4);
+    flatRectangle->SetYLength(4);
+    flatRectangle->SetZLength(0.01);
+
+    flatRectangle->Update();
+
+    vtkSmartPointer<vtkActor> plateau = vtkSmartPointer<vtkActor>::New();
+
+    vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+    plateau->SetMapper(mapper);
+
+    plateau->GetProperty()->SetColor(0.5,0.2,0.05); // marron
+
+    plateau->SetPosition(1.5, 1.5, -0.3);
+
+    mapper->SetInputData(flatRectangle->GetOutput());
+
+
+
+
+
+
+    //ajoute le fond du plateau
+    renderer->AddActor(plateau);
 
 
     // Ajoutez les acteurs des pièces à la scène
@@ -173,12 +234,14 @@ int main(int, char *[])
         }
     }
 
-    // Définissez la couleur de fond du renderer
+    // Définissez la couleur de l'arrière plan
     renderer->SetBackground(0.3, 0.3, 0.5); 
 
 
     // Définir le nom de la fenêtre de rendu
     renderWindow->SetWindowName("Jeu de taquin");
+
+    renderWindow->AddRenderer(renderer);
 
     // Commencez la boucle de rendu
     //renderWindow->Render();
@@ -195,9 +258,10 @@ int main(int, char *[])
 	vtkNew<vtkRenderWindowInteractor> interactor;
 	interactor->SetRenderWindow(renderWindow);
 
+
+
 	//create an observer attached to window interactor
 	vtkNew<Observer> observer;
-
     
     //définition des cases pour l'intéraction des pièces sur la grille
 
@@ -215,5 +279,5 @@ int main(int, char *[])
 
 
 
-    return 0;
+    return EXIT_SUCCESS;
 }

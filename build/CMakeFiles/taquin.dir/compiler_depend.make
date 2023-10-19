@@ -495,8 +495,24 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
   /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
   /usr/local/include/vtk-9.2/vtkFieldData.h \
   /usr/local/include/vtk-9.2/vtkStdString.h \
-  /usr/local/include/vtk-9.2/vtkTextProperty.h
+  /usr/local/include/vtk-9.2/vtkTextProperty.h \
+  /usr/local/include/vtk-9.2/vtkTexture.h \
+  /usr/local/include/vtk-9.2/vtkJPEGReader.h \
+  /usr/local/include/vtk-9.2/vtkIOImageModule.h \
+  /usr/local/include/vtk-9.2/vtkImageReader2.h \
+  /usr/local/include/vtk-9.2/vtkImageReader2Factory.h \
+  /usr/local/include/vtk-9.2/vtkImageReader.h \
+  /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
+  /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
+  /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
+  /usr/local/include/vtk-9.2/vtkCylinderSource.h
 
+
+/usr/local/include/vtk-9.2/vtkImageReader2Factory.h:
+
+/usr/local/include/vtk-9.2/vtkImageReader2.h:
+
+/usr/local/include/vtk-9.2/vtkJPEGReader.h:
 
 /usr/local/include/vtk-9.2/vtkFieldData.h:
 
@@ -544,6 +560,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 
 /usr/local/include/vtk-9.2/vtkFreeTypeTools.h:
 
+/usr/local/include/vtk-9.2/vtkTexture.h:
+
 /usr/local/include/vtk-9.2/vtkProperty.h:
 
 /usr/local/include/vtk-9.2/vtkPolyDataInternals.h:
@@ -587,6 +605,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 /usr/local/include/vtk-9.2/vtkGenericDataArray.txx:
 
 /usr/include/assert.h:
+
+/usr/local/include/vtk-9.2/vtkCylinderSource.h:
 
 /usr/include/c++/11/cassert:
 
@@ -661,6 +681,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 /usr/local/include/vtk-9.2/vtkAOSDataArrayTemplate.h:
 
 /usr/local/include/vtk-9.2/vtkIdTypeArray.h:
+
+/usr/local/include/vtk-9.2/vtkTransformTextureCoords.h:
 
 /usr/local/include/vtk-9.2/vtkCellTypes.h:
 
@@ -849,6 +871,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h:
 
 /usr/include/linux/limits.h:
 
@@ -1048,6 +1072,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
 
+/usr/local/include/vtk-9.2/vtkFiltersTextureModule.h:
+
 /usr/local/include/vtk-9.2/vtkObjectBase.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
@@ -1165,6 +1191,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/c++/11/ext/string_conversions.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+/usr/local/include/vtk-9.2/vtkImageReader.h:
 
 /usr/include/c++/11/istream:
 
@@ -1375,6 +1403,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/local/include/vtk-9.2/vtkWrappingHints.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
+
+/usr/local/include/vtk-9.2/vtkIOImageModule.h:
 
 /usr/local/include/vtk-9.2/vtkEventData.h:
 

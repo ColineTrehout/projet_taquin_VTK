@@ -428,4 +428,14 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
  /usr/local/include/vtk-9.2/vtkFieldData.h \
  /usr/local/include/vtk-9.2/vtkStdString.h \
- /usr/local/include/vtk-9.2/vtkTextProperty.h
+ /usr/local/include/vtk-9.2/vtkTextProperty.h \
+ /usr/local/include/vtk-9.2/vtkTexture.h \
+ /usr/local/include/vtk-9.2/vtkJPEGReader.h \
+ /usr/local/include/vtk-9.2/vtkIOImageModule.h \
+ /usr/local/include/vtk-9.2/vtkImageReader2.h \
+ /usr/local/include/vtk-9.2/vtkImageReader2Factory.h \
+ /usr/local/include/vtk-9.2/vtkImageReader.h \
+ /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
+ /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
+ /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
+ /usr/local/include/vtk-9.2/vtkCylinderSource.h
