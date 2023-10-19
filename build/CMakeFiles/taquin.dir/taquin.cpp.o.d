@@ -373,4 +373,59 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkAbstractCellLinks.h \
  /usr/local/include/vtk-9.2/vtkPolyDataInternals.h \
  /usr/local/include/vtk-9.2/vtkProperty.h \
- /usr/local/include/vtk-9.2/vtkCommand.h
+ /usr/local/include/vtk-9.2/vtkCommand.h \
+ /usr/local/include/vtk-9.2/vtkFreeTypeTools.h \
+ /usr/local/include/vtk-9.2/vtkRenderingFreeTypeModule.h \
+ /usr/local/include/vtk-9.2/vtkTextRenderer.h \
+ /usr/local/include/vtk-9.2/vtkTuple.h \
+ /usr/local/include/vtk-9.2/vtkVector.h \
+ /usr/local/include/vtk-9.2/vtk_freetype.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/ft2build.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/vtk_freetype_mangle.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftheader.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftconfig.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftoption.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftstdlib.h \
+ /usr/include/setjmp.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/integer-types.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/public-macros.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/mac-support.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fttypes.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftsystem.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftimage.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrors.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftmoderr.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrdef.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftcache.h \
+ /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
+ /usr/local/include/vtk-9.2/vtkImageActor.h \
+ /usr/local/include/vtk-9.2/vtkImageSlice.h \
+ /usr/local/include/vtk-9.2/vtkImageBlend.h \
+ /usr/local/include/vtk-9.2/vtkImagingCoreModule.h \
+ /usr/local/include/vtk-9.2/vtkThreadedImageAlgorithm.h \
+ /usr/local/include/vtk-9.2/vtkImageAlgorithm.h \
+ /usr/local/include/vtk-9.2/vtkThreads.h \
+ /usr/local/include/vtk-9.2/vtkImageCanvasSource2D.h \
+ /usr/local/include/vtk-9.2/vtkImagingSourcesModule.h \
+ /usr/local/include/vtk-9.2/vtkImageData.h \
+ /usr/local/include/vtk-9.2/vtkStructuredData.h \
+ /usr/local/include/vtk-9.2/vtkImageMapper3D.h \
+ /usr/local/include/vtk-9.2/vtkInteractorStyleImage.h \
+ /usr/local/include/vtk-9.2/vtkInteractionStyleModule.h \
+ /usr/local/include/vtk-9.2/vtkInteractorStyleTrackballCamera.h \
+ /usr/local/include/vtk-9.2/vtkInteractorStyle.h \
+ /usr/local/include/vtk-9.2/vtkInteractorObserver.h \
+ /usr/local/include/vtk-9.2/vtkNamedColors.h \
+ /usr/local/include/vtk-9.2/vtkColor.h \
+ /usr/local/include/vtk-9.2/vtkCommonColorModule.h \
+ /usr/local/include/vtk-9.2/vtkStringArray.h \
+ /usr/local/include/vtk-9.2/vtkNew.h \
+ /usr/local/include/vtk-9.2/vtkPointData.h \
+ /usr/local/include/vtk-9.2/vtkDataSetAttributes.h \
+ /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
+ /usr/local/include/vtk-9.2/vtkFieldData.h \
+ /usr/local/include/vtk-9.2/vtkStdString.h \
+ /usr/local/include/vtk-9.2/vtkTextProperty.h

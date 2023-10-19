@@ -440,8 +440,109 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
   /usr/local/include/vtk-9.2/vtkAbstractCellLinks.h \
   /usr/local/include/vtk-9.2/vtkPolyDataInternals.h \
   /usr/local/include/vtk-9.2/vtkProperty.h \
-  /usr/local/include/vtk-9.2/vtkCommand.h
+  /usr/local/include/vtk-9.2/vtkCommand.h \
+  /usr/local/include/vtk-9.2/vtkFreeTypeTools.h \
+  /usr/local/include/vtk-9.2/vtkRenderingFreeTypeModule.h \
+  /usr/local/include/vtk-9.2/vtkTextRenderer.h \
+  /usr/local/include/vtk-9.2/vtkTuple.h \
+  /usr/local/include/vtk-9.2/vtkVector.h \
+  /usr/local/include/vtk-9.2/vtk_freetype.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/ft2build.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/vtk_freetype_mangle.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftheader.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftconfig.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftoption.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftstdlib.h \
+  /usr/include/setjmp.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/integer-types.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/public-macros.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/mac-support.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fttypes.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftsystem.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftimage.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrors.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftmoderr.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrdef.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftcache.h \
+  /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
+  /usr/local/include/vtk-9.2/vtkImageActor.h \
+  /usr/local/include/vtk-9.2/vtkImageSlice.h \
+  /usr/local/include/vtk-9.2/vtkImageBlend.h \
+  /usr/local/include/vtk-9.2/vtkImagingCoreModule.h \
+  /usr/local/include/vtk-9.2/vtkThreadedImageAlgorithm.h \
+  /usr/local/include/vtk-9.2/vtkImageAlgorithm.h \
+  /usr/local/include/vtk-9.2/vtkThreads.h \
+  /usr/local/include/vtk-9.2/vtkImageCanvasSource2D.h \
+  /usr/local/include/vtk-9.2/vtkImagingSourcesModule.h \
+  /usr/local/include/vtk-9.2/vtkImageData.h \
+  /usr/local/include/vtk-9.2/vtkStructuredData.h \
+  /usr/local/include/vtk-9.2/vtkImageMapper3D.h \
+  /usr/local/include/vtk-9.2/vtkInteractorStyleImage.h \
+  /usr/local/include/vtk-9.2/vtkInteractionStyleModule.h \
+  /usr/local/include/vtk-9.2/vtkInteractorStyleTrackballCamera.h \
+  /usr/local/include/vtk-9.2/vtkInteractorStyle.h \
+  /usr/local/include/vtk-9.2/vtkInteractorObserver.h \
+  /usr/local/include/vtk-9.2/vtkNamedColors.h \
+  /usr/local/include/vtk-9.2/vtkColor.h \
+  /usr/local/include/vtk-9.2/vtkCommonColorModule.h \
+  /usr/local/include/vtk-9.2/vtkStringArray.h \
+  /usr/local/include/vtk-9.2/vtkNew.h \
+  /usr/local/include/vtk-9.2/vtkPointData.h \
+  /usr/local/include/vtk-9.2/vtkDataSetAttributes.h \
+  /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
+  /usr/local/include/vtk-9.2/vtkFieldData.h \
+  /usr/local/include/vtk-9.2/vtkStdString.h \
+  /usr/local/include/vtk-9.2/vtkTextProperty.h
 
+
+/usr/local/include/vtk-9.2/vtkFieldData.h:
+
+/usr/local/include/vtk-9.2/vtkPointData.h:
+
+/usr/local/include/vtk-9.2/vtkColor.h:
+
+/usr/local/include/vtk-9.2/vtkNamedColors.h:
+
+/usr/local/include/vtk-9.2/vtkInteractorObserver.h:
+
+/usr/local/include/vtk-9.2/vtkInteractorStyleTrackballCamera.h:
+
+/usr/local/include/vtk-9.2/vtkImagingSourcesModule.h:
+
+/usr/local/include/vtk-9.2/vtkImageAlgorithm.h:
+
+/usr/local/include/vtk-9.2/vtkImageBlend.h:
+
+/usr/local/include/vtk-9.2/vtkImageSlice.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftcache.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrdef.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftimage.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/mac-support.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/public-macros.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/integer-types.h:
+
+/usr/include/setjmp.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftstdlib.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftoption.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftheader.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/vtk_freetype_mangle.h:
+
+/usr/local/include/vtk-9.2/vtkFreeTypeTools.h:
 
 /usr/local/include/vtk-9.2/vtkProperty.h:
 
@@ -497,6 +598,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 
 /usr/include/c++/11/tr1/hypergeometric.tcc:
 
+/usr/local/include/vtk-9.2/vtkInteractionStyleModule.h:
+
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
 /usr/include/c++/11/tr1/ell_integral.tcc:
@@ -541,6 +644,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 
 /usr/local/include/vtk-9.2/vtkAbstractArray.h:
 
+/usr/local/include/vtk-9.2/vtkfreetype/include/ft2build.h:
+
 /usr/local/include/vtk-9.2/vtkGenericDataArray.h:
 
 /usr/include/c++/11/bits/unordered_map.h:
@@ -584,6 +689,8 @@ CMakeFiles/taquin.dir/taquin.cpp.o: ../taquin.cpp \
 /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h:
 
 /usr/local/include/vtk-9.2/vtkVolumeCollection.h:
+
+/usr/local/include/vtk-9.2/vtkDataSetAttributes.h:
 
 /usr/local/include/vtk-9.2/vtkCollection.h:
 
@@ -647,6 +754,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/linux/close_range.h:
 
+/usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h:
+
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
@@ -669,6 +778,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/asm-generic/int-ll64.h:
 
+/usr/local/include/vtk-9.2/vtk_freetype.h:
+
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
 /usr/include/linux/stat.h:
@@ -677,7 +788,13 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/x86_64-linux-gnu/sys/stat.h:
 
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftsystem.h:
+
 /usr/include/c++/11/bits/vector.tcc:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrors.h:
+
+/usr/local/include/vtk-9.2/vtkTuple.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
@@ -716,6 +833,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/pthread.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
+
+/usr/local/include/vtk-9.2/vtkVector.h:
 
 /usr/include/c++/11/bits/ios_base.h:
 
@@ -779,6 +898,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/new:
 
+/usr/local/include/vtk-9.2/vtkImageCanvasSource2D.h:
+
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
@@ -821,9 +942,13 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/bits/char_traits.h:
 
+/usr/local/include/vtk-9.2/vtkStringArray.h:
+
 /usr/local/include/vtk-9.2/vtkIndent.h:
 
 /usr/local/include/vtk-9.2/vtkBuild.h:
+
+/usr/local/include/vtk-9.2/vtkImageMapper3D.h:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
@@ -837,9 +962,13 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/local/include/vtk-9.2/vtkTextRenderer.h:
+
 /usr/local/include/vtk-9.2/vtkSmartPointerBase.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/local/include/vtk-9.2/vtkImagingCoreModule.h:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
@@ -900,6 +1029,10 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
+
+/usr/local/include/vtk-9.2/vtkInteractorStyle.h:
+
+/usr/local/include/vtk-9.2/vtkImageActor.h:
 
 /usr/local/include/vtk-9.2/vtkFeatures.h:
 
@@ -973,6 +1106,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
 
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fttypes.h:
+
 /usr/include/c++/11/atomic:
 
 /usr/local/include/vtk-9.2/vtkUnsignedCharArray.h:
@@ -1002,6 +1137,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/local/include/vtk-9.2/vtkThreadedImageAlgorithm.h:
 
 /usr/include/c++/11/bits/nested_exception.h:
 
@@ -1077,6 +1214,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/map:
 
+/usr/local/include/vtk-9.2/vtkRenderingFreeTypeModule.h:
+
 /usr/include/c++/11/iosfwd:
 
 /usr/include/c++/11/initializer_list:
@@ -1091,11 +1230,17 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
 
+/usr/local/include/vtk-9.2/vtkImageData.h:
+
 /usr/include/stdlib.h:
+
+/usr/local/include/vtk-9.2/vtkThreads.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/local/include/vtk-9.2/vtkCommand.h:
+
+/usr/local/include/vtk-9.2/vtkInteractorStyleImage.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -1122,6 +1267,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/local/include/vtk-9.2/vtkLongLongArray.h:
 
 /usr/include/stdio.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftconfig.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
@@ -1259,6 +1406,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/local/include/vtk-9.2/vtksys/Status.hxx:
 
+/usr/local/include/vtk-9.2/vtkStructuredData.h:
+
 /usr/include/inttypes.h:
 
 /usr/local/include/vtk-9.2/vtksys/Configure.h:
@@ -1269,15 +1418,21 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 
 /usr/local/include/vtk-9.2/vtkOStrStreamWrapper.h:
 
+/usr/local/include/vtk-9.2/vtkCommonColorModule.h:
+
 /usr/include/c++/11/stdlib.h:
 
 /usr/include/c++/11/bits/streambuf.tcc:
 
 /usr/include/string.h:
 
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h:
+
 /usr/local/include/vtk-9.2/vtkMeta.h:
 
 /usr/local/include/vtk-9.2/vtkRenderWindow.h:
+
+/usr/local/include/vtk-9.2/vtkTextProperty.h:
 
 /usr/local/include/vtk-9.2/vtkDeprecation.h:
 
@@ -1302,6 +1457,8 @@ CMakeFiles/vtkModuleAutoInit_bd64b765fc8236aa4bea0b628e677e8c.h:
 /usr/include/endian.h:
 
 /usr/include/c++/11/bits/erase_if.h:
+
+/usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftmoderr.h:
 
 /usr/local/include/vtk-9.2/vtkAssume.h:
 

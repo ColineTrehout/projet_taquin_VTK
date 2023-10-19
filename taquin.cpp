@@ -8,6 +8,18 @@
 #include <vtkProperty.h>
 #include <unistd.h>
 #include <vtkCommand.h>
+#include <vtkFreeTypeTools.h>
+#include <vtkImageActor.h>
+#include <vtkImageBlend.h>
+#include <vtkImageCanvasSource2D.h>
+#include <vtkImageData.h>
+#include <vtkImageMapper3D.h>
+#include <vtkInteractorStyleImage.h>
+#include <vtkNamedColors.h>
+#include <vtkNew.h>
+#include <vtkPointData.h>
+#include <vtkStdString.h>
+#include <vtkTextProperty.h>
 
 
 
@@ -20,27 +32,28 @@ public:
 		return new Observer;
 	}
 	void Execute(vtkObject*, unsigned long, void*);
+	void SetPiece0(vtkActor* piece) { _piece0 = piece; }
 	void SetPiece1(vtkActor* piece) { _piece1 = piece; }
 	void SetPiece2(vtkActor* piece) { _piece2 = piece; }
 	void SetPiece3(vtkActor* piece) { _piece3 = piece; }
 	void SetPiece4(vtkActor* piece) { _piece4 = piece; }
-	void SetPiece5(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece6(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece7(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece8(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece9(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece10(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece11(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece12(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece13(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece14(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece15(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece16(vtkActor* piece) { _piece3 = piece; }
+	void SetPiece5(vtkActor* piece) { _piece5 = piece; }
+	void SetPiece6(vtkActor* piece) { _piece6 = piece; }
+	void SetPiece7(vtkActor* piece) { _piece7 = piece; }
+	void SetPiece8(vtkActor* piece) { _piece8 = piece; }
+	void SetPiece9(vtkActor* piece) { _piece9 = piece; }
+	void SetPiece10(vtkActor* piece) { _piece10 = piece; }
+	void SetPiece11(vtkActor* piece) { _piece11 = piece; }
+	void SetPiece12(vtkActor* piece) { _piece12 = piece; }
+	void SetPiece13(vtkActor* piece) { _piece13 = piece; }
+	void SetPiece14(vtkActor* piece) { _piece14 = piece; }
+	void SetPiece15(vtkActor* piece) { _piece15 = piece; }
 
 
 
 
 private:
+	vtkActor* _piece0;
 	vtkActor* _piece1;
 	vtkActor* _piece2;
 	vtkActor* _piece3;
@@ -56,7 +69,6 @@ private:
 	vtkActor* _piece13;
 	vtkActor* _piece14;
 	vtkActor* _piece15;
-	vtkActor* _piece16;
 
 };
 
@@ -74,8 +86,8 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 		//auto res{_coneSource->GetResolution()};
 
-        _piece1->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
-        _piece2->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
+        _piece0->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
+        _piece1->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
         
 
 
@@ -190,9 +202,10 @@ int main(int, char *[])
     //définition des cases pour l'intéraction des pièces sur la grille
 
     //première case (en haut à gauche)
-	observer->SetPiece1(pieces[0][3]);
-	observer->SetPiece2(pieces[3][3]);
-	observer->SetPiece12(pieces[2][3]);
+	observer->SetPiece0(pieces[0][3]);
+	observer->SetPiece1(pieces[3][0]);
+	//observer->SetPiece12(pieces[2][3]);
+
 
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
