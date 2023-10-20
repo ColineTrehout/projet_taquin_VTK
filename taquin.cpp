@@ -165,7 +165,7 @@ int main(int, char *[])
 
     
     // Définition taille de la grille (4x4 pour le jeu de taquin classique)
-    const int gridSize = 4; 
+    const int tailleGrille = 4; 
 
     // épaisseur de la grille
     const float epaisseurPlateau = 0.4;
@@ -174,7 +174,7 @@ int main(int, char *[])
     vtkNew<vtkNamedColors> colors;
 
     // Création de la grille dans laquelle on va mettre les pieces du jeu
-    vtkSmartPointer<vtkActor> pieces[gridSize][gridSize];
+    vtkSmartPointer<vtkActor> pieces[tailleGrille][tailleGrille];
 
     // Création du tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide)
 
@@ -186,12 +186,15 @@ int main(int, char *[])
         {13, 14, 15, 0} 
     };
 
+    //afficheGrille(grille, tailleGrille);
+    std::cout << verifVictoire(grille, tailleGrille) << "\n";
+
     // coordonnées de la case vide
     int xVide = 3;
     int yVide = 3;
     int nbMelanges = 20;
+    int direction{};
 
-    afficheGrille(grille, gridSize);
 
     // Create a VTK render window and renderer
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
@@ -210,23 +213,55 @@ int main(int, char *[])
     // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
     // pièces à partir de la configuration initiale pour être sûr que 
     // le jeu soit solvable
-    melangeGrille(grille, gridSize, xVide, yVide, nbMelanges);
+    //melangeGrille(grille, tailleGrille, xVide, yVide, nbMelanges);
 
-    afficheGrille(grille, gridSize);
+    afficheGrille(grille, tailleGrille);
+
+    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+
+    std::cout << verifVictoire(grille, tailleGrille) << "\n";
+
+    // TESTS DÉPLACEMENTS
+    direction = 0;
+    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
+
+    afficheGrille(grille, tailleGrille);
+
+    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+
+    direction = 2;
+    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
+
+    afficheGrille(grille, tailleGrille);
+
+    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+
+    direction = 3;
+    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
+
+    afficheGrille(grille, tailleGrille);
+
+    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+
+    direction = 0;
+    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
+
+    afficheGrille(grille, tailleGrille);
+
+    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
 
 
-
-    // CRÉATION DES PIÈCES
+    // CRÉATION DES PIÈCES 3D
 
     int compteur = 0;
 
     // L'origine du repère se trouve en bas à gauche
     for (int j = 3; j >= 0; j--) 
     {
-        for (int i = 0; i < gridSize; i++) 
+        for (int i = 0; i < tailleGrille; i++) 
         {
 
-            // Création d'un cube par case
+            // Création d'un cube par cases
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
 
             cubeSource -> SetZLength(epaisseurPlateau);
@@ -324,8 +359,8 @@ int main(int, char *[])
 
 
     // Ajoute les acteurs des pièces au rendu
-    for (int i = 0; i < gridSize; i++) {
-        for (int j = 0; j < gridSize; j++) {
+    for (int i = 0; i < tailleGrille; i++) {
+        for (int j = 0; j < tailleGrille; j++) {
             renderer->AddActor(pieces[i][j]);
         }
     }

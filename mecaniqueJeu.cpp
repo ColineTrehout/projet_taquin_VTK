@@ -98,6 +98,86 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
 
 
 
+bool deplacePiece(std::vector<std::vector<int>>& grille, 
+                  const int& tailleGrille, 
+                  int& xVide, 
+                  int& yVide, 
+                  const int& direction)
+{
+    int stock{};
+
+        // déplacement d'une pièce vers le bas
+		if ((direction == 0) && (xVide > 0)) 
+		{
+			stock = grille[xVide][yVide];
+			grille[xVide][yVide] = grille[xVide - 1][yVide];
+			grille[xVide - 1][yVide] = stock;
+			xVide += - 1;
+		}
+
+        // déplacement d'une pièce vers le haut
+		if ((direction == 1) && (xVide < 3)) 
+		{
+			stock = grille[xVide][yVide];
+			grille[xVide][yVide]  = grille[xVide + 1][yVide];
+			grille[xVide + 1][yVide] = stock;
+			xVide += 1;
+		}
+
+        // déplacement d'une pièce vers la droite
+		if ((direction == 2) && (yVide > 0)) 
+		{
+			stock = grille[xVide][yVide];
+			grille[xVide][yVide]  = grille[xVide][yVide-1];
+			grille[xVide][yVide-1] = stock;
+			yVide += -1;
+		}
+
+        // déplacement d'une pièce vers la gauche
+		if ((direction == 3) && (yVide < 3)) 
+		{
+			stock = grille[xVide][yVide];
+			grille[xVide][yVide]  = grille[xVide][yVide+1];
+			grille[xVide][yVide+1] = stock;
+			yVide += 1;
+		}
+}
+
+
+
+// vérifie si la grille est dans la configuration finale (victoire du jeu)
+bool verifVictoire(std::vector<std::vector<int>>& grille, const int& tailleGrille)
+{
+    bool victoire = true;
+    int k = 1;
+
+
+    for(int i{}; i<tailleGrille; i++)
+	{
+		for(int j{}; j<tailleGrille; j++)
+		{
+            // vérifie si les nombres sont ordonnées en ordre croissant (sauf la dernière)
+			if(grille[i][j] != k && (i != (tailleGrille-1) || j != (tailleGrille-1))) 
+            {
+                victoire = false;
+            }
+			k++;
+		}
+	}
+
+    // vérifie si la dernière case est vide
+	if(grille[tailleGrille-1][tailleGrille-1] != 0) 
+    {
+        victoire = false;
+    }
+
+    return victoire;
+}
+
+
+
+/*
+
 // la case choisie est déplacée
 void deplacePiece(int **M, int n, int *x, int *y, int x2, int y2)
 {
@@ -185,4 +265,4 @@ void choixDeplacement(int **M, int n, int *i, int *j)
 		break;
 	} 
 }
-
+*/
