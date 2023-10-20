@@ -153,6 +153,30 @@ affichageTexte.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.s
 .PHONY : affichageTexte.cpp.s
 
+creationPlateau.o: creationPlateau.cpp.o
+.PHONY : creationPlateau.o
+
+# target to build an object file
+creationPlateau.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.o
+.PHONY : creationPlateau.cpp.o
+
+creationPlateau.i: creationPlateau.cpp.i
+.PHONY : creationPlateau.i
+
+# target to preprocess a source file
+creationPlateau.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.i
+.PHONY : creationPlateau.cpp.i
+
+creationPlateau.s: creationPlateau.cpp.s
+.PHONY : creationPlateau.s
+
+# target to generate assembly for a file
+creationPlateau.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.s
+.PHONY : creationPlateau.cpp.s
+
 taquin.o: taquin.cpp.o
 .PHONY : taquin.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... affichageTexte.o"
 	@echo "... affichageTexte.i"
 	@echo "... affichageTexte.s"
+	@echo "... creationPlateau.o"
+	@echo "... creationPlateau.i"
+	@echo "... creationPlateau.s"
 	@echo "... taquin.o"
 	@echo "... taquin.i"
 	@echo "... taquin.s"

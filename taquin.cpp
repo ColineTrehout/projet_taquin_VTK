@@ -1,40 +1,38 @@
-#include <vtkSmartPointer.h>
-#include <vtkRenderWindow.h>
-#include <vtkRenderer.h>
-#include <vtkRenderWindowInteractor.h>
-#include <vtkPolyDataMapper.h>
 #include <vtkActor.h>
-#include <vtkCubeSource.h>
-#include <vtkProperty.h>
-#include <unistd.h>
 #include <vtkCommand.h>
+#include <vtkCubeSource.h>
 #include <vtkFreeTypeTools.h>
 #include <vtkImageActor.h>
 #include <vtkImageBlend.h>
 #include <vtkImageCanvasSource2D.h>
 #include <vtkImageData.h>
 #include <vtkImageMapper3D.h>
+#include <vtkImageReader.h>
+#include <vtkImageReader2Factory.h>
 #include <vtkInteractorStyleImage.h>
+#include <vtkJPEGReader.h>
 #include <vtkNamedColors.h>
 #include <vtkNew.h>
+#include <vtkPolyDataMapper.h>
 #include <vtkPointData.h>
+#include <vtkProperty.h>
+#include <vtkRenderWindow.h>
+#include <vtkRenderWindowInteractor.h>
+#include <vtkRenderer.h>
+#include <vtkSmartPointer.h>
 #include <vtkStdString.h>
-#include <vtkNamedColors.h>
-#include <vtkTexture.h>
-#include <vtkJPEGReader.h>
-#include <vtkImageReader2Factory.h>
-#include <vtkImageReader.h>
-#include <vtkTransformTextureCoords.h>
-#include <vtkCylinderSource.h>
-#include <vtkTextProperty.h>
-#include <vtkVectorText.h>
 #include <vtkTextActor.h>
+#include <vtkTexture.h>
+#include <vtkTextProperty.h>
+#include <vtkTransformTextureCoords.h>
+#include <vtkVectorText.h>
 
-#include <string> 
 #include <iostream>
+#include <string> 
+#include <unistd.h>
 
 #include "affichageTexte.hpp"
-
+#include "creationPlateau.hpp"
 
 
 class Observer : public vtkCommand {
@@ -61,7 +59,7 @@ public:
 	void SetPiece14(vtkActor* piece) { _piece14 = piece; }
 	void SetPiece15(vtkActor* piece) { _piece15 = piece; }
 
-
+	int nombreDeplacements() { return _compteurDeplacements;}
 
 
 private:
@@ -81,8 +79,10 @@ private:
 	vtkActor* _piece13;
 	vtkActor* _piece14;
 	vtkActor* _piece15;
-    int _xVide = 0;
-    int _yVide = 3; 
+
+    int _xVide = 0; //ligne de la case vide
+    int _yVide = 3; //colonne de la case vide
+    int _compteurDeplacements = 0; //nombres de déplacements effectués
 
 };
 
@@ -91,7 +91,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 {
 	auto* interactor{ vtkRenderWindowInteractor::SafeDownCast(caller) };
 
-	//if r is pressed
 
     
 	if (interactor->GetKeyCode() == 'd')
@@ -106,7 +105,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         _piece1->SetPosition(_yVide,_xVide,0);
         _yVide += -1;
 
-
+        _compteurDeplacements++;
 	}
 
     if (interactor->GetKeyCode() == 'e')
@@ -116,7 +115,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         exit(0);
 	}
 
-
+    std::cout << _compteurDeplacements << "\n";
 	interactor->Render();
 }
 
@@ -225,150 +224,13 @@ int main(int, char *[])
 
             compteur ++;
 
-            //dégradé de couleur
-            //color += 0.05;
         }
     }
     
 
 
-
-
     // CRÉATION PLATEAU DE JEU
     
-    // derrière du plateau 
-
-    vtkSmartPointer<vtkCubeSource> plaqueArriere = vtkSmartPointer<vtkCubeSource>::New();
-
-    // Dimensions du rectangle
-    plaqueArriere->SetXLength(4);
-    plaqueArriere->SetYLength(4);
-    plaqueArriere->SetZLength(0.01);
-
-    plaqueArriere->Update();
-
-    vtkSmartPointer<vtkActor> arriere = vtkSmartPointer<vtkActor>::New();
-
-    arriere->GetProperty()->SetColor(0.25,0.25,0.25); // marron
-
-    arriere->SetPosition(1.5, 1.5, -epaisseurPlateau/2);
-
-    vtkSmartPointer<vtkPolyDataMapper> mapper1 = vtkSmartPointer<vtkPolyDataMapper>::New();
-
-    arriere->SetMapper(mapper1);
-
-    mapper1->SetInputData(plaqueArriere->GetOutput());
-
-
-    //bord gauche
-
-    vtkSmartPointer<vtkCubeSource> plaqueGauche = vtkSmartPointer<vtkCubeSource>::New();
-
-    // Dimensions du rectangle
-    plaqueGauche->SetXLength(4);
-    plaqueGauche->SetYLength(epaisseurPlateau);
-    plaqueGauche->SetZLength(0.01);
-
-    plaqueGauche->Update();
-
-    vtkSmartPointer<vtkActor> gauche = vtkSmartPointer<vtkActor>::New();
-
-    gauche->GetProperty()->SetColor(0.25,0.25,0.25); // gris
-
-    gauche->SetPosition(-0.5, 1.5, 0);
-    gauche->RotateY(90);
-    //gauche->RotateX(90);
-    gauche->RotateZ(90);
-
-    vtkSmartPointer<vtkPolyDataMapper> mapper2 = vtkSmartPointer<vtkPolyDataMapper>::New();
-
-    gauche->SetMapper(mapper2);
-
-    mapper2->SetInputData(plaqueGauche->GetOutput());
-
-
-    //bord droit
-
-    vtkSmartPointer<vtkCubeSource> plaqueDroite = vtkSmartPointer<vtkCubeSource>::New();
-
-    // Dimensions du rectangle
-    plaqueDroite->SetXLength(4);
-    plaqueDroite->SetYLength(epaisseurPlateau);
-    plaqueDroite->SetZLength(0.01);
-
-    plaqueDroite->Update();
-
-    vtkSmartPointer<vtkActor> droite = vtkSmartPointer<vtkActor>::New();
-
-    droite->GetProperty()->SetColor(0.25,0.25,0.25); // gris
-
-    droite->SetPosition(3.5, 1.5, 0);
-    droite->RotateY(90);
-    //gauche->RotateX(90);
-    droite->RotateZ(90);
-
-    vtkSmartPointer<vtkPolyDataMapper> mapper3 = vtkSmartPointer<vtkPolyDataMapper>::New();
-
-    droite->SetMapper(mapper3);
-
-    mapper3->SetInputData(plaqueDroite->GetOutput());
-
-
-
-    //bord haut
-
-    vtkSmartPointer<vtkCubeSource> plaqueHaut = vtkSmartPointer<vtkCubeSource>::New();
-
-    // Dimensions du rectangle
-    plaqueHaut->SetXLength(4);
-    plaqueHaut->SetYLength(epaisseurPlateau);
-    plaqueHaut->SetZLength(0.01);
-
-    plaqueHaut->Update();
-
-    vtkSmartPointer<vtkActor> haut = vtkSmartPointer<vtkActor>::New();
-
-    haut->GetProperty()->SetColor(0.25,0.25,0.25); // gris
-
-    haut->SetPosition(1.5, 3.5, 0);
-    haut->RotateY(90);
-    haut->RotateX(90);
-    haut->RotateZ(90);
-
-    vtkSmartPointer<vtkPolyDataMapper> mapper4 = vtkSmartPointer<vtkPolyDataMapper>::New();
-
-    haut->SetMapper(mapper4);
-
-    mapper4->SetInputData(plaqueHaut->GetOutput());
-
-
-    //bord bas
-
-    vtkSmartPointer<vtkCubeSource> plaqueBas = vtkSmartPointer<vtkCubeSource>::New();
-
-    // Dimensions du rectangle
-    plaqueBas->SetXLength(4);
-    plaqueBas->SetYLength(epaisseurPlateau);
-    plaqueBas->SetZLength(0.01);
-
-    plaqueBas->Update();
-
-    vtkSmartPointer<vtkActor> bas = vtkSmartPointer<vtkActor>::New();
-
-    bas->GetProperty()->SetColor(0.25,0.25,0.25); // gris
-
-    bas->SetPosition(1.5, -0.5, 0);
-    bas->RotateY(90);
-    bas->RotateX(90);
-    bas->RotateZ(90);
-
-    vtkSmartPointer<vtkPolyDataMapper> mapper5 = vtkSmartPointer<vtkPolyDataMapper>::New();
-
-    bas->SetMapper(mapper5);
-
-    mapper5->SetInputData(plaqueBas->GetOutput());
-
-
 
 
     // Création et personnalisation de l'acteur texte pour l'affichage des commandes du jeu
@@ -377,12 +239,28 @@ int main(int, char *[])
     textActor = creationTexteCommandes();
 
 
-
     // ajoute le texte au rendu
     renderer->AddActor(textActor);
 
 
-    // ajoute les éléments du plateau de jeu 
+    // création des bords du plateau de jeu
+    vtkSmartPointer<vtkActor> arriere = vtkSmartPointer<vtkActor>::New();
+    arriere = creationBords(4, 4, 0.01, 0, 0, 0, 1.5, 1.5, -epaisseurPlateau/2);
+
+    vtkSmartPointer<vtkActor> gauche = vtkSmartPointer<vtkActor>::New();
+    gauche = creationBords(4, epaisseurPlateau, 0.01, 0, 90, 90, -0.5, 1.5, 0);
+
+    vtkSmartPointer<vtkActor> droite = vtkSmartPointer<vtkActor>::New();
+    droite = creationBords(4, epaisseurPlateau, 0.01, 0, 90, 90, 3.5, 1.5, 0);
+
+    vtkSmartPointer<vtkActor> haut = vtkSmartPointer<vtkActor>::New();
+    haut = creationBords(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, 3.5, 0);
+
+    vtkSmartPointer<vtkActor> bas = vtkSmartPointer<vtkActor>::New();
+    bas = creationBords(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, -0.5, 0);
+
+
+    // ajoute au rendu les éléments du plateau de jeu 
     renderer->AddActor(arriere);
     renderer->AddActor(gauche);
     renderer->AddActor(droite);
@@ -436,11 +314,13 @@ int main(int, char *[])
 	observer->SetPiece1(pieces[2][0]);
 	//observer->SetPiece12(pieces[2][3]);
 
-
+    int c = 0;
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 
 	interactor->Initialize();
+    c = observer->nombreDeplacements();
+    std::cout << c << "\n";
 	interactor->Start();
 
 

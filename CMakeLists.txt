@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME} MACOSX_BUNDLE)
 target_sources(${PROJECT_NAME} PRIVATE
   ${PROJECT_NAME}.cpp 
   affichageTexte.cpp
+  creationPlateau.cpp
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
 

@@ -26,17 +26,18 @@
 #include "affichageTexte.hpp"
 
 
+// création du texte pour l'affichage des commandes clavier du jeu
 vtkNew<vtkTextActor> creationTexteCommandes()
 {
     vtkNew<vtkTextActor> textActor;
 
     textActor->SetInput("Commandes du jeu de taquin : \n\n" 
-                        "pressez 'z' pour déplacer une pièce vers le haut\n"
-                        "pressez 's' pour déplacer une pièce vers le bas\n"
-                        "pressez 'q' pour déplacer une pièce vers la gauche\n"
-                        "pressez 'd' pour déplacer une pièce vers la droite\n"
-                        "pressez 'e' pour quitter le jeu\n"
-                        "pressez 'r' pour rejouer une partie\n");
+                        "z pour déplacer une pièce vers le haut\n"
+                        "s pour déplacer une pièce vers le bas\n"
+                        "q pour déplacer une pièce vers la gauche\n"
+                        "d pour déplacer une pièce vers la droite\n"
+                        "e pour quitter le jeu\n"
+                        "r pour rejouer une partie\n");
 
     auto prop = textActor->GetTextProperty();
 

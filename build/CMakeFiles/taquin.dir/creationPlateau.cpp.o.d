@@ -1,5 +1,5 @@
-CMakeFiles/taquin.dir/taquin.cpp.o: \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/taquin.cpp \
+CMakeFiles/taquin.dir/creationPlateau.cpp.o: \
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationPlateau.cpp \
  /usr/include/stdc-predef.h /usr/local/include/vtk-9.2/vtkActor.h \
  /usr/local/include/vtk-9.2/vtkProp3D.h \
  /usr/local/include/vtk-9.2/vtkNew.h \
@@ -237,7 +237,6 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkAutoInit.h \
  /usr/local/include/vtk-9.2/vtkDebugLeaksManager.h \
  /usr/local/include/vtk-9.2/vtkWeakPointer.h \
- /usr/local/include/vtk-9.2/vtkCommand.h \
  /usr/local/include/vtk-9.2/vtkCubeSource.h \
  /usr/local/include/vtk-9.2/vtkFiltersSourcesModule.h \
  /usr/local/include/vtk-9.2/vtkPolyDataAlgorithm.h \
@@ -347,104 +346,10 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkCellLinks.h \
  /usr/local/include/vtk-9.2/vtkAbstractCellLinks.h \
  /usr/local/include/vtk-9.2/vtkPolyDataInternals.h \
- /usr/local/include/vtk-9.2/vtkFreeTypeTools.h \
- /usr/local/include/vtk-9.2/vtkRenderingFreeTypeModule.h \
- /usr/local/include/vtk-9.2/vtkTextRenderer.h \
- /usr/local/include/vtk-9.2/vtkTuple.h \
- /usr/local/include/vtk-9.2/vtkVector.h \
- /usr/local/include/vtk-9.2/vtk_freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/ft2build.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/vtk_freetype_mangle.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftheader.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftconfig.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftoption.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftstdlib.h \
- /usr/include/setjmp.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/integer-types.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/public-macros.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/mac-support.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fttypes.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftsystem.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftimage.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrors.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftmoderr.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrdef.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftcache.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
- /usr/local/include/vtk-9.2/vtkImageActor.h \
- /usr/local/include/vtk-9.2/vtkImageSlice.h \
- /usr/local/include/vtk-9.2/vtkImageBlend.h \
- /usr/local/include/vtk-9.2/vtkImagingCoreModule.h \
- /usr/local/include/vtk-9.2/vtkThreadedImageAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkImageAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkThreads.h \
- /usr/local/include/vtk-9.2/vtkImageCanvasSource2D.h \
- /usr/local/include/vtk-9.2/vtkImagingSourcesModule.h \
- /usr/local/include/vtk-9.2/vtkImageData.h \
- /usr/local/include/vtk-9.2/vtkStructuredData.h \
- /usr/local/include/vtk-9.2/vtkImageMapper3D.h \
- /usr/local/include/vtk-9.2/vtkAbstractMapper3D.h \
- /usr/local/include/vtk-9.2/vtkAbstractMapper.h \
- /usr/local/include/vtk-9.2/vtkImageReader.h \
- /usr/local/include/vtk-9.2/vtkIOImageModule.h \
- /usr/local/include/vtk-9.2/vtkImageReader2.h \
- /usr/local/include/vtk-9.2/vtkImageReader2Factory.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyleImage.h \
- /usr/local/include/vtk-9.2/vtkInteractionStyleModule.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyleTrackballCamera.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyle.h \
- /usr/local/include/vtk-9.2/vtkInteractorObserver.h \
- /usr/local/include/vtk-9.2/vtkJPEGReader.h \
- /usr/local/include/vtk-9.2/vtkNamedColors.h \
- /usr/local/include/vtk-9.2/vtkColor.h \
- /usr/local/include/vtk-9.2/vtkCommonColorModule.h \
- /usr/local/include/vtk-9.2/vtkStringArray.h \
- /usr/local/include/vtk-9.2/vtkNew.h \
  /usr/local/include/vtk-9.2/vtkPolyDataMapper.h \
  /usr/local/include/vtk-9.2/vtkMapper.h \
- /usr/local/include/vtk-9.2/vtkPointData.h \
- /usr/local/include/vtk-9.2/vtkDataSetAttributes.h \
- /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
- /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/local/include/vtk-9.2/vtkFieldData.h \
+ /usr/local/include/vtk-9.2/vtkAbstractMapper3D.h \
+ /usr/local/include/vtk-9.2/vtkAbstractMapper.h \
  /usr/local/include/vtk-9.2/vtkProperty.h \
- /usr/local/include/vtk-9.2/vtkRenderWindow.h \
- /usr/local/include/vtk-9.2/vtkEventData.h \
- /usr/local/include/vtk-9.2/vtkCommand.h \
- /usr/local/include/vtk-9.2/vtkWindow.h \
- /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
- /usr/local/include/vtk-9.2/vtkRenderer.h \
- /usr/local/include/vtk-9.2/vtkViewport.h \
- /usr/local/include/vtk-9.2/vtkSelection.h \
- /usr/local/include/vtk-9.2/vtkActorCollection.h \
- /usr/local/include/vtk-9.2/vtkActor.h \
- /usr/local/include/vtk-9.2/vtkPropCollection.h \
- /usr/local/include/vtk-9.2/vtkCollection.h \
- /usr/local/include/vtk-9.2/vtkVolumeCollection.h \
- /usr/local/include/vtk-9.2/vtkVolume.h \
  /usr/local/include/vtk-9.2/vtkSmartPointer.h \
- /usr/local/include/vtk-9.2/vtkStdString.h \
- /usr/local/include/vtk-9.2/vtkTextActor.h \
- /usr/local/include/vtk-9.2/vtkTexturedActor2D.h \
- /usr/local/include/vtk-9.2/vtkActor2D.h \
- /usr/local/include/vtk-9.2/vtkCoordinate.h \
- /usr/local/include/vtk-9.2/vtkTexture.h \
- /usr/local/include/vtk-9.2/vtkTextProperty.h \
- /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
- /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
- /usr/local/include/vtk-9.2/vtkVectorText.h \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/affichageTexte.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationPlateau.hpp
