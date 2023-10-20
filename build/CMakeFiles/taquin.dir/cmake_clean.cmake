@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/taquin.dir/affichageTexte.cpp.o"
+  "CMakeFiles/taquin.dir/affichageTexte.cpp.o.d"
   "CMakeFiles/taquin.dir/taquin.cpp.o"
   "CMakeFiles/taquin.dir/taquin.cpp.o.d"
   "taquin"

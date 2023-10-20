@@ -27,6 +27,10 @@
 #include <vtkImageReader.h>
 #include <vtkTransformTextureCoords.h>
 #include <vtkCylinderSource.h>
+#include <vtkVectorText.h>
+#include <vtkTextActor.h>
+
+#include "affichageTexte.hpp"
 
 
 
@@ -115,6 +119,11 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 int main(int, char *[])
 {
+
+    // Couleurs
+    vtkNew<vtkNamedColors> colors;
+
+
     // Create a VTK render window and renderer
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
@@ -190,7 +199,6 @@ int main(int, char *[])
     
 
 
-    vtkNew<vtkNamedColors> colors;
 
 
 
@@ -221,6 +229,24 @@ int main(int, char *[])
 
 
 
+    // texte
+
+    vtkNew<vtkTextActor> textActor;
+    textActor->SetInput("Hello World !! \n yea");
+
+    auto prop = textActor->GetTextProperty();
+
+    textActor->GetTextProperty()->SetJustificationToCentered();
+    textActor->GetTextProperty()->SetVerticalJustificationToCentered();
+    textActor->SetTextScaleModeToViewport();
+    textActor->SetPosition(130, 800);
+    textActor->GetTextProperty()->BoldOff();
+    textActor->GetTextProperty()->SetFontSize(20);
+    textActor->GetTextProperty()->SetFontFamily(VTK_FONT_FILE);
+    textActor->GetTextProperty()->SetColor(1,0,0);
+
+
+    renderer->AddActor(textActor);
 
 
     //ajoute le fond du plateau
@@ -233,6 +259,9 @@ int main(int, char *[])
             renderer->AddActor(pieces[i][j]);
         }
     }
+
+
+
 
     // Définissez la couleur de l'arrière plan
     renderer->SetBackground(0.3, 0.3, 0.5); 
@@ -278,6 +307,7 @@ int main(int, char *[])
 	interactor->Start();
 
 
+    affiche();
 
     return EXIT_SUCCESS;
 }

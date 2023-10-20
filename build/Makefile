@@ -129,6 +129,30 @@ taquin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/build
 .PHONY : taquin/fast
 
+affichageTexte.o: affichageTexte.cpp.o
+.PHONY : affichageTexte.o
+
+# target to build an object file
+affichageTexte.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.o
+.PHONY : affichageTexte.cpp.o
+
+affichageTexte.i: affichageTexte.cpp.i
+.PHONY : affichageTexte.i
+
+# target to preprocess a source file
+affichageTexte.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.i
+.PHONY : affichageTexte.cpp.i
+
+affichageTexte.s: affichageTexte.cpp.s
+.PHONY : affichageTexte.s
+
+# target to generate assembly for a file
+affichageTexte.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.s
+.PHONY : affichageTexte.cpp.s
+
 taquin.o: taquin.cpp.o
 .PHONY : taquin.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... taquin"
+	@echo "... affichageTexte.o"
+	@echo "... affichageTexte.i"
+	@echo "... affichageTexte.s"
 	@echo "... taquin.o"
 	@echo "... taquin.i"
 	@echo "... taquin.s"

@@ -438,4 +438,10 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
  /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
  /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
- /usr/local/include/vtk-9.2/vtkCylinderSource.h
+ /usr/local/include/vtk-9.2/vtkCylinderSource.h \
+ /usr/local/include/vtk-9.2/vtkVectorText.h \
+ /usr/local/include/vtk-9.2/vtkTextActor.h \
+ /usr/local/include/vtk-9.2/vtkTexturedActor2D.h \
+ /usr/local/include/vtk-9.2/vtkActor2D.h \
+ /usr/local/include/vtk-9.2/vtkCoordinate.h \
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/affichageTexte.hpp
