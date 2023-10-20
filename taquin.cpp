@@ -292,7 +292,7 @@ int main(int, char *[])
             vtkNew<vtkImageReader2Factory> readerFactory;
             vtkSmartPointer<vtkImageReader2> imageReader;
 
-            std::string s = "images/pieces/" + std::to_string(compteur) + ".png";
+            std::string s = "images/bois/" + std::to_string(compteur) + ".jpg";
             const char * filename = s.c_str();
 
             imageReader.TakeReference(readerFactory->CreateImageReader2(filename));
