@@ -15,9 +15,11 @@ endif()
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE)
 target_sources(${PROJECT_NAME} PRIVATE
   ${PROJECT_NAME}.cpp 
-  affichageTexte.cpp
+  creationTexte.cpp
   creationPlateau.cpp
+  mecaniqueJeu.cpp
 )
+
 target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
 
 message (STATUS "VTK_VERSION: ${VTK_VERSION}")

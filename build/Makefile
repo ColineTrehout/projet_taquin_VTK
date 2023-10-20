@@ -129,30 +129,6 @@ taquin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/build
 .PHONY : taquin/fast
 
-affichageTexte.o: affichageTexte.cpp.o
-.PHONY : affichageTexte.o
-
-# target to build an object file
-affichageTexte.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.o
-.PHONY : affichageTexte.cpp.o
-
-affichageTexte.i: affichageTexte.cpp.i
-.PHONY : affichageTexte.i
-
-# target to preprocess a source file
-affichageTexte.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.i
-.PHONY : affichageTexte.cpp.i
-
-affichageTexte.s: affichageTexte.cpp.s
-.PHONY : affichageTexte.s
-
-# target to generate assembly for a file
-affichageTexte.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/affichageTexte.cpp.s
-.PHONY : affichageTexte.cpp.s
-
 creationPlateau.o: creationPlateau.cpp.o
 .PHONY : creationPlateau.o
 
@@ -176,6 +152,54 @@ creationPlateau.s: creationPlateau.cpp.s
 creationPlateau.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.s
 .PHONY : creationPlateau.cpp.s
+
+creationTexte.o: creationTexte.cpp.o
+.PHONY : creationTexte.o
+
+# target to build an object file
+creationTexte.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.o
+.PHONY : creationTexte.cpp.o
+
+creationTexte.i: creationTexte.cpp.i
+.PHONY : creationTexte.i
+
+# target to preprocess a source file
+creationTexte.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.i
+.PHONY : creationTexte.cpp.i
+
+creationTexte.s: creationTexte.cpp.s
+.PHONY : creationTexte.s
+
+# target to generate assembly for a file
+creationTexte.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.s
+.PHONY : creationTexte.cpp.s
+
+mecaniqueJeu.o: mecaniqueJeu.cpp.o
+.PHONY : mecaniqueJeu.o
+
+# target to build an object file
+mecaniqueJeu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o
+.PHONY : mecaniqueJeu.cpp.o
+
+mecaniqueJeu.i: mecaniqueJeu.cpp.i
+.PHONY : mecaniqueJeu.i
+
+# target to preprocess a source file
+mecaniqueJeu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.i
+.PHONY : mecaniqueJeu.cpp.i
+
+mecaniqueJeu.s: mecaniqueJeu.cpp.s
+.PHONY : mecaniqueJeu.s
+
+# target to generate assembly for a file
+mecaniqueJeu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.s
+.PHONY : mecaniqueJeu.cpp.s
 
 taquin.o: taquin.cpp.o
 .PHONY : taquin.o
@@ -210,12 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... taquin"
-	@echo "... affichageTexte.o"
-	@echo "... affichageTexte.i"
-	@echo "... affichageTexte.s"
 	@echo "... creationPlateau.o"
 	@echo "... creationPlateau.i"
 	@echo "... creationPlateau.s"
+	@echo "... creationTexte.o"
+	@echo "... creationTexte.i"
+	@echo "... creationTexte.s"
+	@echo "... mecaniqueJeu.o"
+	@echo "... mecaniqueJeu.i"
+	@echo "... mecaniqueJeu.s"
 	@echo "... taquin.o"
 	@echo "... taquin.i"
 	@echo "... taquin.s"

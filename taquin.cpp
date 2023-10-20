@@ -27,12 +27,15 @@
 #include <vtkTransformTextureCoords.h>
 #include <vtkVectorText.h>
 
+#include <vector>
 #include <iostream>
 #include <string> 
 #include <unistd.h>
 
-#include "affichageTexte.hpp"
+#include "creationTexte.hpp"
 #include "creationPlateau.hpp"
+#include "mecaniqueJeu.hpp"
+
 
 
 class Observer : public vtkCommand {
@@ -61,6 +64,11 @@ public:
 
 	int nombreDeplacements() { return _compteurDeplacements;}
 
+	void SetRenderer(vtkRenderer* renderer) { _renderer = renderer; }
+
+    void SetTextCommandes(vtkTextActor* textCommandes) {_texteCommandes = textCommandes;}
+
+
 
 private:
 	vtkActor* _piece0;
@@ -83,6 +91,9 @@ private:
     int _xVide = 0; //ligne de la case vide
     int _yVide = 3; //colonne de la case vide
     int _compteurDeplacements = 0; //nombres de déplacements effectués
+    vtkSmartPointer<vtkRenderer> _renderer;
+    vtkSmartPointer<vtkTextActor> _texteCommandes;
+
 
 };
 
@@ -101,11 +112,32 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
         //_piece0->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
         //_piece1->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
-        _piece0->SetPosition(_yVide-1,_xVide,0);
-        _piece1->SetPosition(_yVide,_xVide,0);
-        _yVide += -1;
+        if (_compteurDeplacements%2 == 0)
+        {
+            _piece0->SetPosition(_yVide-1,_xVide,0);
+            _piece1->SetPosition(_yVide,_xVide,0);
+            _yVide += -1;
+
+            //verifVictoire
+            //réinitialise la grille
+
+
+        }
+        else
+        {
+            _piece0->SetPosition(_yVide+1,_xVide,0);
+            _piece1->SetPosition(_yVide,_xVide,0);
+            _yVide += 1;
+            _renderer->RemoveActor(_texteCommandes);
+
+        }
 
         _compteurDeplacements++;
+        vtkNew<vtkTextActor> textFinJeu;
+
+        textFinJeu = texteVictoire();
+        _renderer->AddActor(textFinJeu);
+
 	}
 
     if (interactor->GetKeyCode() == 'e')
@@ -115,7 +147,8 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         exit(0);
 	}
 
-    std::cout << _compteurDeplacements << "\n";
+    //verif victoire
+    std::cout << "coordonnées de la case vide : " <<_xVide << " " << _yVide << "\n";
 	interactor->Render();
 }
 
@@ -128,36 +161,58 @@ int main(int, char *[])
     std::cout << "Bienvenue dans ce jeu de taquin\n";
 
 
-    // déclarations
+    // DÉCLARATIONS
 
-    float epaisseurPlateau = 0.4;
+    
+    // Définition taille de la grille (4x4 pour le jeu de taquin classique)
+    const int gridSize = 4; 
+
+    // épaisseur de la grille
+    const float epaisseurPlateau = 0.4;
 
     // Couleurs
     vtkNew<vtkNamedColors> colors;
 
+    // Création de la grille dans laquelle on va mettre les pieces du jeu
+    vtkSmartPointer<vtkActor> pieces[gridSize][gridSize];
+
+    // Création du tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide)
+
+    std::vector<std::vector<int>> grille
+    { 
+        {1, 2, 3, 4}, 
+        {5, 6, 7, 8}, 
+        {9, 10, 11, 12},
+        {13, 14, 15, 0} 
+    };
+
+    // coordonnées de la case vide
+    int xVide = 3;
+    int yVide = 3;
+    int nbMelanges = 20;
+
+    afficheGrille(grille, gridSize);
 
     // Create a VTK render window and renderer
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
     renderWindow->SetSize(1920,1080);
 
-
     // Create a VTK render window interactor
     vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
 
     renderWindowInteractor->SetRenderWindow(renderWindow);
 
-    // Définition taille de la grille (4x4 pour le jeu de taquin classique)
-    const int gridSize = 4; 
-
-    // Création de la grille de jeu
-    vtkSmartPointer<vtkActor> pieces[gridSize][gridSize];
-
-    float color = 0.0;
 
 
-    // TEXTURE  
+    // MÉLANGE DE LA GRILLE (position initiale du jeu)
 
+    // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
+    // pièces à partir de la configuration initiale pour être sûr que 
+    // le jeu soit solvable
+    melangeGrille(grille, gridSize, xVide, yVide, nbMelanges);
+
+    afficheGrille(grille, gridSize);
 
 
 
@@ -236,7 +291,7 @@ int main(int, char *[])
     // Création et personnalisation de l'acteur texte pour l'affichage des commandes du jeu
     vtkNew<vtkTextActor> textActor;
 
-    textActor = creationTexteCommandes();
+    textActor = texteCommandes();
 
 
     // ajoute le texte au rendu
@@ -314,14 +369,25 @@ int main(int, char *[])
 	observer->SetPiece1(pieces[2][0]);
 	//observer->SetPiece12(pieces[2][3]);
 
-    int c = 0;
+    observer-> SetRenderer(renderer);
+    observer-> SetTextCommandes( textActor);
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 
+
 	interactor->Initialize();
-    c = observer->nombreDeplacements();
-    std::cout << c << "\n";
+
+    
+    //int c = 0;
+    //c = observer->nombreDeplacements();
+    //std::cout << c << "\n";
+
 	interactor->Start();
+
+
+    //sleep(3);
+    //renderer->RemoveActor(textActor);
+    
 
 
     //affiche();

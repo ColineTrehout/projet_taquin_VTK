@@ -23,11 +23,11 @@
 #include <iostream>
 
 
-#include "affichageTexte.hpp"
+#include "creationTexte.hpp"
 
 
 // création du texte pour l'affichage des commandes clavier du jeu
-vtkNew<vtkTextActor> creationTexteCommandes()
+vtkNew<vtkTextActor> texteCommandes()
 {
     vtkNew<vtkTextActor> textActor;
 
@@ -54,3 +54,25 @@ vtkNew<vtkTextActor> creationTexteCommandes()
     return textActor;
 }
 
+// texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
+vtkNew<vtkTextActor> texteVictoire()
+{
+    vtkNew<vtkTextActor> textActor;
+
+    textActor->SetInput("Félicitations, vous avez résolu le puzzle !\n");
+
+    auto prop = textActor->GetTextProperty();
+
+    //textActor->GetTextProperty()->SetJustificationToCentered();
+    textActor->GetTextProperty()->SetVerticalJustificationToCentered();
+    textActor->SetTextScaleModeToViewport();
+    textActor->GetTextProperty()->SetFontFamily(VTK_FONT_FILE);
+    textActor->GetTextProperty()->BoldOff();
+    textActor->GetTextProperty()->SetFontSize(6);
+    textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
+
+    // colonne ligne (origine en bas à gauche)
+    textActor->SetPosition(700, 900);
+
+    return textActor;
+}
