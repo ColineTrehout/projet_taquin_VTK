@@ -2,6 +2,6 @@
 #define AFFICHAGE_TEXTE_HPP
 
 
-void affiche();
+vtkNew<vtkTextActor> creationTexteCommandes();
 
 #endif

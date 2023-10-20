@@ -19,7 +19,6 @@
 #include <vtkNew.h>
 #include <vtkPointData.h>
 #include <vtkStdString.h>
-#include <vtkTextProperty.h>
 #include <vtkNamedColors.h>
 #include <vtkTexture.h>
 #include <vtkJPEGReader.h>
@@ -27,6 +26,7 @@
 #include <vtkImageReader.h>
 #include <vtkTransformTextureCoords.h>
 #include <vtkCylinderSource.h>
+#include <vtkTextProperty.h>
 #include <vtkVectorText.h>
 #include <vtkTextActor.h>
 
@@ -127,10 +127,12 @@ int main(int, char *[])
     // Create a VTK render window and renderer
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+    renderWindow->SetSize(1920,1080);
 
 
     // Create a VTK render window interactor
     vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+
     renderWindowInteractor->SetRenderWindow(renderWindow);
 
     // Définition taille de la grille (4x4 pour le jeu de taquin classique)
@@ -228,23 +230,10 @@ int main(int, char *[])
 
 
 
-
-    // texte
-
     vtkNew<vtkTextActor> textActor;
-    textActor->SetInput("Hello World !! \n yea");
 
-    auto prop = textActor->GetTextProperty();
-
-    textActor->GetTextProperty()->SetJustificationToCentered();
-    textActor->GetTextProperty()->SetVerticalJustificationToCentered();
-    textActor->SetTextScaleModeToViewport();
-    textActor->SetPosition(130, 800);
-    textActor->GetTextProperty()->BoldOff();
-    textActor->GetTextProperty()->SetFontSize(20);
-    textActor->GetTextProperty()->SetFontFamily(VTK_FONT_FILE);
-    textActor->GetTextProperty()->SetColor(1,0,0);
-
+    // Création et personnalisation de l'acteur texte pour l'affichage des commandes du jeu
+    textActor = creationTexteCommandes();
 
     renderer->AddActor(textActor);
 
@@ -307,7 +296,7 @@ int main(int, char *[])
 	interactor->Start();
 
 
-    affiche();
+    //affiche();
 
     return EXIT_SUCCESS;
 }
