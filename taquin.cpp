@@ -128,6 +128,11 @@ int main(int, char *[])
 {
     std::cout << "Bienvenue dans ce jeu de taquin\n";
 
+
+    // déclarations
+
+    float epaisseurPlateau = 0.4;
+
     // Couleurs
     vtkNew<vtkNamedColors> colors;
 
@@ -169,16 +174,17 @@ int main(int, char *[])
 
             // Création d'un cube par case
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
-            cubeSource -> SetZLength(0.6);
+
+            cubeSource -> SetZLength(epaisseurPlateau);
             //std::cout << cubeSource-> GetXLength() << '\n';
 
             // Le dernier cube a une épaisseur plus faible pour simuler la case vide
             if (i == 3 && j == 0)
             {
-                cubeSource -> SetZLength(0.2);
+                cubeSource -> SetZLength(0.1);
 
                 //déplacement du centre du cube
-                cubeSource -> SetCenter(0,0,-0.2); 
+                cubeSource -> SetCenter(0,0,-0.15); 
             }
 
             cubeSource->Update(); // Met à jour la source du cube
@@ -228,46 +234,163 @@ int main(int, char *[])
 
 
 
-
+    // CRÉATION PLATEAU DE JEU
     
     // derrière du plateau 
 
-    vtkSmartPointer<vtkCubeSource> flatRectangle = vtkSmartPointer<vtkCubeSource>::New();
+    vtkSmartPointer<vtkCubeSource> plaqueArriere = vtkSmartPointer<vtkCubeSource>::New();
 
     // Dimensions du rectangle
-    flatRectangle->SetXLength(4);
-    flatRectangle->SetYLength(4);
-    flatRectangle->SetZLength(0.01);
+    plaqueArriere->SetXLength(4);
+    plaqueArriere->SetYLength(4);
+    plaqueArriere->SetZLength(0.01);
 
-    flatRectangle->Update();
+    plaqueArriere->Update();
 
-    vtkSmartPointer<vtkActor> plateau = vtkSmartPointer<vtkActor>::New();
+    vtkSmartPointer<vtkActor> arriere = vtkSmartPointer<vtkActor>::New();
 
-    vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+    arriere->GetProperty()->SetColor(0.25,0.25,0.25); // marron
 
-    plateau->SetMapper(mapper);
+    arriere->SetPosition(1.5, 1.5, -epaisseurPlateau/2);
 
-    plateau->GetProperty()->SetColor(0.5,0.2,0.05); // marron
+    vtkSmartPointer<vtkPolyDataMapper> mapper1 = vtkSmartPointer<vtkPolyDataMapper>::New();
 
-    plateau->SetPosition(1.5, 1.5, -0.3);
+    arriere->SetMapper(mapper1);
 
-    mapper->SetInputData(flatRectangle->GetOutput());
+    mapper1->SetInputData(plaqueArriere->GetOutput());
+
+
+    //bord gauche
+
+    vtkSmartPointer<vtkCubeSource> plaqueGauche = vtkSmartPointer<vtkCubeSource>::New();
+
+    // Dimensions du rectangle
+    plaqueGauche->SetXLength(4);
+    plaqueGauche->SetYLength(epaisseurPlateau);
+    plaqueGauche->SetZLength(0.01);
+
+    plaqueGauche->Update();
+
+    vtkSmartPointer<vtkActor> gauche = vtkSmartPointer<vtkActor>::New();
+
+    gauche->GetProperty()->SetColor(0.25,0.25,0.25); // gris
+
+    gauche->SetPosition(-0.5, 1.5, 0);
+    gauche->RotateY(90);
+    //gauche->RotateX(90);
+    gauche->RotateZ(90);
+
+    vtkSmartPointer<vtkPolyDataMapper> mapper2 = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+    gauche->SetMapper(mapper2);
+
+    mapper2->SetInputData(plaqueGauche->GetOutput());
+
+
+    //bord droit
+
+    vtkSmartPointer<vtkCubeSource> plaqueDroite = vtkSmartPointer<vtkCubeSource>::New();
+
+    // Dimensions du rectangle
+    plaqueDroite->SetXLength(4);
+    plaqueDroite->SetYLength(epaisseurPlateau);
+    plaqueDroite->SetZLength(0.01);
+
+    plaqueDroite->Update();
+
+    vtkSmartPointer<vtkActor> droite = vtkSmartPointer<vtkActor>::New();
+
+    droite->GetProperty()->SetColor(0.25,0.25,0.25); // gris
+
+    droite->SetPosition(3.5, 1.5, 0);
+    droite->RotateY(90);
+    //gauche->RotateX(90);
+    droite->RotateZ(90);
+
+    vtkSmartPointer<vtkPolyDataMapper> mapper3 = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+    droite->SetMapper(mapper3);
+
+    mapper3->SetInputData(plaqueDroite->GetOutput());
 
 
 
-    vtkNew<vtkTextActor> textActor;
+    //bord haut
+
+    vtkSmartPointer<vtkCubeSource> plaqueHaut = vtkSmartPointer<vtkCubeSource>::New();
+
+    // Dimensions du rectangle
+    plaqueHaut->SetXLength(4);
+    plaqueHaut->SetYLength(epaisseurPlateau);
+    plaqueHaut->SetZLength(0.01);
+
+    plaqueHaut->Update();
+
+    vtkSmartPointer<vtkActor> haut = vtkSmartPointer<vtkActor>::New();
+
+    haut->GetProperty()->SetColor(0.25,0.25,0.25); // gris
+
+    haut->SetPosition(1.5, 3.5, 0);
+    haut->RotateY(90);
+    haut->RotateX(90);
+    haut->RotateZ(90);
+
+    vtkSmartPointer<vtkPolyDataMapper> mapper4 = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+    haut->SetMapper(mapper4);
+
+    mapper4->SetInputData(plaqueHaut->GetOutput());
+
+
+    //bord bas
+
+    vtkSmartPointer<vtkCubeSource> plaqueBas = vtkSmartPointer<vtkCubeSource>::New();
+
+    // Dimensions du rectangle
+    plaqueBas->SetXLength(4);
+    plaqueBas->SetYLength(epaisseurPlateau);
+    plaqueBas->SetZLength(0.01);
+
+    plaqueBas->Update();
+
+    vtkSmartPointer<vtkActor> bas = vtkSmartPointer<vtkActor>::New();
+
+    bas->GetProperty()->SetColor(0.25,0.25,0.25); // gris
+
+    bas->SetPosition(1.5, -0.5, 0);
+    bas->RotateY(90);
+    bas->RotateX(90);
+    bas->RotateZ(90);
+
+    vtkSmartPointer<vtkPolyDataMapper> mapper5 = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+    bas->SetMapper(mapper5);
+
+    mapper5->SetInputData(plaqueBas->GetOutput());
+
+
+
 
     // Création et personnalisation de l'acteur texte pour l'affichage des commandes du jeu
+    vtkNew<vtkTextActor> textActor;
+
     textActor = creationTexteCommandes();
 
+
+
+    // ajoute le texte au rendu
     renderer->AddActor(textActor);
 
 
-    //ajoute le fond du plateau
-    renderer->AddActor(plateau);
+    // ajoute les éléments du plateau de jeu 
+    renderer->AddActor(arriere);
+    renderer->AddActor(gauche);
+    renderer->AddActor(droite);
+    renderer->AddActor(haut);
+    renderer->AddActor(bas);
 
 
-    // Ajoutez les acteurs des pièces à la scène
+    // Ajoute les acteurs des pièces au rendu
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
             renderer->AddActor(pieces[i][j]);
