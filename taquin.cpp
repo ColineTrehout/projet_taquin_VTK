@@ -30,6 +30,9 @@
 #include <vtkVectorText.h>
 #include <vtkTextActor.h>
 
+#include <string> 
+#include <iostream>
+
 #include "affichageTexte.hpp"
 
 
@@ -78,6 +81,8 @@ private:
 	vtkActor* _piece13;
 	vtkActor* _piece14;
 	vtkActor* _piece15;
+    int _xVide = 0;
+    int _yVide = 3; 
 
 };
 
@@ -89,15 +94,17 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 	//if r is pressed
 
     
-	if (interactor->GetKeyCode() == 'r')
+	if (interactor->GetKeyCode() == 'd')
 	{
-		std::cout << "r is pressed\n";
+		std::cout << "d is pressed\n";
 
 		//auto res{_coneSource->GetResolution()};
 
-        _piece0->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
-        _piece1->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
-        
+        //_piece0->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
+        //_piece1->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
+        _piece0->SetPosition(_yVide-1,_xVide,0);
+        _piece1->SetPosition(_yVide,_xVide,0);
+        _yVide += -1;
 
 
 	}
@@ -119,6 +126,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 int main(int, char *[])
 {
+    std::cout << "Bienvenue dans ce jeu de taquin\n";
 
     // Couleurs
     vtkNew<vtkNamedColors> colors;
@@ -144,13 +152,14 @@ int main(int, char *[])
     float color = 0.0;
 
 
+    // TEXTURE  
 
-    // Read texture file
-    vtkNew<vtkImageReader2Factory> readerFactory;
-    vtkSmartPointer<vtkImageReader2> imageReader;
-    imageReader.TakeReference(readerFactory->CreateImageReader2("logo.png"));
-    imageReader->SetFileName("logo.png");
 
+
+
+    // CRÉATION DES PIÈCES
+
+    int compteur = 0;
 
     // L'origine du repère se trouve en bas à gauche
     for (int j = 3; j >= 0; j--) 
@@ -161,6 +170,7 @@ int main(int, char *[])
             // Création d'un cube par case
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
             cubeSource -> SetZLength(0.6);
+            //std::cout << cubeSource-> GetXLength() << '\n';
 
             // Le dernier cube a une épaisseur plus faible pour simuler la case vide
             if (i == 3 && j == 0)
@@ -179,23 +189,38 @@ int main(int, char *[])
 
             pieces[i][j] = vtkSmartPointer<vtkActor>::New();
             pieces[i][j]->SetMapper(mapper);
-            pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur (rouge)
+            //pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur 
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
+
+
+            // Read texture file
+            vtkNew<vtkImageReader2Factory> readerFactory;
+            vtkSmartPointer<vtkImageReader2> imageReader;
+
+            std::string s = "images/pieces/" + std::to_string(compteur) + ".png";
+            const char * filename = s.c_str();
+
+            imageReader.TakeReference(readerFactory->CreateImageReader2(filename));
+
+            
+            imageReader->SetFileName(filename);
 
 
             // Create texture
             vtkNew<vtkTexture> texture;
             texture->SetInputConnection(imageReader->GetOutputPort());
 
+            // application de la texture sur la pièce
             vtkNew<vtkTransformTextureCoords> transformTexture;
             transformTexture->SetInputConnection(cubeSource->GetOutputPort());
 
             mapper->SetInputConnection(transformTexture->GetOutputPort());
             pieces[i][j]->SetTexture(texture);
 
+            compteur ++;
 
             //dégradé de couleur
-            color += 0.05;
+            //color += 0.05;
         }
     }
     
@@ -284,8 +309,8 @@ int main(int, char *[])
     //définition des cases pour l'intéraction des pièces sur la grille
 
     //première case (en haut à gauche)
-	observer->SetPiece0(pieces[0][3]);
-	observer->SetPiece1(pieces[3][0]);
+	observer->SetPiece0(pieces[3][0]);
+	observer->SetPiece1(pieces[2][0]);
 	//observer->SetPiece12(pieces[2][3]);
 
 
