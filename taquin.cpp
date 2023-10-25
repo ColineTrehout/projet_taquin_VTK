@@ -89,12 +89,13 @@ int main(int, char *[])
     std::cout << "Veuillez saisir le niveau de difficulté souhaité :\n"
                  "0 : niveau facile\n"
                  "1 : niveau moyen\n"
-                 "2 : niveau difficile\n";
+                 "2 : niveau difficile\n"
+                 "3 : niveau expert\n";
 
     std::cin >> niveau;
 
     // check that only one letter was provided and it belongs to the valid options
-    while (std::cin.fail() || (niveau != 0 && niveau != 1 && niveau != 2))
+    while (std::cin.fail() || (niveau != 0 && niveau != 1 && niveau != 2 && niveau != 3))
     {
         // Nettoyage du buffer d'entrée
         std::cin.clear();
@@ -115,12 +116,16 @@ int main(int, char *[])
         std::cout << "Vous avez choisi le niveau moyen.\n";
         nbMelanges = 10*tailleGrille*tailleGrille;
     }
-    else
+    else if(niveau == 2)
     {
         std::cout << "Vous avez choisi le niveau difficile.\n";
         nbMelanges = 100*tailleGrille*tailleGrille;
     }
-
+    else
+    {
+        std::cout << "Vous avez choisi le niveau expert.\n";
+        nbMelanges = 100*tailleGrille*tailleGrille;
+    }
 
 
     // MÉLANGE DE LA GRILLE (position initiale du jeu)
@@ -200,13 +205,22 @@ int main(int, char *[])
             vtkNew<vtkImageReader2Factory> readerFactory;
             vtkSmartPointer<vtkImageReader2> imageReader;
 
+            std::string s;
 
-            std::string s = "images/bois2/" + std::to_string(numeroPiece) + ".jpg";
+            // En niveau expert, les pièces ne sont pas numérotées
+            if(niveau == 3)
+            {
+                s = "images/pieces_simples/" + std::to_string(numeroPiece) + ".jpg";
+            }
+            else
+            {
+                s = "images/bois2/" + std::to_string(numeroPiece) + ".jpg";
+            }
+
             const char * filename = s.c_str();
 
             imageReader.TakeReference(readerFactory->CreateImageReader2(filename));
 
-            
             imageReader->SetFileName(filename);
 
 
