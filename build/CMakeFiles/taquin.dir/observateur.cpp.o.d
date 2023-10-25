@@ -1,5 +1,5 @@
-CMakeFiles/taquin.dir/taquin.cpp.o: \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/taquin.cpp \
+CMakeFiles/taquin.dir/observateur.cpp.o: \
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/observateur.cpp \
  /usr/include/stdc-predef.h /usr/local/include/vtk-9.2/vtkActor.h \
  /usr/local/include/vtk-9.2/vtkProp3D.h \
  /usr/local/include/vtk-9.2/vtkNew.h \
@@ -238,215 +238,36 @@ CMakeFiles/taquin.dir/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkDebugLeaksManager.h \
  /usr/local/include/vtk-9.2/vtkWeakPointer.h \
  /usr/local/include/vtk-9.2/vtkCommand.h \
- /usr/local/include/vtk-9.2/vtkCubeSource.h \
- /usr/local/include/vtk-9.2/vtkFiltersSourcesModule.h \
- /usr/local/include/vtk-9.2/vtkPolyDataAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkCommonExecutionModelModule.h \
- /usr/local/include/vtk-9.2/vtkPolyData.h \
+ /usr/local/include/vtk-9.2/vtkRenderer.h \
+ /usr/local/include/vtk-9.2/vtkViewport.h \
+ /usr/local/include/vtk-9.2/vtkSelection.h \
  /usr/local/include/vtk-9.2/vtkCommonDataModelModule.h \
- /usr/local/include/vtk-9.2/vtkPointSet.h \
- /usr/local/include/vtk-9.2/vtkDataSet.h \
  /usr/local/include/vtk-9.2/vtkDataObject.h \
- /usr/local/include/vtk-9.2/vtkCellTypes.h \
- /usr/local/include/vtk-9.2/vtkCellType.h \
- /usr/local/include/vtk-9.2/vtkDeprecation.h \
- /usr/local/include/vtk-9.2/vtkVersionMacros.h \
- /usr/local/include/vtk-9.2/vtkIdTypeArray.h \
- /usr/local/include/vtk-9.2/vtkAOSDataArrayTemplate.h \
- /usr/local/include/vtk-9.2/vtkBuffer.h \
- /usr/local/include/vtk-9.2/vtkObjectFactory.h \
- /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
- /usr/include/c++/11/bits/algorithmfwd.h \
- /usr/include/c++/11/bits/stl_heap.h \
- /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /usr/include/c++/11/pstl/glue_algorithm_defs.h \
- /usr/include/c++/11/functional /usr/include/c++/11/bits/refwrap.h \
- /usr/include/c++/11/bits/std_function.h \
- /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
- /usr/include/c++/11/bits/hashtable_policy.h \
- /usr/include/c++/11/bits/enable_special_members.h \
- /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/pstl/execution_defs.h \
- /usr/local/include/vtk-9.2/vtkGenericDataArray.h \
- /usr/local/include/vtk-9.2/vtkDataArray.h \
- /usr/local/include/vtk-9.2/vtkAbstractArray.h \
- /usr/local/include/vtk-9.2/vtkIdList.h \
- /usr/local/include/vtk-9.2/vtkVariant.h \
- /usr/local/include/vtk-9.2/vtkStdString.h \
- /usr/local/include/vtk-9.2/vtkVariantInlineOperators.h \
- /usr/include/c++/11/climits \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/local/include/vtk-9.2/vtkVTK_USE_SCALED_SOA_ARRAYS.h \
- /usr/local/include/vtk-9.2/vtkGenericDataArrayLookupHelper.h \
- /usr/include/c++/11/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
- /usr/include/c++/11/tr1/gamma.tcc \
- /usr/include/c++/11/tr1/special_function_util.h \
- /usr/include/c++/11/tr1/bessel_function.tcc \
- /usr/include/c++/11/tr1/beta_function.tcc \
- /usr/include/c++/11/tr1/ell_integral.tcc \
- /usr/include/c++/11/tr1/exp_integral.tcc \
- /usr/include/c++/11/tr1/hypergeometric.tcc \
- /usr/include/c++/11/tr1/legendre_function.tcc \
- /usr/include/c++/11/tr1/modified_bessel_func.tcc \
- /usr/include/c++/11/tr1/poly_hermite.tcc \
- /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /usr/local/include/vtk-9.2/vtkSmartPointer.h \
  /usr/local/include/vtk-9.2/vtkSmartPointerBase.h \
- /usr/local/include/vtk-9.2/vtkTypeTraits.h /usr/include/c++/11/cassert \
- /usr/include/assert.h /usr/local/include/vtk-9.2/vtkGenericDataArray.txx \
- /usr/local/include/vtk-9.2/vtkMath.h \
- /usr/local/include/vtk-9.2/vtkMathPrivate.hxx \
- /usr/local/include/vtk-9.2/vtkMatrixUtilities.h \
- /usr/local/include/vtk-9.2/vtkMathConfigure.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
- /usr/local/include/vtk-9.2/vtkVariantCast.h \
- /usr/local/include/vtk-9.2/vtkUnsignedCharArray.h \
- /usr/local/include/vtk-9.2/vtkEmptyCell.h \
- /usr/local/include/vtk-9.2/vtkCell.h \
- /usr/local/include/vtk-9.2/vtkBoundingBox.h \
- /usr/local/include/vtk-9.2/vtkGenericCell.h \
- /usr/local/include/vtk-9.2/vtkPoints.h \
- /usr/local/include/vtk-9.2/vtkCellArray.h \
- /usr/local/include/vtk-9.2/vtkDataArrayRange.h \
- /usr/local/include/vtk-9.2/vtkDataArrayMeta.h \
- /usr/local/include/vtk-9.2/vtkAssume.h \
- /usr/local/include/vtk-9.2/vtkDebugRangeIterators.h \
- /usr/local/include/vtk-9.2/vtkDataArrayTupleRange_AOS.h \
- /usr/local/include/vtk-9.2/vtkDataArrayTupleRange_Generic.h \
- /usr/local/include/vtk-9.2/vtkDataArrayAccessor.h \
- /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
- /usr/local/include/vtk-9.2/vtkDataArrayValueRange_AOS.h \
- /usr/local/include/vtk-9.2/vtkDataArrayValueRange_Generic.h \
- /usr/local/include/vtk-9.2/vtkTypeInt32Array.h \
- /usr/local/include/vtk-9.2/vtkIntArray.h \
- /usr/local/include/vtk-9.2/vtkTypeInt64Array.h \
- /usr/local/include/vtk-9.2/vtkLongLongArray.h \
- /usr/local/include/vtk-9.2/vtkTypeList.h \
- /usr/local/include/vtk-9.2/vtkTypeListMacros.h \
- /usr/local/include/vtk-9.2/vtkTypeList.txx \
- /usr/local/include/vtk-9.2/vtkCellLinks.h \
- /usr/local/include/vtk-9.2/vtkAbstractCellLinks.h \
- /usr/local/include/vtk-9.2/vtkPolyDataInternals.h \
- /usr/local/include/vtk-9.2/vtkFreeTypeTools.h \
- /usr/local/include/vtk-9.2/vtkRenderingFreeTypeModule.h \
- /usr/local/include/vtk-9.2/vtkTextRenderer.h \
- /usr/local/include/vtk-9.2/vtkTuple.h \
- /usr/local/include/vtk-9.2/vtkVector.h \
- /usr/local/include/vtk-9.2/vtk_freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/ft2build.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/vtk_freetype_mangle.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftheader.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftconfig.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftoption.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/ftstdlib.h \
- /usr/include/setjmp.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/integer-types.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/public-macros.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/config/mac-support.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fttypes.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftsystem.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftimage.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrors.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftmoderr.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/fterrdef.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/freetype.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftcache.h \
- /usr/local/include/vtk-9.2/vtkfreetype/include/freetype/ftglyph.h \
- /usr/local/include/vtk-9.2/vtkImageActor.h \
- /usr/local/include/vtk-9.2/vtkImageSlice.h \
- /usr/local/include/vtk-9.2/vtkImageBlend.h \
- /usr/local/include/vtk-9.2/vtkImagingCoreModule.h \
- /usr/local/include/vtk-9.2/vtkThreadedImageAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkImageAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkThreads.h \
- /usr/local/include/vtk-9.2/vtkImageCanvasSource2D.h \
- /usr/local/include/vtk-9.2/vtkImagingSourcesModule.h \
- /usr/local/include/vtk-9.2/vtkImageData.h \
- /usr/local/include/vtk-9.2/vtkStructuredData.h \
- /usr/local/include/vtk-9.2/vtkImageMapper3D.h \
- /usr/local/include/vtk-9.2/vtkAbstractMapper3D.h \
- /usr/local/include/vtk-9.2/vtkAbstractMapper.h \
- /usr/local/include/vtk-9.2/vtkImageReader.h \
- /usr/local/include/vtk-9.2/vtkIOImageModule.h \
- /usr/local/include/vtk-9.2/vtkImageReader2.h \
- /usr/local/include/vtk-9.2/vtkImageReader2Factory.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyleImage.h \
- /usr/local/include/vtk-9.2/vtkInteractionStyleModule.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyleTrackballCamera.h \
- /usr/local/include/vtk-9.2/vtkInteractorStyle.h \
- /usr/local/include/vtk-9.2/vtkInteractorObserver.h \
- /usr/local/include/vtk-9.2/vtkJPEGReader.h \
- /usr/local/include/vtk-9.2/vtkNamedColors.h \
- /usr/local/include/vtk-9.2/vtkColor.h \
- /usr/local/include/vtk-9.2/vtkCommonColorModule.h \
- /usr/local/include/vtk-9.2/vtkStringArray.h \
- /usr/local/include/vtk-9.2/vtkNew.h \
- /usr/local/include/vtk-9.2/vtkPolyDataMapper.h \
- /usr/local/include/vtk-9.2/vtkMapper.h \
- /usr/local/include/vtk-9.2/vtkPointData.h \
- /usr/local/include/vtk-9.2/vtkDataSetAttributes.h \
- /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
- /usr/include/c++/11/memory \
+ /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
  /usr/include/c++/11/bits/shared_ptr.h \
  /usr/include/c++/11/bits/shared_ptr_base.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/ext/concurrence.h \
+ /usr/include/c++/11/bits/refwrap.h /usr/include/c++/11/ext/concurrence.h \
  /usr/include/c++/11/bits/shared_ptr_atomic.h \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/local/include/vtk-9.2/vtkFieldData.h \
- /usr/local/include/vtk-9.2/vtkProperty.h \
- /usr/local/include/vtk-9.2/vtkRenderWindow.h \
- /usr/local/include/vtk-9.2/vtkEventData.h \
- /usr/local/include/vtk-9.2/vtkCommand.h \
- /usr/local/include/vtk-9.2/vtkWindow.h \
- /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
- /usr/local/include/vtk-9.2/vtkRenderer.h \
- /usr/local/include/vtk-9.2/vtkViewport.h \
- /usr/local/include/vtk-9.2/vtkSelection.h \
+ /usr/include/c++/11/pstl/execution_defs.h \
  /usr/local/include/vtk-9.2/vtkActorCollection.h \
  /usr/local/include/vtk-9.2/vtkActor.h \
  /usr/local/include/vtk-9.2/vtkPropCollection.h \
  /usr/local/include/vtk-9.2/vtkCollection.h \
  /usr/local/include/vtk-9.2/vtkVolumeCollection.h \
  /usr/local/include/vtk-9.2/vtkVolume.h \
- /usr/local/include/vtk-9.2/vtkSmartPointer.h \
- /usr/local/include/vtk-9.2/vtkStdString.h \
+ /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
+ /usr/local/include/vtk-9.2/vtkCommand.h \
  /usr/local/include/vtk-9.2/vtkTextActor.h \
  /usr/local/include/vtk-9.2/vtkTexturedActor2D.h \
  /usr/local/include/vtk-9.2/vtkActor2D.h \
  /usr/local/include/vtk-9.2/vtkCoordinate.h \
- /usr/local/include/vtk-9.2/vtkTexture.h \
- /usr/local/include/vtk-9.2/vtkTextProperty.h \
- /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
- /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
- /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
- /usr/local/include/vtk-9.2/vtkVectorText.h \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationPlateau.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationTexte.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/mecaniqueJeu.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/observateur.hpp

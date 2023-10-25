@@ -201,6 +201,30 @@ mecaniqueJeu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.s
 .PHONY : mecaniqueJeu.cpp.s
 
+observateur.o: observateur.cpp.o
+.PHONY : observateur.o
+
+# target to build an object file
+observateur.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.o
+.PHONY : observateur.cpp.o
+
+observateur.i: observateur.cpp.i
+.PHONY : observateur.i
+
+# target to preprocess a source file
+observateur.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.i
+.PHONY : observateur.cpp.i
+
+observateur.s: observateur.cpp.s
+.PHONY : observateur.s
+
+# target to generate assembly for a file
+observateur.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.s
+.PHONY : observateur.cpp.s
+
 taquin.o: taquin.cpp.o
 .PHONY : taquin.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... mecaniqueJeu.o"
 	@echo "... mecaniqueJeu.i"
 	@echo "... mecaniqueJeu.s"
+	@echo "... observateur.o"
+	@echo "... observateur.i"
+	@echo "... observateur.s"
 	@echo "... taquin.o"
 	@echo "... taquin.i"
 	@echo "... taquin.s"

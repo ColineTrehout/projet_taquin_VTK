@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/taquin.dir/creationTexte.cpp.o.d"
   "CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o"
   "CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o.d"
+  "CMakeFiles/taquin.dir/observateur.cpp.o"
+  "CMakeFiles/taquin.dir/observateur.cpp.o.d"
   "CMakeFiles/taquin.dir/taquin.cpp.o"
   "CMakeFiles/taquin.dir/taquin.cpp.o.d"
   "taquin"

@@ -18,6 +18,7 @@ target_sources(${PROJECT_NAME} PRIVATE
   creationTexte.cpp
   creationPlateau.cpp
   mecaniqueJeu.cpp
+  observateur.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
