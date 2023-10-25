@@ -5,26 +5,6 @@
 #include "mecaniqueJeu.hpp"
 
 
-/*
-// initialise la grille de jeu à l'état final (nombre rangés dans l'ordre croissant
-// avec la dernière case vide (0))
-void initialiseGrille(std::vector<std::vector<int>> grille, int n)
-{
-    int i,j,k=1;
-    std::cout << "Init\n";
-
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            grille[i][j]=k; 
-            k++;
-        }
-    }
-    grille[n-1][n-1]=0; //dernière case vide
-}*/
-
-
 
 // affiche la grille de jeu de taille n*n
 void afficheGrille(const std::vector<std::vector<int>>& grille, int tailleGrille)
@@ -41,6 +21,7 @@ void afficheGrille(const std::vector<std::vector<int>>& grille, int tailleGrille
 	}
 	printf("\n");
 }
+
 
 
 // mélange la grille à partir de la configuration finale
@@ -96,6 +77,7 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
         i++;
 	}
 }
+
 
 
 // déplace une pièce selon la direction choisie

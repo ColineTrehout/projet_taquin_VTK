@@ -8,7 +8,7 @@
 #include "creationPlateau.hpp"
 
 
-// creation des bords du plateau de jeu
+// Création des bords du plateau de jeu
 vtkSmartPointer<vtkActor> creationBords(float xLenght,
                                                 float yLenght,
                                                 float zLength,

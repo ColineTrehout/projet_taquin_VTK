@@ -22,8 +22,8 @@
 
 #include <iostream>
 
-
 #include "creationTexte.hpp"
+
 
 
 // création du texte pour l'affichage des commandes clavier du jeu

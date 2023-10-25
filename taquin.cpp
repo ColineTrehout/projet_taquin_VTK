@@ -45,22 +45,6 @@ public:
 		return new Observer;
 	}
 	void Execute(vtkObject*, unsigned long, void*);
-	void SetPiece0(vtkActor* piece) { _piece0 = piece; }
-	void SetPiece1(vtkActor* piece) { _piece1 = piece; }
-	void SetPiece2(vtkActor* piece) { _piece2 = piece; }
-	void SetPiece3(vtkActor* piece) { _piece3 = piece; }
-	void SetPiece4(vtkActor* piece) { _piece4 = piece; }
-	void SetPiece5(vtkActor* piece) { _piece5 = piece; }
-	void SetPiece6(vtkActor* piece) { _piece6 = piece; }
-	void SetPiece7(vtkActor* piece) { _piece7 = piece; }
-	void SetPiece8(vtkActor* piece) { _piece8 = piece; }
-	void SetPiece9(vtkActor* piece) { _piece9 = piece; }
-	void SetPiece10(vtkActor* piece) { _piece10 = piece; }
-	void SetPiece11(vtkActor* piece) { _piece11 = piece; }
-	void SetPiece12(vtkActor* piece) { _piece12 = piece; }
-	void SetPiece13(vtkActor* piece) { _piece13 = piece; }
-	void SetPiece14(vtkActor* piece) { _piece14 = piece; }
-	void SetPiece15(vtkActor* piece) { _piece15 = piece; }
 
 	int nombreDeplacements() { return _compteurDeplacements;}
 
@@ -79,25 +63,7 @@ public:
     void SetPlateau(std::vector<std::vector<vtkSmartPointer<vtkActor>>>  plateau) {_plateau = plateau;}
 
 
-
-
 private:
-	vtkActor* _piece0;
-	vtkActor* _piece1;
-	vtkActor* _piece2;
-	vtkActor* _piece3;
-	vtkActor* _piece4;
-	vtkActor* _piece5;
-	vtkActor* _piece6;
-	vtkActor* _piece7;
-	vtkActor* _piece8;
-	vtkActor* _piece9;
-	vtkActor* _piece10;
-	vtkActor* _piece11;
-	vtkActor* _piece12;
-	vtkActor* _piece13;
-	vtkActor* _piece14;
-	vtkActor* _piece15;
 
     const int _tailleGrille = 4;
 
@@ -356,46 +322,6 @@ int main(int, char *[])
     renderWindowInteractor->SetRenderWindow(renderWindow);
 
 
-
-
-
-    //std::cout << "Coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-
-    //std::cout << "Victoire ? " << verifVictoire(grille, tailleGrille) << "\n";
-
-
-    // TESTS DÉPLACEMENTS
-
-    /*
-    direction = 0;
-    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
-
-    afficheGrille(grille, tailleGrille);
-
-    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-
-    direction = 2;
-    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
-
-    afficheGrille(grille, tailleGrille);
-
-    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-
-    direction = 3;
-    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
-
-    afficheGrille(grille, tailleGrille);
-
-    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-
-    direction = 0;
-    deplacePiece(grille, tailleGrille, xVide, yVide, direction);
-
-    afficheGrille(grille, tailleGrille);
-
-    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-    */
-
     // CRÉATION DES PIÈCES 3D
 
     int compteurPiece = 0;
@@ -530,8 +456,6 @@ int main(int, char *[])
     renderer->AddActor(textActor);
 
 
-
-
     // Définissez la couleur de l'arrière plan
     renderer->SetBackground(0.3, 0.3, 0.5); 
 
@@ -540,16 +464,6 @@ int main(int, char *[])
 
     renderWindow->AddRenderer(renderer);
 
-    // Commencez la boucle de rendu
-    //renderWindow->Render();
-    //renderWindowInteractor->Start();
-
-
-    //sleep(0.25);
-
-    //swap two pieces
-    //pieces[0][0]->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
-    //pieces[0][0]->SetPosition(0,0,0);
 
 	// Création de l'intéracteur
 	vtkNew<vtkRenderWindowInteractor> interactor;
@@ -564,12 +478,6 @@ int main(int, char *[])
 	// Création de l'observateur
 	vtkNew<Observer> observer;
     
-    //définition des cases pour l'intéraction des pièces sur la grille
-
-    //première case (en haut à gauche)
-	//observer->SetPiece0(pieces[3][0]);
-	//observer->SetPiece1(pieces[2][0]);
-	//observer->SetPiece12(pieces[2][3]);
 
     observer->SetRenderer(renderer);
     observer->SetCommandesTexte( textActor);
@@ -584,8 +492,6 @@ int main(int, char *[])
     observer->SetLigneCaseVide3D(xVide3D);
     observer->SetColonneCaseVide3D(yVide3D);
 
-    
-
     observer->SetPlateau(pieces);
 
 
@@ -594,20 +500,9 @@ int main(int, char *[])
 
 	interactor->Initialize();
 
-    
-    //int c = 0;
-    //c = observer->nombreDeplacements();
-    //std::cout << c << "\n";
 
 	interactor->Start();
 
-
-    //sleep(3);
-    //renderer->RemoveActor(textActor);
-    
-
-
-    //affiche();
 
     return EXIT_SUCCESS;
 }
