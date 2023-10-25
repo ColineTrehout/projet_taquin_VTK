@@ -32,11 +32,11 @@ vtkNew<vtkTextActor> texteCommandes()
     vtkNew<vtkTextActor> textActor;
 
     textActor->SetInput("Commandes du jeu de taquin : \n\n" 
-                        "z pour déplacer une pièce vers le haut\n"
-                        "s pour déplacer une pièce vers le bas\n"
-                        "q pour déplacer une pièce vers la gauche\n"
-                        "d pour déplacer une pièce vers la droite\n"
-                        "e pour quitter le jeu\n"
+                        "e pour déplacer une pièce vers le haut\n"
+                        "d pour déplacer une pièce vers le bas\n"
+                        "s pour déplacer une pièce vers la gauche\n"
+                        "f pour déplacer une pièce vers la droite\n"
+                        "q pour quitter le jeu\n"
                         "r pour rejouer une partie\n");
 
     auto prop = textActor->GetTextProperty();

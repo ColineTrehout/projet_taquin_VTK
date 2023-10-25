@@ -70,6 +70,15 @@ public:
 
     void SetGrilleJeu(std::vector<std::vector<int>> grille) {_grille = grille;}
 
+    void SetLigneCaseVide2D(int& xVide) {_xVide2D = xVide;}
+    void SetColonneCaseVide2D(int& yVide) {_yVide2D = yVide;}
+
+    void SetLigneCaseVide3D(int& xVide) {_xVide3D = xVide;}
+    void SetColonneCaseVide3D(int& yVide) {_yVide3D = yVide;}
+
+    void SetPlateau(std::vector<std::vector<vtkSmartPointer<vtkActor>>>  plateau) {_plateau = plateau;}
+
+
 
 
 private:
@@ -90,8 +99,16 @@ private:
 	vtkActor* _piece14;
 	vtkActor* _piece15;
 
-    int _xVide = 0; //ligne de la case vide
-    int _yVide = 3; //colonne de la case vide
+    const int _tailleGrille = 4;
+
+    std::vector<std::vector<vtkSmartPointer<vtkActor>>> _plateau;
+
+    int _xVide2D{}; //ligne de la case vide de la grille 2D
+    int _yVide2D{}; //colonne de la case vide de la grille 2D
+
+    int _xVide3D{}; //ligne de la case vide de la grille 3D
+    int _yVide3D{}; //colonne de la case vide de la grille 3D
+
     int _compteurDeplacements = 0; //nombre de déplacements effectués
     vtkSmartPointer<vtkRenderer> _renderer;
     vtkSmartPointer<vtkTextActor> _texteCommandes;
@@ -105,44 +122,148 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 {
 	auto* interactor{ vtkRenderWindowInteractor::SafeDownCast(caller) };
 
+    afficheGrille(_grille, _tailleGrille);
 
-    
-	if (interactor->GetKeyCode() == 'd')
-	{
-		std::cout << "d is pressed\n";
+    if (!(verifVictoire(_grille, _tailleGrille)))
+    {
 
-		//auto res{_coneSource->GetResolution()};
-
-        //_piece0->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
-        //_piece1->GetProperty()->SetColor(0, 1, 0); // Couleur (vert)
-        if (_compteurDeplacements%2 == 0)
+        // Déplacement d'une pièce vers la droite
+        if (interactor->GetKeyCode() == 'd' && _yVide3D > 0)
         {
-            _piece0->SetPosition(_yVide-1,_xVide,0);
-            _piece1->SetPosition(_yVide,_xVide,0);
-            _yVide += -1;
+            std::cout << "d is pressed\n";
 
-            //verifVictoire
-            //réinitialise la grille
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+            // Déplacement des pièces
+            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D-1, _xVide3D, 0);
+            _plateau[_yVide3D-1][_xVide3D]->SetPosition(_yVide3D, _xVide3D, 0);
+
+            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
+            cubeActor = _plateau[_yVide3D][_xVide3D];
+            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D-1][_xVide3D];
+            _plateau[_yVide3D-1][_xVide3D] = cubeActor;
+
+            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 2);
+
+            _yVide3D = _yVide3D - 1;
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            _compteurDeplacements++;
 
 
         }
-        else
+        
+        // Déplacement d'une pièce vers la gauche
+        if (interactor->GetKeyCode() == 'q' && _yVide3D < 3)
         {
-            _piece0->SetPosition(_yVide+1,_xVide,0);
-            _piece1->SetPosition(_yVide,_xVide,0);
-            _yVide += 1;
-            _renderer->RemoveActor(_texteCommandes);
+            std::cout << "q is pressed\n";
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+            // Déplacement des pièces
+            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D+1, _xVide3D, 0);
+            _plateau[_yVide3D+1][_xVide3D]->SetPosition(_yVide3D, _xVide3D, 0);
+
+            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
+            cubeActor = _plateau[_yVide3D][_xVide3D];
+            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D+1][_xVide3D];
+            _plateau[_yVide3D+1][_xVide3D] = cubeActor;
+
+            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 3);
+
+            _yVide3D = _yVide3D + 1;
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            _compteurDeplacements++;
+
 
         }
 
-        _compteurDeplacements++;
+        // Déplacement d'une pièce vers le haut
+        if (interactor->GetKeyCode() == 'z' && _xVide3D > 0)
+        {
+            std::cout << "z is pressed\n";
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+            // Déplacement des pièces
+            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D, _xVide3D-1, 0);
+            _plateau[_yVide3D][_xVide3D-1]->SetPosition(_yVide3D, _xVide3D, 0);
+
+            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
+            cubeActor = _plateau[_yVide3D][_xVide3D];
+            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D][_xVide3D-1];
+            _plateau[_yVide3D][_xVide3D-1] = cubeActor;
+
+            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
+
+            _xVide3D = _xVide3D - 1;
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            _compteurDeplacements++;
+
+
+        }
+
+        // Déplacement d'une pièce vers le bas
+        if (interactor->GetKeyCode() == 's' && _xVide3D < 3)
+        {
+            std::cout << "s is pressed\n";
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+            // Déplacement des pièces
+            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D, _xVide3D+1, 0);
+            _plateau[_yVide3D][_xVide3D+1]->SetPosition(_yVide3D, _xVide3D, 0);
+
+            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
+            cubeActor = _plateau[_yVide3D][_xVide3D];
+            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D][_xVide3D+1];
+            _plateau[_yVide3D][_xVide3D+1] = cubeActor;
+
+            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
+
+            _xVide3D = _xVide3D + 1;
+
+            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
+            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
+
+            _compteurDeplacements++;
+
+
+        }
+    }
+    else
+    {
         vtkNew<vtkTextActor> textFinJeu;
 
         textFinJeu = texteVictoire();
         _renderer->AddActor(textFinJeu);
+    }
 
-	}
-
+    // Presser la touche e quitte automatiquement le jeu
     if (interactor->GetKeyCode() == 'e')
 	{
 		std::cout << "\nFin du jeu\n";
@@ -150,11 +271,9 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         exit(0);
 	}
 
-    //verif victoire
-    std::cout << "coordonnées de la case vide : " <<_xVide << " " << _yVide << "\n";
+
 	interactor->Render();
 }
-
 
 
 
@@ -177,7 +296,8 @@ int main(int, char *[])
     vtkNew<vtkNamedColors> colors;
 
     // Création de la grille dans laquelle on va mettre les pieces du jeu
-    vtkSmartPointer<vtkActor> pieces[tailleGrille][tailleGrille];
+    std::vector<std::vector <vtkSmartPointer<vtkActor>> >  pieces (tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
+    //exemple(5, std::vector<int>(5));
 
     // Création du tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide)
 
@@ -193,8 +313,12 @@ int main(int, char *[])
     std::cout << verifVictoire(grille, tailleGrille) << "\n";
 
     // Coordonnées de la case vide
-    int xVide = 3;
-    int yVide = 3;
+    int xVide2D = 3;
+    int yVide2D = 3;
+
+    int xVide3D = 0;
+    int yVide3D = 3;
+
     int nbMelanges = 20;
     int direction{};
 
@@ -215,14 +339,16 @@ int main(int, char *[])
 
     // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
     // pièces à partir de la configuration initiale pour être sûr que 
-    // la grille soit solvable
-    melangeGrille(grille, tailleGrille, xVide, yVide, nbMelanges);
+    // le puzzle soit solvable
+    melangeGrille(grille, tailleGrille, xVide2D, yVide2D, nbMelanges);
 
     afficheGrille(grille, tailleGrille);
+    std::cout << "coordonnées de la case vide 2D : " << xVide2D << " " << yVide2D << "\n";
 
-    std::cout << "Coordonnées case vide : " << xVide << " " << yVide << "\n"; 
 
-    std::cout << "Victoire ? " << verifVictoire(grille, tailleGrille) << "\n";
+    //std::cout << "Coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+
+    //std::cout << "Victoire ? " << verifVictoire(grille, tailleGrille) << "\n";
 
 
     // TESTS DÉPLACEMENTS
@@ -262,7 +388,20 @@ int main(int, char *[])
     int compteurPiece = 0;
     int numeroPiece = 0;
 
-    // L'origine du repère se trouve en bas à gauche
+
+    std::vector<std::vector <int> >  exemple(5, std::vector<int>(5));
+
+    for (int i = 0; i < 5; i++)
+    {
+        for(int j=0; j < 5; j++)
+        {
+            exemple[i][j] = i+j;
+        }
+
+    }
+
+
+    // L'origine du repère 3D se trouve en bas à gauche et les lignes et colonnes sont inversées
     for (int j = tailleGrille-1; j >= 0; j--) 
     {
         for (int i = 0; i < tailleGrille; i++) 
@@ -285,6 +424,12 @@ int main(int, char *[])
 
                 //déplacement du centre du cube
                 cubeSource -> SetCenter(0,0,-0.15); 
+
+                //xVide2D = -(j-tailleGrille-1);
+                //yVide2D = i;
+
+                xVide3D = j;
+                yVide3D = i;
             }
 
             cubeSource->Update(); // Met à jour la source du cube
@@ -293,7 +438,9 @@ int main(int, char *[])
             mapper->SetInputData(cubeSource->GetOutput());
 
 
-            pieces[i][j] = vtkSmartPointer<vtkActor>::New();
+            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+            pieces[i][j] = cubeActor;
             pieces[i][j]->SetMapper(mapper);
             //pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur 
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
@@ -330,6 +477,7 @@ int main(int, char *[])
 
         }
     }
+
     
 
     // Création et personnalisation du texte pour l'affichage des commandes du jeu
@@ -403,7 +551,11 @@ int main(int, char *[])
 
 	// Création de l'intéracteur
 	vtkNew<vtkRenderWindowInteractor> interactor;
-	interactor->SetRenderWindow(renderWindow);
+
+    // Supprime les intéractions par défaut
+    interactor->SetInteractorStyle(nullptr);
+	
+    interactor->SetRenderWindow(renderWindow);
 
 
 
@@ -413,14 +565,27 @@ int main(int, char *[])
     //définition des cases pour l'intéraction des pièces sur la grille
 
     //première case (en haut à gauche)
-	observer->SetPiece0(pieces[3][0]);
-	observer->SetPiece1(pieces[2][0]);
+	//observer->SetPiece0(pieces[3][0]);
+	//observer->SetPiece1(pieces[2][0]);
 	//observer->SetPiece12(pieces[2][3]);
 
     observer->SetRenderer(renderer);
     observer->SetCommandesTexte( textActor);
 
     observer->SetGrilleJeu(grille);
+
+    //initialisation des coordonnées de la case vide de la grille 2D
+    observer->SetLigneCaseVide2D(xVide2D);
+    observer->SetColonneCaseVide2D(yVide2D);
+
+    // Initialisation des coordonnées de la case vide de la grille 3D
+    observer->SetLigneCaseVide3D(xVide3D);
+    observer->SetColonneCaseVide3D(yVide3D);
+
+    
+
+    observer->SetPlateau(pieces);
+
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 
