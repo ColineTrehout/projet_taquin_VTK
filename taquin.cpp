@@ -66,7 +66,9 @@ public:
 
 	void SetRenderer(vtkRenderer* renderer) { _renderer = renderer; }
 
-    void SetTextCommandes(vtkTextActor* textCommandes) {_texteCommandes = textCommandes;}
+    void SetCommandesTexte(vtkTextActor* textCommandes) {_texteCommandes = textCommandes;}
+
+    void SetGrilleJeu(std::vector<std::vector<int>> grille) {_grille = grille;}
 
 
 
@@ -90,9 +92,10 @@ private:
 
     int _xVide = 0; //ligne de la case vide
     int _yVide = 3; //colonne de la case vide
-    int _compteurDeplacements = 0; //nombres de déplacements effectués
+    int _compteurDeplacements = 0; //nombre de déplacements effectués
     vtkSmartPointer<vtkRenderer> _renderer;
     vtkSmartPointer<vtkTextActor> _texteCommandes;
+    std::vector<std::vector<int>> _grille; // grille de jeu (2D)
 
 
 };
@@ -142,7 +145,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
     if (interactor->GetKeyCode() == 'e')
 	{
-		std::cout << "Fin du jeu\n";
+		std::cout << "\nFin du jeu\n";
 
         exit(0);
 	}
@@ -167,7 +170,7 @@ int main(int, char *[])
     // Définition taille de la grille (4x4 pour le jeu de taquin classique)
     const int tailleGrille = 4; 
 
-    // épaisseur de la grille
+    // Épaisseur du plateau de jeu
     const float epaisseurPlateau = 0.4;
 
     // Couleurs
@@ -189,14 +192,14 @@ int main(int, char *[])
     //afficheGrille(grille, tailleGrille);
     std::cout << verifVictoire(grille, tailleGrille) << "\n";
 
-    // coordonnées de la case vide
+    // Coordonnées de la case vide
     int xVide = 3;
     int yVide = 3;
     int nbMelanges = 20;
     int direction{};
 
 
-    // Create a VTK render window and renderer
+    // Creation du moteur de rendu et de la fenêtre de rendu
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
     renderWindow->SetSize(1920,1080);
@@ -212,16 +215,19 @@ int main(int, char *[])
 
     // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
     // pièces à partir de la configuration initiale pour être sûr que 
-    // le jeu soit solvable
-    //melangeGrille(grille, tailleGrille, xVide, yVide, nbMelanges);
+    // la grille soit solvable
+    melangeGrille(grille, tailleGrille, xVide, yVide, nbMelanges);
 
     afficheGrille(grille, tailleGrille);
 
-    std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
+    std::cout << "Coordonnées case vide : " << xVide << " " << yVide << "\n"; 
 
-    std::cout << verifVictoire(grille, tailleGrille) << "\n";
+    std::cout << "Victoire ? " << verifVictoire(grille, tailleGrille) << "\n";
+
 
     // TESTS DÉPLACEMENTS
+
+    /*
     direction = 0;
     deplacePiece(grille, tailleGrille, xVide, yVide, direction);
 
@@ -249,26 +255,31 @@ int main(int, char *[])
     afficheGrille(grille, tailleGrille);
 
     std::cout << "coordonnées case vide : " << xVide << " " << yVide << "\n"; 
-
+    */
 
     // CRÉATION DES PIÈCES 3D
 
-    int compteur = 0;
+    int compteurPiece = 0;
+    int numeroPiece = 0;
 
     // L'origine du repère se trouve en bas à gauche
-    for (int j = 3; j >= 0; j--) 
+    for (int j = tailleGrille-1; j >= 0; j--) 
     {
         for (int i = 0; i < tailleGrille; i++) 
         {
 
-            // Création d'un cube par cases
+            // Création d'un cube par case
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
 
             cubeSource -> SetZLength(epaisseurPlateau);
             //std::cout << cubeSource-> GetXLength() << '\n';
 
-            // Le dernier cube a une épaisseur plus faible pour simuler la case vide
-            if (i == 3 && j == 0)
+            // Numéro de la grille pour chaque pièce
+            numeroPiece = grille[-(j-3)][i];
+
+
+            // Épaisseur plus faible pour simuler la case vide
+            if (numeroPiece == 0)
             {
                 cubeSource -> SetZLength(0.1);
 
@@ -288,11 +299,12 @@ int main(int, char *[])
             pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
 
 
-            // Read texture file
+            // Texture créée à partir d'une image
             vtkNew<vtkImageReader2Factory> readerFactory;
             vtkSmartPointer<vtkImageReader2> imageReader;
 
-            std::string s = "images/bois/" + std::to_string(compteur) + ".jpg";
+
+            std::string s = "images/bois2/" + std::to_string(numeroPiece) + ".jpg";
             const char * filename = s.c_str();
 
             imageReader.TakeReference(readerFactory->CreateImageReader2(filename));
@@ -301,39 +313,35 @@ int main(int, char *[])
             imageReader->SetFileName(filename);
 
 
-            // Create texture
+            // Création de la texture
             vtkNew<vtkTexture> texture;
             texture->SetInputConnection(imageReader->GetOutputPort());
 
-            // application de la texture sur la pièce
+            // La texture prends la forme du cube
             vtkNew<vtkTransformTextureCoords> transformTexture;
             transformTexture->SetInputConnection(cubeSource->GetOutputPort());
 
             mapper->SetInputConnection(transformTexture->GetOutputPort());
+            
+            // Application de la texture sur la pièce
             pieces[i][j]->SetTexture(texture);
 
-            compteur ++;
+            compteurPiece ++;
 
         }
     }
     
 
-
-    // CRÉATION PLATEAU DE JEU
-    
-
-
-    // Création et personnalisation de l'acteur texte pour l'affichage des commandes du jeu
+    // Création et personnalisation du texte pour l'affichage des commandes du jeu
     vtkNew<vtkTextActor> textActor;
 
     textActor = texteCommandes();
 
 
-    // ajoute le texte au rendu
-    renderer->AddActor(textActor);
+    // CRÉATION PLATEAU DE JEU
 
 
-    // création des bords du plateau de jeu
+    // Création des bords du plateau de jeu
     vtkSmartPointer<vtkActor> arriere = vtkSmartPointer<vtkActor>::New();
     arriere = creationBords(4, 4, 0.01, 0, 0, 0, 1.5, 1.5, -epaisseurPlateau/2);
 
@@ -350,20 +358,26 @@ int main(int, char *[])
     bas = creationBords(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, -0.5, 0);
 
 
-    // ajoute au rendu les éléments du plateau de jeu 
+
+
+    // RENDU
+
+    // Ajout des acteurs des pièces au rendu
+    for (int i = 0; i < tailleGrille; i++) {
+        for (int j = 0; j < tailleGrille; j++) {
+            renderer->AddActor(pieces[i][j]);
+        }
+    }
+
+    // Ajout au rendu des éléments du plateau de jeu 
     renderer->AddActor(arriere);
     renderer->AddActor(gauche);
     renderer->AddActor(droite);
     renderer->AddActor(haut);
     renderer->AddActor(bas);
 
-
-    // Ajoute les acteurs des pièces au rendu
-    for (int i = 0; i < tailleGrille; i++) {
-        for (int j = 0; j < tailleGrille; j++) {
-            renderer->AddActor(pieces[i][j]);
-        }
-    }
+    // Ajout du texte au rendu
+    renderer->AddActor(textActor);
 
 
 
@@ -371,8 +385,7 @@ int main(int, char *[])
     // Définissez la couleur de l'arrière plan
     renderer->SetBackground(0.3, 0.3, 0.5); 
 
-
-    // Définir le nom de la fenêtre de rendu
+    // Définition du nom de la fenêtre de rendu
     renderWindow->SetWindowName("Jeu de taquin");
 
     renderWindow->AddRenderer(renderer);
@@ -388,13 +401,13 @@ int main(int, char *[])
     //pieces[0][0]->GetProperty()->SetColor(1, 0, 0); // Couleur (rouge)
     //pieces[0][0]->SetPosition(0,0,0);
 
-	//create renderer window interactor
+	// Création de l'intéracteur
 	vtkNew<vtkRenderWindowInteractor> interactor;
 	interactor->SetRenderWindow(renderWindow);
 
 
 
-	//create an observer attached to window interactor
+	// Création de l'observateur
 	vtkNew<Observer> observer;
     
     //définition des cases pour l'intéraction des pièces sur la grille
@@ -404,8 +417,10 @@ int main(int, char *[])
 	observer->SetPiece1(pieces[2][0]);
 	//observer->SetPiece12(pieces[2][3]);
 
-    observer-> SetRenderer(renderer);
-    observer-> SetTextCommandes( textActor);
+    observer->SetRenderer(renderer);
+    observer->SetCommandesTexte( textActor);
+
+    observer->SetGrilleJeu(grille);
 
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 

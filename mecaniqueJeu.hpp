@@ -8,7 +8,7 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
                    int& yVide, 
                    const int& nbMelanges);
 
-bool deplacePiece(std::vector<std::vector<int>>& grille, 
+void deplacePiece(std::vector<std::vector<int>>& grille, 
                   const int& tailleGrille, 
                   int& xVide, 
                   int& yVide, 

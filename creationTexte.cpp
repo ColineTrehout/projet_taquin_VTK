@@ -54,6 +54,8 @@ vtkNew<vtkTextActor> texteCommandes()
     return textActor;
 }
 
+
+
 // texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
 vtkNew<vtkTextActor> texteVictoire()
 {

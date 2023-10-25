@@ -43,6 +43,7 @@ void afficheGrille(const std::vector<std::vector<int>>& grille, int tailleGrille
 }
 
 
+// mélange la grille à partir de la configuration finale
 void melangeGrille(std::vector<std::vector<int>>& grille, 
                    const int& tailleGrille, 
                    int& xVide, 
@@ -97,8 +98,8 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
 }
 
 
-
-bool deplacePiece(std::vector<std::vector<int>>& grille, 
+// déplace une pièce selon la direction choisie
+void deplacePiece(std::vector<std::vector<int>>& grille, 
                   const int& tailleGrille, 
                   int& xVide, 
                   int& yVide, 
