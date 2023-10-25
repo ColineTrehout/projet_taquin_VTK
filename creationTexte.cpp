@@ -49,7 +49,7 @@ vtkNew<vtkTextActor> texteCommandes()
     textActor->GetTextProperty()->SetFontSize(5);
     textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
 
-    textActor->SetPosition(30, 800);
+    textActor->SetPosition(30, 700);
 
     return textActor;
 }
@@ -57,11 +57,15 @@ vtkNew<vtkTextActor> texteCommandes()
 
 
 // texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
-vtkNew<vtkTextActor> texteVictoire()
+vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
 {
+    const std::string s = "Félicitations, vous avez résolu le puzzle en " 
+                    + std::to_string(compteurDeplacements) + 
+                    " coup(s) !\n";
+
     vtkNew<vtkTextActor> textActor;
 
-    textActor->SetInput("Félicitations, vous avez résolu le puzzle !\n");
+    textActor->SetInput(s.c_str());
 
     auto prop = textActor->GetTextProperty();
 
@@ -74,7 +78,7 @@ vtkNew<vtkTextActor> texteVictoire()
     textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
 
     // colonne ligne (origine en bas à gauche)
-    textActor->SetPosition(600, 900);
+    textActor->SetPosition(550, 900);
 
     return textActor;
 }

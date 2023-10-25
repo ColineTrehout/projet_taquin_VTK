@@ -109,7 +109,7 @@ private:
     int _xVide3D{}; //ligne de la case vide de la grille 3D
     int _yVide3D{}; //colonne de la case vide de la grille 3D
 
-    int _compteurDeplacements = 0; //nombre de déplacements effectués
+    int _compteurDeplacements{}; //nombre de déplacements effectués
     vtkSmartPointer<vtkRenderer> _renderer;
     vtkSmartPointer<vtkTextActor> _texteCommandes;
     std::vector<std::vector<int>> _grille; // grille de jeu (2D)
@@ -122,7 +122,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 {
 	auto* interactor{ vtkRenderWindowInteractor::SafeDownCast(caller) };
 
-    afficheGrille(_grille, _tailleGrille);
 
     // Déplacement des pièces uniquement possible si le jeu n'est pas déjà résolu
     if (!(verifVictoire(_grille, _tailleGrille)))
@@ -131,11 +130,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         // Déplacement d'une pièce vers la droite
         if (interactor->GetKeyCode() == 'd' && _yVide3D > 0)
         {
-            std::cout << "d is pressed\n";
-
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
             // Déplacement des pièces
@@ -152,22 +146,12 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
             _yVide3D = _yVide3D - 1;
 
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             _compteurDeplacements++;
-
-
         }
         
         // Déplacement d'une pièce vers la gauche
         if (interactor->GetKeyCode() == 'q' && _yVide3D < 3)
         {
-            std::cout << "q is pressed\n";
-
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
             // Déplacement des pièces
@@ -184,22 +168,12 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
             _yVide3D = _yVide3D + 1;
 
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             _compteurDeplacements++;
-
-
         }
 
         // Déplacement d'une pièce vers le haut
         if (interactor->GetKeyCode() == 'z' && _xVide3D > 0)
         {
-            std::cout << "z is pressed\n";
-
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
             // Déplacement des pièces
@@ -216,22 +190,12 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
             _xVide3D = _xVide3D - 1;
 
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             _compteurDeplacements++;
-
-
         }
 
         // Déplacement d'une pièce vers le bas
         if (interactor->GetKeyCode() == 's' && _xVide3D < 3)
         {
-            std::cout << "s is pressed\n";
-
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
             // Déplacement des pièces
@@ -248,11 +212,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
             _xVide3D = _xVide3D + 1;
 
-            std::cout << "coordonnées de la case vide 2D : " <<_xVide2D << " " << _yVide2D << "\n";
-            std::cout << "coordonnées de la case vide 3D : " <<_xVide3D << " " << _yVide3D << "\n";
-
             _compteurDeplacements++;
-
 
         }
 
@@ -260,8 +220,12 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         {
             vtkNew<vtkTextActor> textFinJeu;
 
-            textFinJeu = texteVictoire();
+            textFinJeu = texteVictoire(_compteurDeplacements);
             _renderer->AddActor(textFinJeu);
+
+            std::cout << "\nVous avez gagné ! Vous avez fini le jeu en " 
+                      << _compteurDeplacements 
+                      << " déplacement(s).\n";
         }
     }
 
@@ -269,7 +233,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
     {
         vtkNew<vtkTextActor> textFinJeu;
 
-        textFinJeu = texteVictoire();
+        textFinJeu = texteVictoire(_compteurDeplacements);
         _renderer->AddActor(textFinJeu);
     }
 
@@ -290,7 +254,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 int main(int, char *[])
 {
-    std::cout << "Bienvenue dans ce jeu de taquin\n";
+    std::cout << "Bienvenue dans ce jeu de taquin.\n\n";
 
 
     // DÉCLARATIONS
@@ -319,18 +283,66 @@ int main(int, char *[])
         {13, 14, 15, 0} 
     };
 
-    //afficheGrille(grille, tailleGrille);
-    std::cout << verifVictoire(grille, tailleGrille) << "\n";
 
-    // Coordonnées de la case vide
+    // Coordonnées de la case vide pour la grille 2D (origine en haut à gauche)
     int xVide2D = 3;
     int yVide2D = 3;
 
+    // Coordonnées de la case vide pour le jeu 3D (origine en bas à gauche)
     int xVide3D = 0;
     int yVide3D = 3;
 
-    int nbMelanges = 20;
+    int niveau{};
+    int nbMelanges{};
     int direction{};
+
+    // Saisie du niveau de difficulté par le joueur (influence le nombre de
+    // déplacements à réaliser pour finir le puzzle)
+    std::cout << "Veuillez saisir le niveau de difficulté souhaité :\n"
+                 "0 : niveau facile\n"
+                 "1 : niveau moyen\n"
+                 "2 : niveau difficile\n";
+
+    std::cin >> niveau;
+
+    // check that only one letter was provided and it belongs to the valid options
+    while (std::cin.fail() || (niveau != 0 && niveau != 1 && niveau != 2))
+    {
+        // Nettoyage du buffer d'entrée
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+
+        std::cout << "Saisie invalide, veuillez entrer 0, 1 ou 2\n";
+        std::cin >> niveau;
+    }
+
+    if (niveau == 0)
+    {
+        std::cout << "Vous avez choisi le niveau facile.\n";
+        nbMelanges = tailleGrille*tailleGrille;
+    }
+    else if(niveau == 1)
+    {
+        std::cout << "Vous avez choisi le niveau moyen.\n";
+        nbMelanges = 10*tailleGrille*tailleGrille;
+    }
+    else
+    {
+        std::cout << "Vous avez choisi le niveau difficile.\n";
+        nbMelanges = 100*tailleGrille*tailleGrille;
+    }
+
+
+
+    // MÉLANGE DE LA GRILLE (position initiale du jeu)
+
+    // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
+    // pièces à partir de la configuration initiale pour être sûr que 
+    // le puzzle soit solvable
+    melangeGrille(grille, tailleGrille, xVide2D, yVide2D, nbMelanges);
+
+    //afficheGrille(grille, tailleGrille);
 
 
     // Creation du moteur de rendu et de la fenêtre de rendu
@@ -345,15 +357,6 @@ int main(int, char *[])
 
 
 
-    // MÉLANGE DE LA GRILLE (position initiale du jeu)
-
-    // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
-    // pièces à partir de la configuration initiale pour être sûr que 
-    // le puzzle soit solvable
-    melangeGrille(grille, tailleGrille, xVide2D, yVide2D, nbMelanges);
-
-    afficheGrille(grille, tailleGrille);
-    std::cout << "coordonnées de la case vide 2D : " << xVide2D << " " << yVide2D << "\n";
 
 
     //std::cout << "Coordonnées case vide : " << xVide << " " << yVide << "\n"; 
