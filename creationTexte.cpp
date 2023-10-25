@@ -32,11 +32,11 @@ vtkNew<vtkTextActor> texteCommandes()
     vtkNew<vtkTextActor> textActor;
 
     textActor->SetInput("Commandes du jeu de taquin : \n\n" 
-                        "e pour déplacer une pièce vers le haut\n"
-                        "d pour déplacer une pièce vers le bas\n"
-                        "s pour déplacer une pièce vers la gauche\n"
-                        "f pour déplacer une pièce vers la droite\n"
-                        "q pour quitter le jeu\n"
+                        "z pour déplacer une pièce vers le haut\n"
+                        "s pour déplacer une pièce vers le bas\n"
+                        "q pour déplacer une pièce vers la gauche\n"
+                        "d pour déplacer une pièce vers la droite\n"
+                        "e pour quitter le jeu\n"
                         "r pour rejouer une partie\n");
 
     auto prop = textActor->GetTextProperty();
@@ -70,11 +70,11 @@ vtkNew<vtkTextActor> texteVictoire()
     textActor->SetTextScaleModeToViewport();
     textActor->GetTextProperty()->SetFontFamily(VTK_FONT_FILE);
     textActor->GetTextProperty()->BoldOff();
-    textActor->GetTextProperty()->SetFontSize(6);
+    textActor->GetTextProperty()->SetFontSize(8);
     textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
 
     // colonne ligne (origine en bas à gauche)
-    textActor->SetPosition(700, 900);
+    textActor->SetPosition(600, 900);
 
     return textActor;
 }

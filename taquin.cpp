@@ -124,6 +124,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
     afficheGrille(_grille, _tailleGrille);
 
+    // Déplacement des pièces uniquement possible si le jeu n'est pas déjà résolu
     if (!(verifVictoire(_grille, _tailleGrille)))
     {
 
@@ -254,7 +255,16 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
 
         }
+
+        if (verifVictoire(_grille, _tailleGrille))
+        {
+            vtkNew<vtkTextActor> textFinJeu;
+
+            textFinJeu = texteVictoire();
+            _renderer->AddActor(textFinJeu);
+        }
     }
+
     else
     {
         vtkNew<vtkTextActor> textFinJeu;
@@ -389,22 +399,11 @@ int main(int, char *[])
     int numeroPiece = 0;
 
 
-    std::vector<std::vector <int> >  exemple(5, std::vector<int>(5));
-
-    for (int i = 0; i < 5; i++)
-    {
-        for(int j=0; j < 5; j++)
-        {
-            exemple[i][j] = i+j;
-        }
-
-    }
-
 
     // L'origine du repère 3D se trouve en bas à gauche et les lignes et colonnes sont inversées
     for (int j = tailleGrille-1; j >= 0; j--) 
     {
-        for (int i = 0; i < tailleGrille; i++) 
+        for (int i{}; i < tailleGrille; i++) 
         {
 
             // Création d'un cube par case
@@ -511,8 +510,8 @@ int main(int, char *[])
     // RENDU
 
     // Ajout des acteurs des pièces au rendu
-    for (int i = 0; i < tailleGrille; i++) {
-        for (int j = 0; j < tailleGrille; j++) {
+    for (int i{}; i < tailleGrille; i++) {
+        for (int j{}; j < tailleGrille; j++) {
             renderer->AddActor(pieces[i][j]);
         }
     }
