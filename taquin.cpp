@@ -124,7 +124,7 @@ int main(int, char *[])
     else
     {
         std::cout << "Vous avez choisi le niveau expert.\n";
-        nbMelanges = 100*tailleGrille*tailleGrille;
+        nbMelanges = 200*tailleGrille*tailleGrille;
     }
 
 
@@ -210,11 +210,11 @@ int main(int, char *[])
             // En niveau expert, les pièces ne sont pas numérotées
             if(niveau == 3)
             {
-                s = "images/pieces_simples/" + std::to_string(numeroPiece) + ".jpg";
+                s = "images/wood/" + std::to_string(numeroPiece) + ".jpg";
             }
             else
             {
-                s = "images/bois2/" + std::to_string(numeroPiece) + ".jpg";
+                s = "images/numbers/" + std::to_string(numeroPiece) + ".jpg";
             }
 
             const char * filename = s.c_str();
