@@ -27,35 +27,37 @@ void Observer::SetCommandesTexte(vtkTextActor* textCommandes)
 }
 
 
-void Observer::SetGrilleJeu(std::vector<std::vector<int>> grille) 
+void Observer::SetGrilleJeu(const std::vector<std::vector<int>>& grille) 
 {
     _grille = grille;
 }
 
-void Observer::SetLigneCaseVide2D(int& xVide) 
+void Observer::SetLigneCaseVide2D(const int& xVide) 
 {
     _xVide2D = xVide;
 }
 
-void Observer::SetColonneCaseVide2D(int& yVide) 
+void Observer::SetColonneCaseVide2D(const int& yVide) 
 {
     _yVide2D = yVide;
 }
 
-void Observer::SetLigneCaseVide3D(int& xVide) 
+void Observer::SetLigneCaseVide3D(const int& xVide) 
 {
     _xVide3D = xVide;
 }
 
-void Observer::SetColonneCaseVide3D(int& yVide) 
+void Observer::SetColonneCaseVide3D(const int& yVide) 
 {
     _yVide3D = yVide;
 }
 
-void Observer::SetPlateau(std::vector<std::vector<vtkSmartPointer<vtkActor>>>  plateau) 
+void Observer::SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau) 
 {
     _plateau = plateau;
 }
+
+
 
 void Observer::Execute(vtkObject* caller, unsigned long, void*)
 {

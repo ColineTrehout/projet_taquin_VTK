@@ -76,7 +76,7 @@ vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
     textActor->GetTextProperty()->SetFontSize(8);
     textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
 
-    // colonne ligne (origine en bas à gauche)
+    // Position du texte : (colonne, ligne) avec origine en bas à gauche
     textActor->SetPosition(510, 900);
 
     return textActor;

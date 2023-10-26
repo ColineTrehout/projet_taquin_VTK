@@ -7,7 +7,7 @@
 
 
 // affiche la grille de jeu de taille n*n
-void afficheGrille(const std::vector<std::vector<int>>& grille, int tailleGrille)
+void afficheGrille(const std::vector<std::vector<int>>& grille, const int& tailleGrille)
 {
     std::cout << "\n";
 
@@ -129,17 +129,16 @@ void deplacePiece(std::vector<std::vector<int>>& grille,
 
 
 // vérifie si la grille est dans la configuration finale (victoire du jeu)
-bool verifVictoire(std::vector<std::vector<int>>& grille, const int& tailleGrille)
+bool verifVictoire(const std::vector<std::vector<int>>& grille, const int& tailleGrille)
 {
     bool victoire = true;
     int k = 1;
-
 
     for(int i{}; i<tailleGrille; i++)
 	{
 		for(int j{}; j<tailleGrille; j++)
 		{
-            // vérifie si les nombres sont ordonnées en ordre croissant (sauf la dernière)
+            // Vérifie si les nombres sont ordonnées en ordre croissant (sauf la dernière)
 			if(grille[i][j] != k && (i != (tailleGrille-1) || j != (tailleGrille-1))) 
             {
                 victoire = false;
@@ -148,7 +147,7 @@ bool verifVictoire(std::vector<std::vector<int>>& grille, const int& tailleGrill
 		}
 	}
 
-    // vérifie si la dernière case est vide
+    // Vérifie si la dernière case est vide
 	if(grille[tailleGrille-1][tailleGrille-1] != 0) 
     {
         victoire = false;

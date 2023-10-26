@@ -9,15 +9,15 @@
 
 
 // Création des bords du plateau de jeu
-vtkSmartPointer<vtkActor> creationBords(float xLenght,
-                                                float yLenght,
-                                                float zLength,
-                                                float xRotate,
-                                                float yRotate,
-                                                float zRotate,
-                                                float xPosition,
-                                                float yPosition,
-                                                float zPosition)
+vtkSmartPointer<vtkActor> creationBords(const float& xLenght,
+                                        const float& yLenght,
+                                        const float& zLength,
+                                        const float& xRotate,
+                                        const float& yRotate,
+                                        const float& zRotate,
+                                        const float& xPosition,
+                                        const float& yPosition,
+                                        const float& zPosition)
 {
     vtkSmartPointer<vtkCubeSource> plaque = vtkSmartPointer<vtkCubeSource>::New();
 
@@ -32,10 +32,12 @@ vtkSmartPointer<vtkActor> creationBords(float xLenght,
 
     actor->GetProperty()->SetColor(0.25,0.25,0.25); // marron
 
+    // Rotation
     actor->RotateX(xRotate);
     actor->RotateY(yRotate);
     actor->RotateZ(zRotate);
 
+    // Translation
     actor->SetPosition(xPosition, yPosition, zPosition);
 
     vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();

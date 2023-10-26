@@ -11,12 +11,12 @@ public:
 	int nombreDeplacements();
 	void SetRenderer(vtkRenderer* renderer);
     void SetCommandesTexte(vtkTextActor* textCommandes);
-    void SetGrilleJeu(std::vector<std::vector<int>> grille);
-    void SetLigneCaseVide2D(int& xVide);
-    void SetColonneCaseVide2D(int& yVide);
-    void SetLigneCaseVide3D(int& xVide);
-    void SetColonneCaseVide3D(int& yVide);
-    void SetPlateau(std::vector<std::vector<vtkSmartPointer<vtkActor>>>  plateau);
+    void SetGrilleJeu(const std::vector<std::vector<int>>& grille);
+    void SetLigneCaseVide2D(const int& xVide);
+    void SetColonneCaseVide2D(const int& yVide);
+    void SetLigneCaseVide3D(const int& xVide);
+    void SetColonneCaseVide3D(const int& yVide);
+    void SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau);
 
 
 private:
@@ -31,8 +31,6 @@ private:
     int _compteurDeplacements{}; // Nombre de déplacements effectués
     vtkSmartPointer<vtkTextActor> _texteCommandes; // Texte pour l'affichage des commandes
     vtkSmartPointer<vtkRenderer> _renderer;
-
-
 };
 
 #endif

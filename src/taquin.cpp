@@ -40,11 +40,15 @@
 
 
 
-int main(int, char *[])
+int main()
 {
-    std::cout << "Bienvenue dans ce jeu de taquin.\n\n";
+    std::cout << "Bienvenue dans ce jeu de taquin !\nPour résoudre le puzzle,"
+                 " vous devez replacer les pièces dans l'ordre croissant en"
+                 " partant du coin supérieur gauche. Le coin inférieur droit"
+                 " doit rester vide.\n\n";
 
 
+    //-------------------------------------------------------------------------
     // DÉCLARATIONS
 
     
@@ -55,7 +59,7 @@ int main(int, char *[])
     const float epaisseurPlateau = 0.4;
 
     // Couleurs
-    vtkNew<vtkNamedColors> colors;
+    //vtkNew<vtkNamedColors> colors;
 
     // Création de la grille dans laquelle on va mettre les pieces du jeu
     std::vector<std::vector <vtkSmartPointer<vtkActor>> >  pieces (tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
@@ -83,6 +87,11 @@ int main(int, char *[])
     int niveau{};
     int nbMelanges{};
     int direction{};
+
+
+    //-------------------------------------------------------------------------
+    
+    // NIVEAU DE DIFFICULTÉ
 
     // Saisie du niveau de difficulté par le joueur (influence le nombre de
     // déplacements à réaliser pour finir le puzzle)
@@ -114,7 +123,7 @@ int main(int, char *[])
     else if(niveau == 1)
     {
         std::cout << "Vous avez choisi le niveau moyen.\n";
-        nbMelanges = 10*tailleGrille*tailleGrille;
+        nbMelanges = 5*tailleGrille*tailleGrille;
     }
     else if(niveau == 2)
     {
@@ -127,6 +136,8 @@ int main(int, char *[])
         nbMelanges = 200*tailleGrille*tailleGrille;
     }
 
+
+    //-------------------------------------------------------------------------
 
     // MÉLANGE DE LA GRILLE (position initiale du jeu)
 
@@ -148,6 +159,8 @@ int main(int, char *[])
 
     renderWindowInteractor->SetRenderWindow(renderWindow);
 
+
+    //-------------------------------------------------------------------------
 
     // CRÉATION DES PIÈCES 3D
 
@@ -243,6 +256,7 @@ int main(int, char *[])
     }
 
     
+    //-------------------------------------------------------------------------
 
     // Création et personnalisation du texte pour l'affichage des commandes du jeu
     vtkNew<vtkTextActor> textActor;
@@ -271,6 +285,7 @@ int main(int, char *[])
 
 
 
+    //-------------------------------------------------------------------------
 
     // RENDU
 
@@ -299,6 +314,11 @@ int main(int, char *[])
     renderWindow->SetWindowName("Jeu de taquin");
 
     renderWindow->AddRenderer(renderer);
+
+
+    //-------------------------------------------------------------------------
+
+    // INTÉRACTIONS
 
 
 	// Création de l'intéracteur
