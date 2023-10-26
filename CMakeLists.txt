@@ -14,11 +14,11 @@ endif()
 
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE)
 target_sources(${PROJECT_NAME} PRIVATE
-  ${PROJECT_NAME}.cpp 
-  creationTexte.cpp
-  creationPlateau.cpp
-  mecaniqueJeu.cpp
-  observateur.cpp
+  src/${PROJECT_NAME}.cpp 
+  src/creationTexte.cpp
+  src/creationPlateau.cpp
+  src/mecaniqueJeu.cpp
+  src/observateur.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})

@@ -129,125 +129,125 @@ taquin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/build
 .PHONY : taquin/fast
 
-creationPlateau.o: creationPlateau.cpp.o
-.PHONY : creationPlateau.o
+src/creationPlateau.o: src/creationPlateau.cpp.o
+.PHONY : src/creationPlateau.o
 
 # target to build an object file
-creationPlateau.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.o
-.PHONY : creationPlateau.cpp.o
+src/creationPlateau.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.o
+.PHONY : src/creationPlateau.cpp.o
 
-creationPlateau.i: creationPlateau.cpp.i
-.PHONY : creationPlateau.i
+src/creationPlateau.i: src/creationPlateau.cpp.i
+.PHONY : src/creationPlateau.i
 
 # target to preprocess a source file
-creationPlateau.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.i
-.PHONY : creationPlateau.cpp.i
+src/creationPlateau.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.i
+.PHONY : src/creationPlateau.cpp.i
 
-creationPlateau.s: creationPlateau.cpp.s
-.PHONY : creationPlateau.s
+src/creationPlateau.s: src/creationPlateau.cpp.s
+.PHONY : src/creationPlateau.s
 
 # target to generate assembly for a file
-creationPlateau.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationPlateau.cpp.s
-.PHONY : creationPlateau.cpp.s
+src/creationPlateau.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.s
+.PHONY : src/creationPlateau.cpp.s
 
-creationTexte.o: creationTexte.cpp.o
-.PHONY : creationTexte.o
+src/creationTexte.o: src/creationTexte.cpp.o
+.PHONY : src/creationTexte.o
 
 # target to build an object file
-creationTexte.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.o
-.PHONY : creationTexte.cpp.o
+src/creationTexte.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.o
+.PHONY : src/creationTexte.cpp.o
 
-creationTexte.i: creationTexte.cpp.i
-.PHONY : creationTexte.i
+src/creationTexte.i: src/creationTexte.cpp.i
+.PHONY : src/creationTexte.i
 
 # target to preprocess a source file
-creationTexte.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.i
-.PHONY : creationTexte.cpp.i
+src/creationTexte.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.i
+.PHONY : src/creationTexte.cpp.i
 
-creationTexte.s: creationTexte.cpp.s
-.PHONY : creationTexte.s
+src/creationTexte.s: src/creationTexte.cpp.s
+.PHONY : src/creationTexte.s
 
 # target to generate assembly for a file
-creationTexte.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/creationTexte.cpp.s
-.PHONY : creationTexte.cpp.s
+src/creationTexte.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.s
+.PHONY : src/creationTexte.cpp.s
 
-mecaniqueJeu.o: mecaniqueJeu.cpp.o
-.PHONY : mecaniqueJeu.o
+src/mecaniqueJeu.o: src/mecaniqueJeu.cpp.o
+.PHONY : src/mecaniqueJeu.o
 
 # target to build an object file
-mecaniqueJeu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o
-.PHONY : mecaniqueJeu.cpp.o
+src/mecaniqueJeu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o
+.PHONY : src/mecaniqueJeu.cpp.o
 
-mecaniqueJeu.i: mecaniqueJeu.cpp.i
-.PHONY : mecaniqueJeu.i
+src/mecaniqueJeu.i: src/mecaniqueJeu.cpp.i
+.PHONY : src/mecaniqueJeu.i
 
 # target to preprocess a source file
-mecaniqueJeu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.i
-.PHONY : mecaniqueJeu.cpp.i
+src/mecaniqueJeu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.i
+.PHONY : src/mecaniqueJeu.cpp.i
 
-mecaniqueJeu.s: mecaniqueJeu.cpp.s
-.PHONY : mecaniqueJeu.s
+src/mecaniqueJeu.s: src/mecaniqueJeu.cpp.s
+.PHONY : src/mecaniqueJeu.s
 
 # target to generate assembly for a file
-mecaniqueJeu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/mecaniqueJeu.cpp.s
-.PHONY : mecaniqueJeu.cpp.s
+src/mecaniqueJeu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.s
+.PHONY : src/mecaniqueJeu.cpp.s
 
-observateur.o: observateur.cpp.o
-.PHONY : observateur.o
+src/observateur.o: src/observateur.cpp.o
+.PHONY : src/observateur.o
 
 # target to build an object file
-observateur.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.o
-.PHONY : observateur.cpp.o
+src/observateur.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.o
+.PHONY : src/observateur.cpp.o
 
-observateur.i: observateur.cpp.i
-.PHONY : observateur.i
+src/observateur.i: src/observateur.cpp.i
+.PHONY : src/observateur.i
 
 # target to preprocess a source file
-observateur.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.i
-.PHONY : observateur.cpp.i
+src/observateur.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.i
+.PHONY : src/observateur.cpp.i
 
-observateur.s: observateur.cpp.s
-.PHONY : observateur.s
+src/observateur.s: src/observateur.cpp.s
+.PHONY : src/observateur.s
 
 # target to generate assembly for a file
-observateur.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/observateur.cpp.s
-.PHONY : observateur.cpp.s
+src/observateur.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.s
+.PHONY : src/observateur.cpp.s
 
-taquin.o: taquin.cpp.o
-.PHONY : taquin.o
+src/taquin.o: src/taquin.cpp.o
+.PHONY : src/taquin.o
 
 # target to build an object file
-taquin.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/taquin.cpp.o
-.PHONY : taquin.cpp.o
+src/taquin.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.o
+.PHONY : src/taquin.cpp.o
 
-taquin.i: taquin.cpp.i
-.PHONY : taquin.i
+src/taquin.i: src/taquin.cpp.i
+.PHONY : src/taquin.i
 
 # target to preprocess a source file
-taquin.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/taquin.cpp.i
-.PHONY : taquin.cpp.i
+src/taquin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.i
+.PHONY : src/taquin.cpp.i
 
-taquin.s: taquin.cpp.s
-.PHONY : taquin.s
+src/taquin.s: src/taquin.cpp.s
+.PHONY : src/taquin.s
 
 # target to generate assembly for a file
-taquin.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/taquin.cpp.s
-.PHONY : taquin.cpp.s
+src/taquin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.s
+.PHONY : src/taquin.cpp.s
 
 # Help Target
 help:
@@ -258,21 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... taquin"
-	@echo "... creationPlateau.o"
-	@echo "... creationPlateau.i"
-	@echo "... creationPlateau.s"
-	@echo "... creationTexte.o"
-	@echo "... creationTexte.i"
-	@echo "... creationTexte.s"
-	@echo "... mecaniqueJeu.o"
-	@echo "... mecaniqueJeu.i"
-	@echo "... mecaniqueJeu.s"
-	@echo "... observateur.o"
-	@echo "... observateur.i"
-	@echo "... observateur.s"
-	@echo "... taquin.o"
-	@echo "... taquin.i"
-	@echo "... taquin.s"
+	@echo "... src/creationPlateau.o"
+	@echo "... src/creationPlateau.i"
+	@echo "... src/creationPlateau.s"
+	@echo "... src/creationTexte.o"
+	@echo "... src/creationTexte.i"
+	@echo "... src/creationTexte.s"
+	@echo "... src/mecaniqueJeu.o"
+	@echo "... src/mecaniqueJeu.i"
+	@echo "... src/mecaniqueJeu.s"
+	@echo "... src/observateur.o"
+	@echo "... src/observateur.i"
+	@echo "... src/observateur.s"
+	@echo "... src/taquin.o"
+	@echo "... src/taquin.i"
+	@echo "... src/taquin.s"
 .PHONY : help
 
 

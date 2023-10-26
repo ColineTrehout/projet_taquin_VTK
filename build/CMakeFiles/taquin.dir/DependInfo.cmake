@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationPlateau.cpp" "CMakeFiles/taquin.dir/creationPlateau.cpp.o" "gcc" "CMakeFiles/taquin.dir/creationPlateau.cpp.o.d"
-  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/creationTexte.cpp" "CMakeFiles/taquin.dir/creationTexte.cpp.o" "gcc" "CMakeFiles/taquin.dir/creationTexte.cpp.o.d"
-  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/mecaniqueJeu.cpp" "CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o" "gcc" "CMakeFiles/taquin.dir/mecaniqueJeu.cpp.o.d"
-  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/observateur.cpp" "CMakeFiles/taquin.dir/observateur.cpp.o" "gcc" "CMakeFiles/taquin.dir/observateur.cpp.o.d"
-  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/taquin.cpp" "CMakeFiles/taquin.dir/taquin.cpp.o" "gcc" "CMakeFiles/taquin.dir/taquin.cpp.o.d"
+  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationPlateau.cpp" "CMakeFiles/taquin.dir/src/creationPlateau.cpp.o" "gcc" "CMakeFiles/taquin.dir/src/creationPlateau.cpp.o.d"
+  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationTexte.cpp" "CMakeFiles/taquin.dir/src/creationTexte.cpp.o" "gcc" "CMakeFiles/taquin.dir/src/creationTexte.cpp.o.d"
+  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu.cpp" "CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o" "gcc" "CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o.d"
+  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/observateur.cpp" "CMakeFiles/taquin.dir/src/observateur.cpp.o" "gcc" "CMakeFiles/taquin.dir/src/observateur.cpp.o.d"
+  "/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/taquin.cpp" "CMakeFiles/taquin.dir/src/taquin.cpp.o" "gcc" "CMakeFiles/taquin.dir/src/taquin.cpp.o.d"
   )
 
 # Targets to which this target links.
