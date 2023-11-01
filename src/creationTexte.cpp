@@ -26,7 +26,7 @@
 
 
 
-// création du texte pour l'affichage des commandes clavier du jeu
+// Création du texte pour l'affichage des commandes clavier du jeu
 vtkNew<vtkTextActor> texteCommandes()
 {
     vtkNew<vtkTextActor> textActor;
@@ -55,7 +55,7 @@ vtkNew<vtkTextActor> texteCommandes()
 
 
 
-// texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
+// Texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
 vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
 {
     const std::string s = "Félicitations, vous avez résolu le puzzle en " 

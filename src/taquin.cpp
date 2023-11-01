@@ -42,7 +42,7 @@
 
 int main()
 {
-    std::cout << "Bienvenue dans ce jeu de taquin !\nPour résoudre le puzzle,"
+    std::cout << "Bienvenue dans ce jeu de taquin !\n\nPour résoudre le puzzle,"
                  " vous devez replacer les pièces dans l'ordre croissant en"
                  " partant du coin supérieur gauche. Le coin inférieur droit"
                  " doit rester vide.\n\n";
@@ -61,12 +61,10 @@ int main()
     // Couleurs
     //vtkNew<vtkNamedColors> colors;
 
-    // Création de la grille dans laquelle on va mettre les pieces du jeu
-    std::vector<std::vector <vtkSmartPointer<vtkActor>> >  pieces (tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
-    //exemple(5, std::vector<int>(5));
+    // Création de la grille dans laquelle on va mettre les pieces 3D du jeu
+    std::vector<std::vector<vtkSmartPointer<vtkActor>>>  pieces(tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
 
-    // Création du tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide)
-
+    // Création de la grille 2D (tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide))
     std::vector<std::vector<int>> grille
     { 
         {1, 2, 3, 4}, 
@@ -84,9 +82,11 @@ int main()
     int xVide3D = 0;
     int yVide3D = 3;
 
+    // Niveau du jeu allant de facile à expert
     int niveau{};
+
+    // Nombre de mélanges de la grille déterminant la difficulté du jeu
     int nbMelanges{};
-    int direction{};
 
 
     //-------------------------------------------------------------------------
@@ -103,15 +103,14 @@ int main()
 
     std::cin >> niveau;
 
-    // check that only one letter was provided and it belongs to the valid options
+    // Vérification de la validité de la saisie
     while (std::cin.fail() || (niveau != 0 && niveau != 1 && niveau != 2 && niveau != 3))
     {
         // Nettoyage du buffer d'entrée
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-
-        std::cout << "Saisie invalide, veuillez entrer 0, 1 ou 2\n";
+        std::cout << "Saisie invalide, veuillez entrer 0, 1, 2 ou 3\n";
         std::cin >> niveau;
     }
 
@@ -141,24 +140,25 @@ int main()
 
     // MÉLANGE DE LA GRILLE (position initiale du jeu)
 
-    // Mélange de la grille de jeu en opérant nbMelanges déplacements de 
-    // pièces à partir de la configuration initiale pour être sûr que 
+    // Mélange de la grille de jeu en opérant un certain nombre de déplacements 
+    // à partir de la configuration initiale pour être sûr que 
     // le puzzle soit solvable
     melangeGrille(grille, tailleGrille, xVide2D, yVide2D, nbMelanges);
 
     //afficheGrille(grille, tailleGrille);
 
 
-    // Creation du moteur de rendu et de la fenêtre de rendu
+    // Création du moteur de rendu et de la fenêtre de rendu
     vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
     vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+
+    // Réglage de la taille de la fenêtre
     renderWindow->SetSize(1920,1080);
 
-    // Create a VTK render window interactor
+    // Création d'un window interactor
     vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
 
     renderWindowInteractor->SetRenderWindow(renderWindow);
-
 
     //-------------------------------------------------------------------------
 
@@ -166,7 +166,6 @@ int main()
 
     int compteurPiece = 0;
     int numeroPiece = 0;
-
 
 
     // L'origine du repère 3D se trouve en bas à gauche et les lignes et colonnes sont inversées
@@ -257,12 +256,15 @@ int main()
 
     
     //-------------------------------------------------------------------------
+    
+    // TEXTE POUR LES COMMANDES DU JEU
 
     // Création et personnalisation du texte pour l'affichage des commandes du jeu
     vtkNew<vtkTextActor> textActor;
 
     textActor = texteCommandes();
 
+    //-------------------------------------------------------------------------
 
     // CRÉATION PLATEAU DE JEU
 
@@ -290,8 +292,10 @@ int main()
     // RENDU
 
     // Ajout des acteurs des pièces au rendu
-    for (int i{}; i < tailleGrille; i++) {
-        for (int j{}; j < tailleGrille; j++) {
+    for (int i{}; i < tailleGrille; i++) 
+    {
+        for (int j{}; j < tailleGrille; j++) 
+        {
             renderer->AddActor(pieces[i][j]);
         }
     }
@@ -306,8 +310,7 @@ int main()
     // Ajout du texte au rendu
     renderer->AddActor(textActor);
 
-
-    // Définissez la couleur de l'arrière plan
+    // Définition de la couleur de l'arrière plan
     renderer->SetBackground(0.3, 0.3, 0.5); 
 
     // Définition du nom de la fenêtre de rendu
@@ -330,32 +333,34 @@ int main()
     interactor->SetRenderWindow(renderWindow);
 
 
+    //-------------------------------------------------------------------------
+
+    // OBSERVATEUR
+
 
 	// Création de l'observateur
 	vtkNew<Observer> observer;
     
 
     observer->SetRenderer(renderer);
-    observer->SetCommandesTexte( textActor);
+    observer->SetCommandesTexte(textActor);
 
+
+    // Configuration des plateaux de jeu
     observer->SetGrilleJeu(grille);
+    observer->SetPlateau(pieces);
 
-    //initialisation des coordonnées de la case vide de la grille 2D
+    // Configuration des coordonnées de la case vide de la grille 2D
     observer->SetLigneCaseVide2D(xVide2D);
     observer->SetColonneCaseVide2D(yVide2D);
 
-    // Initialisation des coordonnées de la case vide de la grille 3D
+    // Configuration des coordonnées de la case vide de la grille 3D
     observer->SetLigneCaseVide3D(xVide3D);
     observer->SetColonneCaseVide3D(yVide3D);
 
-    observer->SetPlateau(pieces);
-
-
 	interactor->AddObserver(vtkCommand::KeyPressEvent, observer);
 
-
 	interactor->Initialize();
-
 
 	interactor->Start();
 
