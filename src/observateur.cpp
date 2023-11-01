@@ -143,12 +143,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         }
     }
 
-    // Si le puzzle est résolu
-    else
-    {
-        _renderer->AddActor(_texteFinJeu);
-    }
-
     // Rejouer une partie
     if (verifVictoire(_grille, _tailleGrille) and interactor->GetKeyCode() == 'r')
     {
@@ -182,7 +176,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
     // Quitter le jeu
     if (interactor->GetKeyCode() == 'e')
 	{
-		std::cout << "\nFin du jeu\n";
+		std::cout << "\nFin du jeu.\n";
 
         exit(0);
 	}

@@ -9,7 +9,7 @@
 
 
 // Création des bords du plateau de jeu
-vtkSmartPointer<vtkActor> creationBords(const float& xLenght,
+vtkSmartPointer<vtkActor> creationBord(const float& xLenght,
                                         const float& yLenght,
                                         const float& zLength,
                                         const float& xRotate,
@@ -47,6 +47,21 @@ vtkSmartPointer<vtkActor> creationBords(const float& xLenght,
     mapper->SetInputData(plaque->GetOutput());
 
     return actor;
+}
+
+
+
+void creationActeursCubes(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
+                  const vtkSmartPointer<vtkPolyDataMapper>& mapper,
+                  const int& i,
+                  const int& j)
+{
+
+    vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+
+    pieces[i][j] = cubeActor;
+    pieces[i][j]->SetMapper(mapper);
+    pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
 }
 
 

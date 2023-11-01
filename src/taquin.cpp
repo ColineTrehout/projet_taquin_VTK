@@ -58,11 +58,8 @@ int main()
     // Épaisseur du plateau de jeu
     const float epaisseurPlateau = 0.4;
 
-    // Couleurs
-    //vtkNew<vtkNamedColors> colors;
-
     // Création de la grille dans laquelle on va mettre les pieces 3D du jeu
-    std::vector<std::vector<vtkSmartPointer<vtkActor>>>  pieces(tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
+    std::vector<std::vector<vtkSmartPointer<vtkActor>>> pieces(tailleGrille, std::vector <vtkSmartPointer<vtkActor>>(tailleGrille));
 
     // Création de la grille 2D (tableau d'entiers contenant les nombres de 0 à 15 (0 : case vide))
     std::vector<std::vector<int>> grille
@@ -72,7 +69,6 @@ int main()
         {9, 10, 11, 12},
         {13, 14, 15, 0} 
     };
-
 
     // Coordonnées de la case vide pour la grille 2D (origine en haut à gauche)
     int xVide2D = 3;
@@ -91,7 +87,8 @@ int main()
 
     //-------------------------------------------------------------------------
     
-    // NIVEAU DE DIFFICULTÉ
+    // SAISIE DU NIVEAU DE DIFFICULTÉ
+
 
     // Saisie du niveau de difficulté par le joueur (influence le nombre de
     // déplacements à réaliser pour finir le puzzle)
@@ -131,21 +128,23 @@ int main()
     }
     else
     {
-        std::cout << "Vous avez choisi le niveau expert.\n";
+        std::cout << "Vous avez choisi le niveau expert. Bonne chance.\n";
         nbMelanges = 200*tailleGrille*tailleGrille;
     }
-
 
     //-------------------------------------------------------------------------
 
     // MÉLANGE DE LA GRILLE (position initiale du jeu)
+
 
     // Mélange de la grille de jeu en opérant un certain nombre de déplacements 
     // à partir de la configuration initiale pour être sûr que 
     // le puzzle soit solvable
     melangeGrille(grille, tailleGrille, xVide2D, yVide2D, nbMelanges);
 
-    //afficheGrille(grille, tailleGrille);
+    //-------------------------------------------------------------------------
+    
+    // FENÊTRE DE RENDU
 
 
     // Création du moteur de rendu et de la fenêtre de rendu
@@ -164,7 +163,7 @@ int main()
 
     // CRÉATION DES PIÈCES 3D
 
-    int compteurPiece = 0;
+
     int numeroPiece = 0;
 
 
@@ -176,92 +175,70 @@ int main()
 
             // Création d'un cube par case
             vtkSmartPointer<vtkCubeSource> cubeSource = vtkSmartPointer<vtkCubeSource>::New();
+            vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
 
             cubeSource -> SetZLength(epaisseurPlateau);
-            //std::cout << cubeSource-> GetXLength() << '\n';
 
-            // Numéro de la grille pour chaque pièce
+            // Numéro de la grille 2D pour chaque pièce 3D
             numeroPiece = grille[-(j-3)][i];
 
-
-            // Épaisseur plus faible pour simuler la case vide
+            // Simulation de la case vide
             if (numeroPiece == 0)
             {
+                // Épaisseur plus faible pour simuler la case vide
                 cubeSource -> SetZLength(0.1);
 
-                //déplacement du centre du cube
+                // Déplacement du centre du cube
                 cubeSource -> SetCenter(0,0,-0.15); 
 
-                //xVide2D = -(j-tailleGrille-1);
-                //yVide2D = i;
-
+                // Coordonnées de la case vide au début du jeu
                 xVide3D = j;
                 yVide3D = i;
             }
 
-            cubeSource->Update(); // Met à jour la source du cube
+            // Met à jour la source du cube
+            cubeSource->Update(); 
 
-            vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
             mapper->SetInputData(cubeSource->GetOutput());
 
+            // Crée un acteur par pièce et les ajoute dans pieces
+            creationActeursCubes(pieces, mapper, i, j);
 
-            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+            //-------------------------------------------------------------------------
 
-            pieces[i][j] = cubeActor;
-            pieces[i][j]->SetMapper(mapper);
-            //pieces[i][j]->GetProperty()->SetColor(0, color, color); // Couleur 
-            pieces[i][j]->SetPosition(i, j, 0.0); // Position de la pièce sur la grille
+            //  TEXTURE
 
 
-            // Texture créée à partir d'une image
             vtkNew<vtkImageReader2Factory> readerFactory;
             vtkSmartPointer<vtkImageReader2> imageReader;
+            std::string imagePath;
+            vtkNew<vtkTexture> texture;
 
-            std::string s;
-
-            // En niveau expert, les pièces ne sont pas numérotées
-            if(niveau == 3)
+            // Chemin pour accéder aux images contenant la texture de chaque pièce
+            if (niveau == 3)
             {
-                s = "images/wood/" + std::to_string(numeroPiece) + ".jpg";
+                imagePath = "images/wood/" + std::to_string(numeroPiece) + ".jpg";
             }
             else
             {
-                s = "images/numbers/" + std::to_string(numeroPiece) + ".jpg";
+                imagePath = "images/numbers/" + std::to_string(numeroPiece) + ".jpg";
             }
 
-            const char * filename = s.c_str();
-
-            imageReader.TakeReference(readerFactory->CreateImageReader2(filename));
-
-            imageReader->SetFileName(filename);
-
-
-            // Création de la texture
-            vtkNew<vtkTexture> texture;
-            texture->SetInputConnection(imageReader->GetOutputPort());
-
-            // La texture prends la forme du cube
-            vtkNew<vtkTransformTextureCoords> transformTexture;
-            transformTexture->SetInputConnection(cubeSource->GetOutputPort());
-
-            mapper->SetInputConnection(transformTexture->GetOutputPort());
-            
             // Application de la texture sur la pièce
+            imageReader.TakeReference(readerFactory->CreateImageReader2(imagePath.c_str()));
+            imageReader->SetFileName(imagePath.c_str());
+            texture->SetInputConnection(imageReader->GetOutputPort());
             pieces[i][j]->SetTexture(texture);
-
-            compteurPiece ++;
-
         }
     }
-
     
     //-------------------------------------------------------------------------
     
     // TEXTE POUR LES COMMANDES DU JEU
 
-    // Création et personnalisation du texte pour l'affichage des commandes du jeu
-    vtkNew<vtkTextActor> textActor;
 
+    // Configuration du texte pour l'affichage des commandes du jeu
+    vtkNew<vtkTextActor> textActor;
     textActor = texteCommandes();
 
     //-------------------------------------------------------------------------
@@ -270,26 +247,25 @@ int main()
 
 
     // Création des bords du plateau de jeu
-    vtkSmartPointer<vtkActor> arriere = vtkSmartPointer<vtkActor>::New();
-    arriere = creationBords(4, 4, 0.01, 0, 0, 0, 1.5, 1.5, -epaisseurPlateau/2);
+    vtkSmartPointer<vtkActor> bordArriere = vtkSmartPointer<vtkActor>::New();
+    bordArriere = creationBord(4, 4, 0.01, 0, 0, 0, 1.5, 1.5, -epaisseurPlateau/2);
 
-    vtkSmartPointer<vtkActor> gauche = vtkSmartPointer<vtkActor>::New();
-    gauche = creationBords(4, epaisseurPlateau, 0.01, 0, 90, 90, -0.5, 1.5, 0);
+    vtkSmartPointer<vtkActor> bordGauche = vtkSmartPointer<vtkActor>::New();
+    bordGauche = creationBord(4, epaisseurPlateau, 0.01, 0, 90, 90, -0.5, 1.5, 0);
 
-    vtkSmartPointer<vtkActor> droite = vtkSmartPointer<vtkActor>::New();
-    droite = creationBords(4, epaisseurPlateau, 0.01, 0, 90, 90, 3.5, 1.5, 0);
+    vtkSmartPointer<vtkActor> bordDroit = vtkSmartPointer<vtkActor>::New();
+    bordDroit = creationBord(4, epaisseurPlateau, 0.01, 0, 90, 90, 3.5, 1.5, 0);
 
-    vtkSmartPointer<vtkActor> haut = vtkSmartPointer<vtkActor>::New();
-    haut = creationBords(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, 3.5, 0);
+    vtkSmartPointer<vtkActor> bordHaut = vtkSmartPointer<vtkActor>::New();
+    bordHaut = creationBord(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, 3.5, 0);
 
-    vtkSmartPointer<vtkActor> bas = vtkSmartPointer<vtkActor>::New();
-    bas = creationBords(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, -0.5, 0);
-
-
+    vtkSmartPointer<vtkActor> bordBas = vtkSmartPointer<vtkActor>::New();
+    bordBas = creationBord(4, epaisseurPlateau, 0.01, 90, 0, 0, 1.5, -0.5, 0);
 
     //-------------------------------------------------------------------------
 
     // RENDU
+
 
     // Ajout des acteurs des pièces au rendu
     for (int i{}; i < tailleGrille; i++) 
@@ -301,11 +277,11 @@ int main()
     }
 
     // Ajout au rendu des éléments du plateau de jeu 
-    renderer->AddActor(arriere);
-    renderer->AddActor(gauche);
-    renderer->AddActor(droite);
-    renderer->AddActor(haut);
-    renderer->AddActor(bas);
+    renderer->AddActor(bordArriere);
+    renderer->AddActor(bordGauche);
+    renderer->AddActor(bordDroit);
+    renderer->AddActor(bordHaut);
+    renderer->AddActor(bordBas);
 
     // Ajout du texte au rendu
     renderer->AddActor(textActor);
@@ -317,7 +293,6 @@ int main()
     renderWindow->SetWindowName("Jeu de taquin");
 
     renderWindow->AddRenderer(renderer);
-
 
     //-------------------------------------------------------------------------
 
@@ -331,7 +306,6 @@ int main()
     interactor->SetInteractorStyle(nullptr);
 	
     interactor->SetRenderWindow(renderWindow);
-
 
     //-------------------------------------------------------------------------
 

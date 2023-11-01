@@ -1,7 +1,7 @@
 #ifndef CREATION_PLATEAU_HPP
 #define CREATION_PLATEAU_HPP
 
-vtkSmartPointer<vtkActor> creationBords(const float& xLenght,
+vtkSmartPointer<vtkActor> creationBord(const float& xLenght,
                                         const float& yLenght,
                                         const float& zLength,
                                         const float& xRotate,
@@ -10,5 +10,10 @@ vtkSmartPointer<vtkActor> creationBords(const float& xLenght,
                                         const float& xPosition,
                                         const float& yPosition,
                                         const float& zPosition);
+
+void creationActeursCubes(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
+                  const vtkSmartPointer<vtkPolyDataMapper>& mapper,
+                  const int& i,
+                  const int& j);
 
 #endif
