@@ -63,30 +63,51 @@ void Observer::SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor
 void Observer::Execute(vtkObject* caller, unsigned long, void*)
 {
 	auto* interactor{ vtkRenderWindowInteractor::SafeDownCast(caller) };
+    int direction{};
 
 
     // Déplacement des pièces uniquement possible si le jeu n'est pas déjà résolu
     if (!(verifVictoire(_grille, _tailleGrille)))
     {
+        // Déplacement d'une pièce vers le bas
+        if (interactor->GetKeyCode() == 's' && _xVide3D < 3)
+        {
+            direction = 0;
+
+            // Mise à jour de la grille 3D et des coordonnées de la case vide
+            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+
+            // Mise à jour de la grille 2D et des coordonnées de la case vide
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
+
+            _compteurDeplacements++;
+
+        }
+
+        // Déplacement d'une pièce vers le haut
+        if (interactor->GetKeyCode() == 'z' && _xVide3D > 0)
+        {
+            direction = 1;
+
+            // Mise à jour de la grille 3D et des coordonnées de la case vide
+            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+
+            // Mise à jour de la grille 2D et des coordonnées de la case vide
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
+
+            _compteurDeplacements++;
+        }
 
         // Déplacement d'une pièce vers la droite
         if (interactor->GetKeyCode() == 'd' && _yVide3D > 0)
         {
-            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+            direction = 2;
 
-            // Déplacement des pièces
-            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D-1, _xVide3D, 0);
-            _plateau[_yVide3D-1][_xVide3D]->SetPosition(_yVide3D, _xVide3D, 0);
+            // Mise à jour de la grille 3D et des coordonnées de la case vide
+            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
 
-            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
-            cubeActor = _plateau[_yVide3D][_xVide3D];
-            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D-1][_xVide3D];
-            _plateau[_yVide3D-1][_xVide3D] = cubeActor;
-
-            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 2);
-
-            _yVide3D = _yVide3D - 1;
 
             _compteurDeplacements++;
         }
@@ -94,68 +115,15 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         // Déplacement d'une pièce vers la gauche
         if (interactor->GetKeyCode() == 'q' && _yVide3D < 3)
         {
-            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
+            direction = 3;
 
-            // Déplacement des pièces
-            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D+1, _xVide3D, 0);
-            _plateau[_yVide3D+1][_xVide3D]->SetPosition(_yVide3D, _xVide3D, 0);
+            // Mise à jour de la grille 3D et des coordonnées de la case vide
+            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
 
-            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
-            cubeActor = _plateau[_yVide3D][_xVide3D];
-            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D+1][_xVide3D];
-            _plateau[_yVide3D+1][_xVide3D] = cubeActor;
-
-            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
+            // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 3);
 
-            _yVide3D = _yVide3D + 1;
-
             _compteurDeplacements++;
-        }
-
-        // Déplacement d'une pièce vers le haut
-        if (interactor->GetKeyCode() == 'z' && _xVide3D > 0)
-        {
-            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
-
-            // Déplacement des pièces
-            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D, _xVide3D-1, 0);
-            _plateau[_yVide3D][_xVide3D-1]->SetPosition(_yVide3D, _xVide3D, 0);
-
-            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
-            cubeActor = _plateau[_yVide3D][_xVide3D];
-            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D][_xVide3D-1];
-            _plateau[_yVide3D][_xVide3D-1] = cubeActor;
-
-            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
-
-            _xVide3D = _xVide3D - 1;
-
-            _compteurDeplacements++;
-        }
-
-        // Déplacement d'une pièce vers le bas
-        if (interactor->GetKeyCode() == 's' && _xVide3D < 3)
-        {
-            vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
-
-            // Déplacement des pièces
-            _plateau[_yVide3D][_xVide3D]->SetPosition(_yVide3D, _xVide3D+1, 0);
-            _plateau[_yVide3D][_xVide3D+1]->SetPosition(_yVide3D, _xVide3D, 0);
-
-            // Changement des indices des pièces dans le puzzle en fonction de leur nouvelle position
-            cubeActor = _plateau[_yVide3D][_xVide3D];
-            _plateau[_yVide3D][_xVide3D] = _plateau[_yVide3D][_xVide3D+1];
-            _plateau[_yVide3D][_xVide3D+1] = cubeActor;
-
-            // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
-
-            _xVide3D = _xVide3D + 1;
-
-            _compteurDeplacements++;
-
         }
 
         if (verifVictoire(_grille, _tailleGrille))
@@ -171,11 +139,14 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         }
     }
 
+    // Si le puzzle est résolu
     else
     {
         vtkNew<vtkTextActor> textFinJeu;
 
         textFinJeu = texteVictoire(_compteurDeplacements);
+
+        // Affichage du texte de victoire
         _renderer->AddActor(textFinJeu);
     }
 

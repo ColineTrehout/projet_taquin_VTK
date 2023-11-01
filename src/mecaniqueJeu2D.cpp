@@ -39,48 +39,15 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
 	{
 		direction = rand() % 4; //4 valeurs possibles (de 0 à 3)
 
-        // déplacement d'une pièce vers le bas
-		if ((direction == 0) && (xVide > 0)) 
-		{
-			stock = grille[xVide][yVide];
-			grille[xVide][yVide] = grille[xVide - 1][yVide];
-			grille[xVide - 1][yVide] = stock;
-			xVide += - 1;
-		}
+		deplacePiece2D(grille, tailleGrille, xVide, yVide, direction);
 
-        // déplacement d'une pièce vers le haut
-		if ((direction == 1) && (xVide < 3)) 
-		{
-			stock = grille[xVide][yVide];
-			grille[xVide][yVide]  = grille[xVide + 1][yVide];
-			grille[xVide + 1][yVide] = stock;
-			xVide += 1;
-		}
-
-        // déplacement d'une pièce vers la droite
-		if ((direction == 2) && (yVide > 0)) 
-		{
-			stock = grille[xVide][yVide];
-			grille[xVide][yVide]  = grille[xVide][yVide-1];
-			grille[xVide][yVide-1] = stock;
-			yVide += -1;
-		}
-
-        // déplacement d'une pièce vers la gauche
-		if ((direction == 3) && (yVide < 3)) 
-		{
-			stock = grille[xVide][yVide];
-			grille[xVide][yVide]  = grille[xVide][yVide+1];
-			grille[xVide][yVide+1] = stock;
-			yVide += 1;
-		}
         i++;
 	}
 }
 
 
 
-// déplace une pièce selon la direction choisie
+// déplace une pièce selon la direction choisie (vérification validité du mouvement)
 void deplacePiece2D(std::vector<std::vector<int>>& grille, 
                   const int& tailleGrille, 
                   int& xVide, 
@@ -89,40 +56,40 @@ void deplacePiece2D(std::vector<std::vector<int>>& grille,
 {
     int stock{};
 
-        // déplacement d'une pièce vers le bas
+        // Déplacement d'une pièce vers le bas
 		if ((direction == 0) && (xVide > 0)) 
 		{
 			stock = grille[xVide][yVide];
 			grille[xVide][yVide] = grille[xVide - 1][yVide];
 			grille[xVide - 1][yVide] = stock;
-			xVide += - 1;
+			--xVide;
 		}
 
-        // déplacement d'une pièce vers le haut
+        // Déplacement d'une pièce vers le haut
 		if ((direction == 1) && (xVide < 3)) 
 		{
 			stock = grille[xVide][yVide];
 			grille[xVide][yVide]  = grille[xVide + 1][yVide];
 			grille[xVide + 1][yVide] = stock;
-			xVide += 1;
+			++xVide;
 		}
 
-        // déplacement d'une pièce vers la droite
+        // Déplacement d'une pièce vers la droite
 		if ((direction == 2) && (yVide > 0)) 
 		{
 			stock = grille[xVide][yVide];
 			grille[xVide][yVide]  = grille[xVide][yVide-1];
 			grille[xVide][yVide-1] = stock;
-			yVide += -1;
+			--yVide;
 		}
 
-        // déplacement d'une pièce vers la gauche
+        // Déplacement d'une pièce vers la gauche
 		if ((direction == 3) && (yVide < 3)) 
 		{
 			stock = grille[xVide][yVide];
 			grille[xVide][yVide]  = grille[xVide][yVide+1];
 			grille[xVide][yVide+1] = stock;
-			yVide += 1;
+			++yVide;
 		}
 }
 

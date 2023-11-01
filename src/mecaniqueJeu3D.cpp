@@ -5,15 +5,15 @@
 
 
 
-// déplace une pièce 3D dans une certaine direction
+// déplace une pièce 3D dans une certaine direction et met à jour les coordonnées de la case vide
 void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau, 
-                    const int& xVide3D, 
-                    const int& yVide3D,
+                    int& xVide3D, 
+                    int& yVide3D,
                     const int& direction)
 {
         vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
-        // déplacement d'une pièce vers le bas
+        // Déplacement d'une pièce vers le bas
 		if (direction == 0) 
 		{
             // Déplacement des pièces
@@ -24,9 +24,12 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
             cubeActor = plateau[yVide3D][xVide3D];
             plateau[yVide3D][xVide3D] = plateau[yVide3D][xVide3D+1];
             plateau[yVide3D][xVide3D+1] = cubeActor;
+
+            // Mise à jour des coordonnées de la case vide
+            xVide3D = xVide3D + 1;
 		}
 
-        // déplacement d'une pièce vers le haut
+        // Déplacement d'une pièce vers le haut
 		if (direction == 1) 
 		{
             // Déplacement des pièces
@@ -37,9 +40,12 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
             cubeActor = plateau   [yVide3D][xVide3D];
             plateau   [yVide3D][xVide3D] = plateau   [yVide3D][xVide3D-1];
             plateau   [yVide3D][xVide3D-1] = cubeActor;
+
+            // Mise à jour des coordonnées de la case vide
+            xVide3D = xVide3D - 1;
 		}
 
-        // déplacement d'une pièce vers la droite
+        // Déplacement d'une pièce vers la droite
 		if (direction == 2) 
 		{
             // Déplacement des pièces
@@ -50,9 +56,12 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
             cubeActor = plateau[yVide3D][xVide3D];
             plateau[yVide3D][xVide3D] = plateau[yVide3D-1][xVide3D];
             plateau[yVide3D-1][xVide3D] = cubeActor;
+
+            // Mise à jour des coordonnées de la case vide
+            yVide3D = yVide3D - 1;
 		}
 
-        // déplacement d'une pièce vers la gauche
+        // Déplacement d'une pièce vers la gauche
 		if (direction == 3) 
 		{
             // Déplacement des pièces
@@ -63,6 +72,9 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
             cubeActor = plateau[yVide3D][xVide3D];
             plateau[yVide3D][xVide3D] = plateau[yVide3D+1][xVide3D];
             plateau[yVide3D+1][xVide3D] = cubeActor;
+
+            // Mise à jour des coordonnées de la case vide
+            yVide3D = yVide3D + 1;
 		}
 }
 
