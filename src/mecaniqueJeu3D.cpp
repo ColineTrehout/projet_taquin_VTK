@@ -14,7 +14,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
         vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
         // Déplacement d'une pièce vers le bas
-		if (direction == 0) 
+		if (direction == 0 && xVide3D < 3) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D, xVide3D+1, 0);
@@ -30,7 +30,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
 		}
 
         // Déplacement d'une pièce vers le haut
-		if (direction == 1) 
+		if (direction == 1 && xVide3D > 0) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D, xVide3D-1, 0);
@@ -46,7 +46,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
 		}
 
         // Déplacement d'une pièce vers la droite
-		if (direction == 2) 
+		if (direction == 2 && yVide3D > 0) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D-1, xVide3D, 0);
@@ -62,7 +62,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
 		}
 
         // Déplacement d'une pièce vers la gauche
-		if (direction == 3) 
+		if (direction == 3 && yVide3D < 3) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D+1, xVide3D, 0);

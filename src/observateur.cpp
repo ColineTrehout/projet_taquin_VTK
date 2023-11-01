@@ -27,7 +27,6 @@ void Observer::SetCommandesTexte(vtkTextActor* textCommandes)
     _texteCommandes = textCommandes;
 }
 
-
 void Observer::SetGrilleJeu(const std::vector<std::vector<int>>& grille) 
 {
     _grille = grille;
@@ -51,6 +50,11 @@ void Observer::SetLigneCaseVide3D(const int& xVide)
 void Observer::SetColonneCaseVide3D(const int& yVide) 
 {
     _yVide3D = yVide;
+}
+
+void Observer::SetNbMelanges(const int& nbMelanges)
+{
+    _nbMelanges = nbMelanges;
 }
 
 void Observer::SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau) 
@@ -130,8 +134,8 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         {
             vtkNew<vtkTextActor> textFinJeu;
 
-            textFinJeu = texteVictoire(_compteurDeplacements);
-            _renderer->AddActor(textFinJeu);
+            _texteFinJeu = texteVictoire(_compteurDeplacements);
+            _renderer->AddActor(_texteFinJeu);
 
             std::cout << "\nVous avez gagné ! Vous avez fini le jeu en " 
                       << _compteurDeplacements 
@@ -142,13 +146,34 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
     // Si le puzzle est résolu
     else
     {
-        vtkNew<vtkTextActor> textFinJeu;
-
-        textFinJeu = texteVictoire(_compteurDeplacements);
-
-        // Affichage du texte de victoire
-        _renderer->AddActor(textFinJeu);
+        _renderer->AddActor(_texteFinJeu);
     }
+
+    // Rejouer une partie
+    if (verifVictoire(_grille, _tailleGrille) and interactor->GetKeyCode() == 'r')
+    {
+
+        _renderer-> RemoveActor(_texteFinJeu);
+
+        int i{};
+
+        srand(time(NULL)); // Pour générer des valeurs aléatoires
+
+        while (i < _nbMelanges) // _nbMelanges déplacements aléatoires
+        {
+            direction = rand() % 4; //4 valeurs possibles (de 0 à 3)
+
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, direction);
+
+            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+
+            _compteurDeplacements = 0;
+
+            i++;
+        }
+
+    }
+
 
     // Quitter le jeu
     if (interactor->GetKeyCode() == 'e')

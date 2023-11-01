@@ -31,13 +31,13 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
                    int& yVide, 
                    const int& nbMelanges)
 {
-	int i{}, direction{}, stock{};
+	int i{}, direction{};
 
-	srand(time(NULL)); // pour générer des valeurs aléatoires
+	srand(time(NULL)); // Pour générer des valeurs aléatoires
 
-	while (i < nbMelanges) //nbmelange déplacements aléatoires
+	while (i < nbMelanges) // nbMelanges déplacements aléatoires
 	{
-		direction = rand() % 4; //4 valeurs possibles (de 0 à 3)
+		direction = rand() % 4; // 4 valeurs possibles (de 0 à 3)
 
 		deplacePiece2D(grille, tailleGrille, xVide, yVide, direction);
 

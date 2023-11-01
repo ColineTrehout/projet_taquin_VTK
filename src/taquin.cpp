@@ -340,11 +340,11 @@ int main()
 
 	// Création de l'observateur
 	vtkNew<Observer> observer;
-    
 
     observer->SetRenderer(renderer);
     observer->SetCommandesTexte(textActor);
 
+    observer->SetNbMelanges(nbMelanges);
 
     // Configuration des plateaux de jeu
     observer->SetGrilleJeu(grille);

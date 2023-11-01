@@ -36,7 +36,8 @@ vtkNew<vtkTextActor> texteCommandes()
                         "s pour déplacer une pièce vers le bas\n"
                         "q pour déplacer une pièce vers la gauche\n"
                         "d pour déplacer une pièce vers la droite\n"
-                        "e pour quitter le jeu\n");
+                        "e pour quitter le jeu\n"
+                        "r pour rejouer une partie\n");
 
     auto prop = textActor->GetTextProperty();
 

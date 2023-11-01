@@ -11,11 +11,13 @@ public:
 	int nombreDeplacements();
 	void SetRenderer(vtkRenderer* renderer);
     void SetCommandesTexte(vtkTextActor* textCommandes);
+    void SetTexteVictoire(vtkTextActor* texteVictoire); 
     void SetGrilleJeu(const std::vector<std::vector<int>>& grille);
     void SetLigneCaseVide2D(const int& xVide);
     void SetColonneCaseVide2D(const int& yVide);
     void SetLigneCaseVide3D(const int& xVide);
     void SetColonneCaseVide3D(const int& yVide);
+    void SetNbMelanges(const int& nbMelanges);
     void SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau);
 
 
@@ -29,7 +31,9 @@ private:
     int _xVide3D{}; // Ligne de la case vide de la grille 3D
     int _yVide3D{}; // Colonne de la case vide de la grille 3D
     int _compteurDeplacements{}; // Nombre de déplacements effectués
+    int _nbMelanges{}; // Nombre de mélanges pour obtenir la grille de départ du jeu
     vtkSmartPointer<vtkTextActor> _texteCommandes; // Texte pour l'affichage des commandes
+    vtkSmartPointer<vtkTextActor> _texteFinJeu; // Texte pour l'affichage des commandes
     vtkSmartPointer<vtkRenderer> _renderer;
 };
 
