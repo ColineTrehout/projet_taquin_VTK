@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named taquin
+# Target rules for targets named main
 
 # Build rule for target.
-taquin: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 taquin
-.PHONY : taquin
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-taquin/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/build
-.PHONY : taquin/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 src/creationPlateau.o: src/creationPlateau.cpp.o
 .PHONY : src/creationPlateau.o
 
 # target to build an object file
 src/creationPlateau.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationPlateau.cpp.o
 .PHONY : src/creationPlateau.cpp.o
 
 src/creationPlateau.i: src/creationPlateau.cpp.i
@@ -142,7 +142,7 @@ src/creationPlateau.i: src/creationPlateau.cpp.i
 
 # target to preprocess a source file
 src/creationPlateau.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationPlateau.cpp.i
 .PHONY : src/creationPlateau.cpp.i
 
 src/creationPlateau.s: src/creationPlateau.cpp.s
@@ -150,7 +150,7 @@ src/creationPlateau.s: src/creationPlateau.cpp.s
 
 # target to generate assembly for a file
 src/creationPlateau.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationPlateau.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationPlateau.cpp.s
 .PHONY : src/creationPlateau.cpp.s
 
 src/creationTexte.o: src/creationTexte.cpp.o
@@ -158,7 +158,7 @@ src/creationTexte.o: src/creationTexte.cpp.o
 
 # target to build an object file
 src/creationTexte.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationTexte.cpp.o
 .PHONY : src/creationTexte.cpp.o
 
 src/creationTexte.i: src/creationTexte.cpp.i
@@ -166,7 +166,7 @@ src/creationTexte.i: src/creationTexte.cpp.i
 
 # target to preprocess a source file
 src/creationTexte.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationTexte.cpp.i
 .PHONY : src/creationTexte.cpp.i
 
 src/creationTexte.s: src/creationTexte.cpp.s
@@ -174,15 +174,39 @@ src/creationTexte.s: src/creationTexte.cpp.s
 
 # target to generate assembly for a file
 src/creationTexte.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/creationTexte.cpp.s
 .PHONY : src/creationTexte.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/mecaniqueJeu2D.o: src/mecaniqueJeu2D.cpp.o
 .PHONY : src/mecaniqueJeu2D.o
 
 # target to build an object file
 src/mecaniqueJeu2D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu2D.cpp.o
 .PHONY : src/mecaniqueJeu2D.cpp.o
 
 src/mecaniqueJeu2D.i: src/mecaniqueJeu2D.cpp.i
@@ -190,7 +214,7 @@ src/mecaniqueJeu2D.i: src/mecaniqueJeu2D.cpp.i
 
 # target to preprocess a source file
 src/mecaniqueJeu2D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu2D.cpp.i
 .PHONY : src/mecaniqueJeu2D.cpp.i
 
 src/mecaniqueJeu2D.s: src/mecaniqueJeu2D.cpp.s
@@ -198,7 +222,7 @@ src/mecaniqueJeu2D.s: src/mecaniqueJeu2D.cpp.s
 
 # target to generate assembly for a file
 src/mecaniqueJeu2D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu2D.cpp.s
 .PHONY : src/mecaniqueJeu2D.cpp.s
 
 src/mecaniqueJeu3D.o: src/mecaniqueJeu3D.cpp.o
@@ -206,7 +230,7 @@ src/mecaniqueJeu3D.o: src/mecaniqueJeu3D.cpp.o
 
 # target to build an object file
 src/mecaniqueJeu3D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu3D.cpp.o
 .PHONY : src/mecaniqueJeu3D.cpp.o
 
 src/mecaniqueJeu3D.i: src/mecaniqueJeu3D.cpp.i
@@ -214,7 +238,7 @@ src/mecaniqueJeu3D.i: src/mecaniqueJeu3D.cpp.i
 
 # target to preprocess a source file
 src/mecaniqueJeu3D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu3D.cpp.i
 .PHONY : src/mecaniqueJeu3D.cpp.i
 
 src/mecaniqueJeu3D.s: src/mecaniqueJeu3D.cpp.s
@@ -222,7 +246,7 @@ src/mecaniqueJeu3D.s: src/mecaniqueJeu3D.cpp.s
 
 # target to generate assembly for a file
 src/mecaniqueJeu3D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mecaniqueJeu3D.cpp.s
 .PHONY : src/mecaniqueJeu3D.cpp.s
 
 src/observateur.o: src/observateur.cpp.o
@@ -230,7 +254,7 @@ src/observateur.o: src/observateur.cpp.o
 
 # target to build an object file
 src/observateur.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/observateur.cpp.o
 .PHONY : src/observateur.cpp.o
 
 src/observateur.i: src/observateur.cpp.i
@@ -238,7 +262,7 @@ src/observateur.i: src/observateur.cpp.i
 
 # target to preprocess a source file
 src/observateur.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/observateur.cpp.i
 .PHONY : src/observateur.cpp.i
 
 src/observateur.s: src/observateur.cpp.s
@@ -246,32 +270,8 @@ src/observateur.s: src/observateur.cpp.s
 
 # target to generate assembly for a file
 src/observateur.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/observateur.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/observateur.cpp.s
 .PHONY : src/observateur.cpp.s
-
-src/taquin.o: src/taquin.cpp.o
-.PHONY : src/taquin.o
-
-# target to build an object file
-src/taquin.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.o
-.PHONY : src/taquin.cpp.o
-
-src/taquin.i: src/taquin.cpp.i
-.PHONY : src/taquin.i
-
-# target to preprocess a source file
-src/taquin.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.i
-.PHONY : src/taquin.cpp.i
-
-src/taquin.s: src/taquin.cpp.s
-.PHONY : src/taquin.s
-
-# target to generate assembly for a file
-src/taquin.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/taquin.cpp.s
-.PHONY : src/taquin.cpp.s
 
 # Help Target
 help:
@@ -281,13 +281,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... taquin"
+	@echo "... main"
 	@echo "... src/creationPlateau.o"
 	@echo "... src/creationPlateau.i"
 	@echo "... src/creationPlateau.s"
 	@echo "... src/creationTexte.o"
 	@echo "... src/creationTexte.i"
 	@echo "... src/creationTexte.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/mecaniqueJeu2D.o"
 	@echo "... src/mecaniqueJeu2D.i"
 	@echo "... src/mecaniqueJeu2D.s"
@@ -297,9 +300,6 @@ help:
 	@echo "... src/observateur.o"
 	@echo "... src/observateur.i"
 	@echo "... src/observateur.s"
-	@echo "... src/taquin.o"
-	@echo "... src/taquin.i"
-	@echo "... src/taquin.s"
 .PHONY : help
 
 

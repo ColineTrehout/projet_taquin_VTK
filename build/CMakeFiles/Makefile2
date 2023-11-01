@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/coline/Documents/ETUDES/master/S3/librairies_images/pro
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/taquin.dir/all
+all: CMakeFiles/main.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/taquin.dir/clean
+clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/taquin.dir
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/taquin.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target taquin"
-.PHONY : CMakeFiles/taquin.dir/all
+CMakeFiles/main.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/taquin.dir/rule: cmake_check_build_system
+CMakeFiles/main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/taquin.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles 0
-.PHONY : CMakeFiles/taquin.dir/rule
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-taquin: CMakeFiles/taquin.dir/rule
-.PHONY : taquin
+main: CMakeFiles/main.dir/rule
+.PHONY : main
 
 # clean rule for target.
-CMakeFiles/taquin.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/clean
-.PHONY : CMakeFiles/taquin.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

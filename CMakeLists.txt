@@ -12,9 +12,9 @@ if (NOT VTK_FOUND)
   return ()
 endif()
 
-add_executable(${PROJECT_NAME} MACOSX_BUNDLE)
-target_sources(${PROJECT_NAME} PRIVATE
-  src/${PROJECT_NAME}.cpp 
+add_executable(main MACOSX_BUNDLE)
+target_sources(main PRIVATE
+  src/main.cpp 
   src/creationTexte.cpp
   src/creationPlateau.cpp
   src/mecaniqueJeu2D.cpp
@@ -22,7 +22,7 @@ target_sources(${PROJECT_NAME} PRIVATE
   src/observateur.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
+target_link_libraries(main PRIVATE ${VTK_LIBRARIES})
 
 message (STATUS "VTK_VERSION: ${VTK_VERSION}")
 if (VTK_VERSION VERSION_LESS "8.90.0")
@@ -31,7 +31,7 @@ if (VTK_VERSION VERSION_LESS "8.90.0")
 else ()
   # vtk_module_autoinit is needed
   vtk_module_autoinit(
-    TARGETS ${PROJECT_NAME}
+    TARGETS main
     MODULES ${VTK_LIBRARIES}
     )
 endif ()
