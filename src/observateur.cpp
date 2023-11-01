@@ -73,6 +73,8 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
     // Déplacement des pièces uniquement possible si le jeu n'est pas déjà résolu
     if (!(verifVictoire(_grille, _tailleGrille)))
     {
+        _renderer-> RemoveActor(_texteNouvellePartie);
+
         // Déplacement d'une pièce vers le bas
         if (interactor->GetKeyCode() == 's' && _xVide3D < 3)
         {
@@ -132,8 +134,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
         if (verifVictoire(_grille, _tailleGrille))
         {
-            vtkNew<vtkTextActor> textFinJeu;
-
             _texteFinJeu = texteVictoire(_compteurDeplacements);
             _renderer->AddActor(_texteFinJeu);
 
@@ -153,9 +153,13 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
     if (verifVictoire(_grille, _tailleGrille) and interactor->GetKeyCode() == 'r')
     {
 
+        int i{};
+
         _renderer-> RemoveActor(_texteFinJeu);
 
-        int i{};
+        _texteNouvellePartie = texteNouvellePartie();
+        _renderer->AddActor(_texteNouvellePartie);
+
 
         srand(time(NULL)); // Pour générer des valeurs aléatoires
 

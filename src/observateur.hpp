@@ -34,6 +34,7 @@ private:
     int _nbMelanges{}; // Nombre de mélanges pour obtenir la grille de départ du jeu
     vtkSmartPointer<vtkTextActor> _texteCommandes; // Texte pour l'affichage des commandes
     vtkSmartPointer<vtkTextActor> _texteFinJeu; // Texte pour l'affichage des commandes
+    vtkSmartPointer<vtkTextActor> _texteNouvellePartie; // Texte pour l'affichage des commandes
     vtkSmartPointer<vtkRenderer> _renderer;
 };
 

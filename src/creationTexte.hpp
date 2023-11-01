@@ -3,5 +3,6 @@
 
 vtkNew<vtkTextActor> texteCommandes();
 vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements);
+vtkNew<vtkTextActor> texteNouvellePartie();
 
 #endif

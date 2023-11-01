@@ -82,3 +82,28 @@ vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
 
     return textActor;
 }
+
+
+
+// Texte qui s'affiche dans la fenêtre lorsqu'une nouvelle partie est lancée
+vtkNew<vtkTextActor> texteNouvellePartie()
+{
+    vtkNew<vtkTextActor> textActor;
+
+    textActor->SetInput("Nouvelle partie");
+
+    auto prop = textActor->GetTextProperty();
+
+    //textActor->GetTextProperty()->SetJustificationToCentered();
+    textActor->GetTextProperty()->SetVerticalJustificationToCentered();
+    textActor->SetTextScaleModeToViewport();
+    textActor->GetTextProperty()->SetFontFamily(VTK_FONT_FILE);
+    textActor->GetTextProperty()->BoldOff();
+    textActor->GetTextProperty()->SetFontSize(8);
+    textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
+
+    // Position du texte : (colonne, ligne) avec origine en bas à gauche
+    textActor->SetPosition(800, 900);
+
+    return textActor;
+}
