@@ -34,7 +34,7 @@
 
 #include "creationPlateau.hpp"
 #include "creationTexte.hpp"
-#include "mecaniqueJeu.hpp"
+#include "mecaniqueJeu2D.hpp"
 #include "observateur.hpp"
 
 

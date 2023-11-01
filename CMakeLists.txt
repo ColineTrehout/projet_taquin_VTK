@@ -17,7 +17,8 @@ target_sources(${PROJECT_NAME} PRIVATE
   src/${PROJECT_NAME}.cpp 
   src/creationTexte.cpp
   src/creationPlateau.cpp
-  src/mecaniqueJeu.cpp
+  src/mecaniqueJeu2D.cpp
+  src/mecaniqueJeu3D.cpp
   src/observateur.cpp
 )
 

@@ -111,24 +111,38 @@ CMakeFiles/taquin.dir/src/creationPlateau.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taquin.dir/src/creationPlateau.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationPlateau.cpp -o CMakeFiles/taquin.dir/src/creationPlateau.cpp.s
 
-CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o: CMakeFiles/taquin.dir/flags.make
-CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o: ../src/mecaniqueJeu.cpp
-CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o: CMakeFiles/taquin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o -MF CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o.d -o CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o -c /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu.cpp
+CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o: CMakeFiles/taquin.dir/flags.make
+CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o: ../src/mecaniqueJeu2D.cpp
+CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o: CMakeFiles/taquin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o -MF CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o.d -o CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o -c /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu2D.cpp
 
-CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu.cpp > CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.i
+CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu2D.cpp > CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.i
 
-CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu.cpp -o CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.s
+CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu2D.cpp -o CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.s
+
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o: CMakeFiles/taquin.dir/flags.make
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o: ../src/mecaniqueJeu3D.cpp
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o: CMakeFiles/taquin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o -MF CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o.d -o CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o -c /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.cpp
+
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.cpp > CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.i
+
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.cpp -o CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.s
 
 CMakeFiles/taquin.dir/src/observateur.cpp.o: CMakeFiles/taquin.dir/flags.make
 CMakeFiles/taquin.dir/src/observateur.cpp.o: ../src/observateur.cpp
 CMakeFiles/taquin.dir/src/observateur.cpp.o: CMakeFiles/taquin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/taquin.dir/src/observateur.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/taquin.dir/src/observateur.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/taquin.dir/src/observateur.cpp.o -MF CMakeFiles/taquin.dir/src/observateur.cpp.o.d -o CMakeFiles/taquin.dir/src/observateur.cpp.o -c /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/observateur.cpp
 
 CMakeFiles/taquin.dir/src/observateur.cpp.i: cmake_force
@@ -144,7 +158,8 @@ taquin_OBJECTS = \
 "CMakeFiles/taquin.dir/src/taquin.cpp.o" \
 "CMakeFiles/taquin.dir/src/creationTexte.cpp.o" \
 "CMakeFiles/taquin.dir/src/creationPlateau.cpp.o" \
-"CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o" \
+"CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o" \
+"CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o" \
 "CMakeFiles/taquin.dir/src/observateur.cpp.o"
 
 # External object files for target taquin
@@ -153,7 +168,8 @@ taquin_EXTERNAL_OBJECTS =
 taquin: CMakeFiles/taquin.dir/src/taquin.cpp.o
 taquin: CMakeFiles/taquin.dir/src/creationTexte.cpp.o
 taquin: CMakeFiles/taquin.dir/src/creationPlateau.cpp.o
-taquin: CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o
+taquin: CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o
+taquin: CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o
 taquin: CMakeFiles/taquin.dir/src/observateur.cpp.o
 taquin: CMakeFiles/taquin.dir/build.make
 taquin: /usr/local/lib/libvtkWrappingTools-9.2.so.9.2.6
@@ -302,7 +318,7 @@ taquin: /usr/local/lib/libvtkCommonCore-9.2.so.9.2.6
 taquin: /usr/local/lib/libvtkloguru-9.2.so.9.2.6
 taquin: /usr/local/lib/libvtksys-9.2.so.9.2.6
 taquin: CMakeFiles/taquin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable taquin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable taquin"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/taquin.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

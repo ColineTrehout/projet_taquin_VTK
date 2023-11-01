@@ -448,5 +448,5 @@ CMakeFiles/taquin.dir/src/taquin.cpp.o: \
  /usr/local/include/vtk-9.2/vtkVectorText.h \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationPlateau.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationTexte.hpp \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu.hpp \
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu2D.hpp \
  /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/observateur.hpp

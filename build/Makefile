@@ -177,29 +177,53 @@ src/creationTexte.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/creationTexte.cpp.s
 .PHONY : src/creationTexte.cpp.s
 
-src/mecaniqueJeu.o: src/mecaniqueJeu.cpp.o
-.PHONY : src/mecaniqueJeu.o
+src/mecaniqueJeu2D.o: src/mecaniqueJeu2D.cpp.o
+.PHONY : src/mecaniqueJeu2D.o
 
 # target to build an object file
-src/mecaniqueJeu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.o
-.PHONY : src/mecaniqueJeu.cpp.o
+src/mecaniqueJeu2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.o
+.PHONY : src/mecaniqueJeu2D.cpp.o
 
-src/mecaniqueJeu.i: src/mecaniqueJeu.cpp.i
-.PHONY : src/mecaniqueJeu.i
+src/mecaniqueJeu2D.i: src/mecaniqueJeu2D.cpp.i
+.PHONY : src/mecaniqueJeu2D.i
 
 # target to preprocess a source file
-src/mecaniqueJeu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.i
-.PHONY : src/mecaniqueJeu.cpp.i
+src/mecaniqueJeu2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.i
+.PHONY : src/mecaniqueJeu2D.cpp.i
 
-src/mecaniqueJeu.s: src/mecaniqueJeu.cpp.s
-.PHONY : src/mecaniqueJeu.s
+src/mecaniqueJeu2D.s: src/mecaniqueJeu2D.cpp.s
+.PHONY : src/mecaniqueJeu2D.s
 
 # target to generate assembly for a file
-src/mecaniqueJeu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu.cpp.s
-.PHONY : src/mecaniqueJeu.cpp.s
+src/mecaniqueJeu2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu2D.cpp.s
+.PHONY : src/mecaniqueJeu2D.cpp.s
+
+src/mecaniqueJeu3D.o: src/mecaniqueJeu3D.cpp.o
+.PHONY : src/mecaniqueJeu3D.o
+
+# target to build an object file
+src/mecaniqueJeu3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o
+.PHONY : src/mecaniqueJeu3D.cpp.o
+
+src/mecaniqueJeu3D.i: src/mecaniqueJeu3D.cpp.i
+.PHONY : src/mecaniqueJeu3D.i
+
+# target to preprocess a source file
+src/mecaniqueJeu3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.i
+.PHONY : src/mecaniqueJeu3D.cpp.i
+
+src/mecaniqueJeu3D.s: src/mecaniqueJeu3D.cpp.s
+.PHONY : src/mecaniqueJeu3D.s
+
+# target to generate assembly for a file
+src/mecaniqueJeu3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/taquin.dir/build.make CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.s
+.PHONY : src/mecaniqueJeu3D.cpp.s
 
 src/observateur.o: src/observateur.cpp.o
 .PHONY : src/observateur.o
@@ -264,9 +288,12 @@ help:
 	@echo "... src/creationTexte.o"
 	@echo "... src/creationTexte.i"
 	@echo "... src/creationTexte.s"
-	@echo "... src/mecaniqueJeu.o"
-	@echo "... src/mecaniqueJeu.i"
-	@echo "... src/mecaniqueJeu.s"
+	@echo "... src/mecaniqueJeu2D.o"
+	@echo "... src/mecaniqueJeu2D.i"
+	@echo "... src/mecaniqueJeu2D.s"
+	@echo "... src/mecaniqueJeu3D.o"
+	@echo "... src/mecaniqueJeu3D.i"
+	@echo "... src/mecaniqueJeu3D.s"
 	@echo "... src/observateur.o"
 	@echo "... src/observateur.i"
 	@echo "... src/observateur.s"

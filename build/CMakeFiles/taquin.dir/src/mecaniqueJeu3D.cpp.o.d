@@ -1,5 +1,5 @@
-CMakeFiles/taquin.dir/src/observateur.cpp.o: \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/observateur.cpp \
+CMakeFiles/taquin.dir/src/mecaniqueJeu3D.cpp.o: \
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.cpp \
  /usr/include/stdc-predef.h /usr/local/include/vtk-9.2/vtkActor.h \
  /usr/local/include/vtk-9.2/vtkProp3D.h \
  /usr/local/include/vtk-9.2/vtkNew.h \
@@ -237,38 +237,6 @@ CMakeFiles/taquin.dir/src/observateur.cpp.o: \
  /usr/local/include/vtk-9.2/vtkAutoInit.h \
  /usr/local/include/vtk-9.2/vtkDebugLeaksManager.h \
  /usr/local/include/vtk-9.2/vtkWeakPointer.h \
- /usr/local/include/vtk-9.2/vtkCommand.h \
- /usr/local/include/vtk-9.2/vtkRenderer.h \
- /usr/local/include/vtk-9.2/vtkViewport.h \
- /usr/local/include/vtk-9.2/vtkSelection.h \
- /usr/local/include/vtk-9.2/vtkCommonDataModelModule.h \
- /usr/local/include/vtk-9.2/vtkDataObject.h \
  /usr/local/include/vtk-9.2/vtkSmartPointer.h \
  /usr/local/include/vtk-9.2/vtkSmartPointerBase.h \
- /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/bits/refwrap.h /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h \
- /usr/local/include/vtk-9.2/vtkActorCollection.h \
- /usr/local/include/vtk-9.2/vtkActor.h \
- /usr/local/include/vtk-9.2/vtkPropCollection.h \
- /usr/local/include/vtk-9.2/vtkCollection.h \
- /usr/local/include/vtk-9.2/vtkVolumeCollection.h \
- /usr/local/include/vtk-9.2/vtkVolume.h \
- /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
- /usr/local/include/vtk-9.2/vtkCommand.h \
- /usr/local/include/vtk-9.2/vtkTextActor.h \
- /usr/local/include/vtk-9.2/vtkTexturedActor2D.h \
- /usr/local/include/vtk-9.2/vtkActor2D.h \
- /usr/local/include/vtk-9.2/vtkCoordinate.h \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/creationTexte.hpp \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu2D.hpp \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.hpp \
- /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/observateur.hpp
+ /home/coline/Documents/ETUDES/master/S3/librairies_images/projet_taquin_VTK/src/mecaniqueJeu3D.hpp

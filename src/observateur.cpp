@@ -5,7 +5,8 @@
 #include <vtkTextActor.h>
 
 #include "creationTexte.hpp"
-#include "mecaniqueJeu.hpp"
+#include "mecaniqueJeu2D.hpp"
+#include "mecaniqueJeu3D.hpp"
 #include "observateur.hpp"
 
 
@@ -83,7 +84,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _plateau[_yVide3D-1][_xVide3D] = cubeActor;
 
             // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 2);
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 2);
 
             _yVide3D = _yVide3D - 1;
 
@@ -105,7 +106,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _plateau[_yVide3D+1][_xVide3D] = cubeActor;
 
             // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 3);
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 3);
 
             _yVide3D = _yVide3D + 1;
 
@@ -127,7 +128,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _plateau[_yVide3D][_xVide3D-1] = cubeActor;
 
             // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
 
             _xVide3D = _xVide3D - 1;
 
@@ -149,7 +150,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _plateau[_yVide3D][_xVide3D+1] = cubeActor;
 
             // Mise à jour de la grille 2D et des coordonnées 2D de la case vide
-            deplacePiece(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
+            deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
 
             _xVide3D = _xVide3D + 1;
 

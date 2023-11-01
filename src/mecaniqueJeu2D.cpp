@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>  
 
-#include "mecaniqueJeu.hpp"
+#include "mecaniqueJeu2D.hpp"
 
 
 
@@ -81,7 +81,7 @@ void melangeGrille(std::vector<std::vector<int>>& grille,
 
 
 // déplace une pièce selon la direction choisie
-void deplacePiece(std::vector<std::vector<int>>& grille, 
+void deplacePiece2D(std::vector<std::vector<int>>& grille, 
                   const int& tailleGrille, 
                   int& xVide, 
                   int& yVide, 

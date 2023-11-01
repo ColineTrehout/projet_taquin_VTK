@@ -22,7 +22,7 @@ public:
 private:
 
     const int _tailleGrille = 4;
-    std::vector<std::vector<int>> _grille; // Grille de jeu (2D)
+    std::vector<std::vector<int>> _grille; // Grille de jeu 2D
     std::vector<std::vector<vtkSmartPointer<vtkActor>>> _plateau; // Plateau 3D
     int _xVide2D{}; // Ligne de la case vide de la grille 2D
     int _yVide2D{}; // Colonne de la case vide de la grille 2D
