@@ -1,6 +1,6 @@
 # projet_taquin_VTK
 
-Programmation d'un jeu de taquin en C++ avec visualisation 3D. La vue 3D a été codée à l'aide de la librairie VTK (The Visualization Toolkit). 
+Programmation d'un jeu de taquin en C++ avec visualisation 3D. La visualisation 3D a été codée à l'aide de la librairie VTK (The Visualization Toolkit). Le jeu comprend 4 niveaux de difficulté allant de facile à expert.
 
 Pour compiler le projet :
 ```
