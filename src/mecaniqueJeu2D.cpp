@@ -84,10 +84,10 @@ Retour :
     void
 */
 void deplacePiece2D(std::vector<std::vector<int>>& grille, 
-                  const int& tailleGrille, 
-                  int& xVide, 
-                  int& yVide, 
-                  const int& direction)
+                    const int& tailleGrille, 
+                    int& xVide, 
+                    int& yVide, 
+                    const int& direction)
 {
     int stock{};
 

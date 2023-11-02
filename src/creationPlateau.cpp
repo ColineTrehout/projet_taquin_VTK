@@ -81,9 +81,9 @@ Retour :
     void
 */
 void creationActeurPiece(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
-                          const vtkSmartPointer<vtkPolyDataMapper>& mapper,
-                          const int& i,
-                          const int& j)
+                         const vtkSmartPointer<vtkPolyDataMapper>& mapper,
+                         const int& i,
+                         const int& j)
 {
 
     vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();

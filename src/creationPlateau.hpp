@@ -12,8 +12,8 @@ vtkSmartPointer<vtkActor> creationBord(const float& xLenght,
                                         const float& zPosition);
 
 void creationActeurPiece(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
-                  const vtkSmartPointer<vtkPolyDataMapper>& mapper,
-                  const int& i,
-                  const int& j);
+                        const vtkSmartPointer<vtkPolyDataMapper>& mapper,
+                        const int& i,
+                        const int& j);
 
 #endif

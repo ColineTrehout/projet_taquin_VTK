@@ -137,7 +137,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _texteFinJeu = texteVictoire(_compteurDeplacements);
             _renderer->AddActor(_texteFinJeu);
 
-            std::cout << "\nVous avez gagné ! Vous avez fini le jeu en " 
+            std::cout << "\nVous avez gagné ! Vous avez résolu le puzzle en " 
                       << _compteurDeplacements 
                       << " déplacement(s).\n";
         }
