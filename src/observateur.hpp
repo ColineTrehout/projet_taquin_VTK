@@ -20,7 +20,6 @@ public:
     void SetNbMelanges(const int& nbMelanges);
     void SetPlateau(const std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau);
 
-
 private:
 
     const int _tailleGrille = 4;

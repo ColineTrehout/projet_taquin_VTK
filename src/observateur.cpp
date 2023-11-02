@@ -11,7 +11,6 @@
 
 
 
-
 int Observer::nombreDeplacements() 
 { 
     return _compteurDeplacements;
@@ -81,7 +80,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             direction = 0;
 
             // Mise à jour de la grille 3D et des coordonnées de la case vide
-            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+            deplacePiece3D(_plateau, _tailleGrille, _xVide3D, _yVide3D, direction);
 
             // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 0);
@@ -96,7 +95,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             direction = 1;
 
             // Mise à jour de la grille 3D et des coordonnées de la case vide
-            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+            deplacePiece3D(_plateau, _tailleGrille, _xVide3D, _yVide3D, direction);
 
             // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 1);
@@ -110,7 +109,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             direction = 2;
 
             // Mise à jour de la grille 3D et des coordonnées de la case vide
-            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+            deplacePiece3D(_plateau, _tailleGrille, _xVide3D, _yVide3D, direction);
 
             // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 2);
@@ -124,7 +123,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             direction = 3;
 
             // Mise à jour de la grille 3D et des coordonnées de la case vide
-            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+            deplacePiece3D(_plateau, _tailleGrille, _xVide3D, _yVide3D, direction);
 
             // Mise à jour de la grille 2D et des coordonnées de la case vide
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, 3);
@@ -132,6 +131,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
             _compteurDeplacements++;
         }
 
+        // Si le puzzle est résolu (victoire du jeu)
         if (verifVictoire(_grille, _tailleGrille))
         {
             _texteFinJeu = texteVictoire(_compteurDeplacements);
@@ -143,7 +143,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         }
     }
 
-    // Rejouer une partie
+    // Rejouer une partie lorsque le jeu est résolu
     if (verifVictoire(_grille, _tailleGrille) and interactor->GetKeyCode() == 'r')
     {
 
@@ -163,7 +163,7 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
 
             deplacePiece2D(_grille, _tailleGrille, _xVide2D, _yVide2D, direction);
 
-            deplacePiece3D(_plateau, _xVide3D, _yVide3D, direction);
+            deplacePiece3D(_plateau, _tailleGrille, _xVide3D, _yVide3D, direction);
 
             _compteurDeplacements = 0;
 
@@ -171,7 +171,6 @@ void Observer::Execute(vtkObject* caller, unsigned long, void*)
         }
 
     }
-
 
     // Quitter le jeu
     if (interactor->GetKeyCode() == 'e')

@@ -4,9 +4,22 @@
 #include "mecaniqueJeu3D.hpp"
 
 
+/*
+deplacePiece3D déplace une pièce du puzzle 3D dans la direction choisie et 
+met à jour les coordonnées de la case vide(si le mouvement n'est pas 
+valide car en bordure de la grille aucune action n'est faite)
 
-// déplace une pièce 3D dans une certaine direction et met à jour les coordonnées de la case vide
-void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  plateau, 
+Arguments :
+      plateau : grille de jeu 3D (contient les pièces 3D du jeu)
+      xVide3D : ligne de la case vide
+	yVide3D : colonne de la case vide
+	direction : direction dans laquelle la pièce est déplacée
+
+Retour :
+    void
+*/
+void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& plateau, 
+                    const int& tailleGrille, 
                     int& xVide3D, 
                     int& yVide3D,
                     const int& direction)
@@ -14,7 +27,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
         vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
 
         // Déplacement d'une pièce vers le bas
-		if (direction == 0 && xVide3D < 3) 
+		if (direction == 0 && xVide3D < tailleGrille-1) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D, xVide3D+1, 0);
@@ -62,7 +75,7 @@ void deplacePiece3D(std::vector<std::vector<vtkSmartPointer<vtkActor>>>&  platea
 		}
 
         // Déplacement d'une pièce vers la gauche
-		if (direction == 3 && yVide3D < 3) 
+		if (direction == 3 && yVide3D < tailleGrille-1) 
 		{
             // Déplacement des pièces
             plateau[yVide3D][xVide3D]->SetPosition(yVide3D+1, xVide3D, 0);

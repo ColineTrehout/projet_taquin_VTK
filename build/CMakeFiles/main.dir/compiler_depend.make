@@ -1373,8 +1373,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/include/vtk-9.2/vtkCommonColorModule.h \
   /usr/local/include/vtk-9.2/vtkStringArray.h \
   /usr/local/include/vtk-9.2/vtkNew.h \
-  /usr/local/include/vtk-9.2/vtkPolyDataMapper.h \
-  /usr/local/include/vtk-9.2/vtkMapper.h \
   /usr/local/include/vtk-9.2/vtkPointData.h \
   /usr/local/include/vtk-9.2/vtkDataSetAttributes.h \
   /usr/local/include/vtk-9.2/vtkDataSetAttributesFieldList.h \
@@ -1390,12 +1388,9 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/local/include/vtk-9.2/vtkFieldData.h \
+  /usr/local/include/vtk-9.2/vtkPolyDataMapper.h \
+  /usr/local/include/vtk-9.2/vtkMapper.h \
   /usr/local/include/vtk-9.2/vtkProperty.h \
-  /usr/local/include/vtk-9.2/vtkRenderWindow.h \
-  /usr/local/include/vtk-9.2/vtkEventData.h \
-  /usr/local/include/vtk-9.2/vtkCommand.h \
-  /usr/local/include/vtk-9.2/vtkWindow.h \
-  /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
   /usr/local/include/vtk-9.2/vtkRenderer.h \
   /usr/local/include/vtk-9.2/vtkViewport.h \
   /usr/local/include/vtk-9.2/vtkSelection.h \
@@ -1405,14 +1400,19 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/include/vtk-9.2/vtkCollection.h \
   /usr/local/include/vtk-9.2/vtkVolumeCollection.h \
   /usr/local/include/vtk-9.2/vtkVolume.h \
+  /usr/local/include/vtk-9.2/vtkRenderWindow.h \
+  /usr/local/include/vtk-9.2/vtkEventData.h \
+  /usr/local/include/vtk-9.2/vtkCommand.h \
+  /usr/local/include/vtk-9.2/vtkWindow.h \
+  /usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h \
   /usr/local/include/vtk-9.2/vtkSmartPointer.h \
   /usr/local/include/vtk-9.2/vtkStdString.h \
   /usr/local/include/vtk-9.2/vtkTextActor.h \
   /usr/local/include/vtk-9.2/vtkTexturedActor2D.h \
   /usr/local/include/vtk-9.2/vtkActor2D.h \
   /usr/local/include/vtk-9.2/vtkCoordinate.h \
-  /usr/local/include/vtk-9.2/vtkTexture.h \
   /usr/local/include/vtk-9.2/vtkTextProperty.h \
+  /usr/local/include/vtk-9.2/vtkTexture.h \
   /usr/local/include/vtk-9.2/vtkTransformTextureCoords.h \
   /usr/local/include/vtk-9.2/vtkDataSetAlgorithm.h \
   /usr/local/include/vtk-9.2/vtkFiltersTextureModule.h \
@@ -2237,6 +2237,10 @@ CMakeFiles/main.dir/src/observateur.cpp.o: ../src/observateur.cpp \
 
 ../src/observateur.hpp:
 
+/usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h:
+
+/usr/local/include/vtk-9.2/vtkRenderWindow.h:
+
 /usr/local/include/vtk-9.2/vtkVolumeCollection.h:
 
 /usr/local/include/vtk-9.2/vtkActorCollection.h:
@@ -2246,10 +2250,6 @@ CMakeFiles/main.dir/src/observateur.cpp.o: ../src/observateur.cpp \
 /usr/local/include/vtk-9.2/vtkViewport.h:
 
 /usr/local/include/vtk-9.2/vtkRenderer.h:
-
-/usr/local/include/vtk-9.2/vtkRenderWindowInteractor.h:
-
-/usr/local/include/vtk-9.2/vtkRenderWindow.h:
 
 /usr/local/include/vtk-9.2/vtkCommand.h:
 

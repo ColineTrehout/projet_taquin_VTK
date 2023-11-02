@@ -26,7 +26,16 @@
 
 
 
-// Création du texte pour l'affichage des commandes clavier du jeu
+/*
+texteCommandes crée un acteur de texte correspondant aux commandes clavier
+du jeu
+
+Arguments :
+    void
+
+Retour :
+    textActor : acteur texte des commandes
+*/
 vtkNew<vtkTextActor> texteCommandes()
 {
     vtkNew<vtkTextActor> textActor;
@@ -56,7 +65,17 @@ vtkNew<vtkTextActor> texteCommandes()
 
 
 
-// Texte qui s'affiche dans la fenêtre lorsque le puzzle est résolu
+/*
+texteVictoire crée un acteur de texte correspondant au message qui s'affiche
+en cas de victoire
+
+Arguments :
+    compteurDeplacements : nombre de déplacements qui ont été effectués pour
+                           résoudre le puzzle
+
+Retour :
+    textActor : acteur texte du message de victoire
+*/
 vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
 {
     const std::string s = "Félicitations, vous avez résolu le puzzle en " 
@@ -85,7 +104,16 @@ vtkNew<vtkTextActor> texteVictoire(const int& compteurDeplacements)
 
 
 
-// Texte qui s'affiche dans la fenêtre lorsqu'une nouvelle partie est lancée
+/*
+texteNouvellePartie crée un acteur de texte correspondant au démarrage d'une
+nouvelle partie
+
+Arguments :
+    void
+
+Retour :
+    textActor : acteur texte du message pour le redémarrrage d'une partie
+*/
 vtkNew<vtkTextActor> texteNouvellePartie()
 {
     vtkNew<vtkTextActor> textActor;
@@ -103,7 +131,7 @@ vtkNew<vtkTextActor> texteNouvellePartie()
     textActor->GetTextProperty()->SetColor(0.9,0.9,0.9);
 
     // Position du texte : (colonne, ligne) avec origine en bas à gauche
-    textActor->SetPosition(800, 900);
+    textActor->SetPosition(800, 910);
 
     return textActor;
 }

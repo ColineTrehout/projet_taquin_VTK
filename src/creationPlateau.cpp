@@ -4,11 +4,27 @@
 #include <vtkProperty.h>
 #include <vtkSmartPointer.h>
 
-
 #include "creationPlateau.hpp"
 
 
-// Création des bords du plateau de jeu
+
+/*
+creationBord crée un bord du plateau de jeu
+
+Arguments :
+    xLenght : largeur du polyèdre
+    yLenght : longueur du polyèdre
+    zLength : épaisseur du polyèdre
+    xRotate : rotation du polyèdre en x
+    yRotate : rotation du polyèdre en y
+    zRotate : rotation du polyèdre en z
+    xPosition : décalage position en x
+    yPosition : décalage position en y
+    zPosition : décalage position en z
+
+Retour :
+    actor : acteur du polyèdre du bord
+*/
 vtkSmartPointer<vtkActor> creationBord(const float& xLenght,
                                         const float& yLenght,
                                         const float& zLength,
@@ -51,10 +67,23 @@ vtkSmartPointer<vtkActor> creationBord(const float& xLenght,
 
 
 
-void creationActeursCubes(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
-                  const vtkSmartPointer<vtkPolyDataMapper>& mapper,
-                  const int& i,
-                  const int& j)
+/*
+creationActeurPiece crée un acteur cube correspondant à une pièce du jeu et le 
+place à sa position sur la grille
+
+Arguments :
+    pieces : tableau 2D contenant les pièces 3D du jeu
+    mapper : mapper des pièces
+    i : ligne
+    j : colonne
+
+Retour :
+    void
+*/
+void creationActeurPiece(std::vector<std::vector<vtkSmartPointer<vtkActor>>>& pieces,
+                          const vtkSmartPointer<vtkPolyDataMapper>& mapper,
+                          const int& i,
+                          const int& j)
 {
 
     vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();

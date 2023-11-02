@@ -13,17 +13,17 @@
 #include <vtkJPEGReader.h>
 #include <vtkNamedColors.h>
 #include <vtkNew.h>
-#include <vtkPolyDataMapper.h>
 #include <vtkPointData.h>
+#include <vtkPolyDataMapper.h>
 #include <vtkProperty.h>
+#include <vtkRenderer.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderWindowInteractor.h>
-#include <vtkRenderer.h>
 #include <vtkSmartPointer.h>
 #include <vtkStdString.h>
 #include <vtkTextActor.h>
-#include <vtkTexture.h>
 #include <vtkTextProperty.h>
+#include <vtkTexture.h>
 #include <vtkTransformTextureCoords.h>
 #include <vtkVectorText.h>
 
@@ -36,7 +36,6 @@
 #include "creationTexte.hpp"
 #include "mecaniqueJeu2D.hpp"
 #include "observateur.hpp"
-
 
 
 
@@ -202,7 +201,7 @@ int main()
             mapper->SetInputData(cubeSource->GetOutput());
 
             // Crée un acteur par pièce et les ajoute dans pieces
-            creationActeursCubes(pieces, mapper, i, j);
+            creationActeurPiece(pieces, mapper, i, j);
 
             //-------------------------------------------------------------------------
 
@@ -296,7 +295,7 @@ int main()
 
     //-------------------------------------------------------------------------
 
-    // INTÉRACTIONS
+    // INTÉRACTEUR
 
 
 	// Création de l'intéracteur
