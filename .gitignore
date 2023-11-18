@@ -1,0 +1,6 @@
+    # ignore files and directories
+    /build/main
+    /build/CMakeCache.txt
+    /build/cmake_install.cmake
+    /build/Makefile
+    /build/CMakeFiles/
